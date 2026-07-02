@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://t15kwevfw1ip"]
+
+[ext_resource type="Script" uid="uid://68wjqqrvlnpf" path="res://core/scenes/ui/ui.gd" id="1_0taue"]
+[ext_resource type="PackedScene" uid="uid://c27t3y07bh6tb" path="res://ui/hud/hud.tscn" id="2_it2p6"]
+[ext_resource type="Texture2D" uid="uid://dieiaq73fjd3x" path="res://assets/ui/textures/main_menu_background.png" id="3_gbxu8"]
+[ext_resource type="PackedScene" uid="uid://cfpwwnajfflbx" path="res://ui/paused_view/paused_view.tscn" id="3_it2p6"]
+[ext_resource type="PackedScene" uid="uid://bmorjhsg5xpq2" path="res://ui/menus/main/main_menu.tscn" id="3_s07y5"]
+[ext_resource type="PackedScene" uid="uid://3yu5px4epp6q" path="res://ui/menus/pause/pause_menu.tscn" id="4_gbxu8"]
+[ext_resource type="PackedScene" uid="uid://dxpg5m5drf3kr" path="res://ui/menus/settings/settings_menu.tscn" id="5_ot5qo"]
+[ext_resource type="PackedScene" uid="uid://brveqynad6bsq" path="res://ui/menus/upgrade/upgrade_menu.tscn" id="6_d2gs1"]
+[ext_resource type="PackedScene" uid="uid://m5khrk0j6xsi" path="res://ui/menus/credits/credits_menu.tscn" id="7_4dxsr"]
+[ext_resource type="PackedScene" uid="uid://bomu7hmwblwf5" path="res://ui/menus/game_over/game_over.tscn" id="8_ivrf4"]
+[ext_resource type="PackedScene" uid="uid://d3e44go4sck84" path="res://ui/loading/screen/loading_screen.tscn" id="9_0xhkn"]
+
+[node name="UI" type="Node" unique_id=1782185119]
+script = ExtResource("1_0taue")
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1481250250]
+
+[node name="HUD" parent="HUDLayer" unique_id=400514899 instance=ExtResource("2_it2p6")]
+unique_name_in_owner = true
+
+[node name="MenusLayer" type="CanvasLayer" parent="." unique_id=997873517]
+unique_name_in_owner = true
+layer = 2
+
+[node name="TitleBackground" type="TextureRect" parent="MenusLayer" unique_id=1753420915]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_gbxu8")
+expand_mode = 1
+
+[node name="PausedView" parent="MenusLayer" unique_id=197821021 instance=ExtResource("3_it2p6")]
+unique_name_in_owner = true
+
+[node name="MainMenu" parent="MenusLayer" unique_id=147841640 instance=ExtResource("3_s07y5")]
+visible = false
+
+[node name="PauseMenu" parent="MenusLayer" unique_id=581349868 instance=ExtResource("4_gbxu8")]
+visible = false
+
+[node name="SettingsMenu" parent="MenusLayer" unique_id=379611113 instance=ExtResource("5_ot5qo")]
+visible = false
+
+[node name="UpgradeMenu" parent="MenusLayer" unique_id=8548658 instance=ExtResource("6_d2gs1")]
+visible = false
+
+[node name="CreditsMenu" parent="MenusLayer" unique_id=1694449765 instance=ExtResource("7_4dxsr")]
+visible = false
+
+[node name="GameOver" parent="MenusLayer" unique_id=583448917 instance=ExtResource("8_ivrf4")]
+visible = false
+
+[node name="LoadingLayer" type="CanvasLayer" parent="." unique_id=1004950403]
+layer = 3
+
+[node name="LoadingScreen" parent="LoadingLayer" unique_id=1960349614 instance=ExtResource("9_0xhkn")]
+unique_name_in_owner = true
+visible = false

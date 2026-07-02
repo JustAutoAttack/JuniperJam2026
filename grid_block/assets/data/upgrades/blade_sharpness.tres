@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dwd3bk6s67sfx"]
+
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_8secs"]
+[ext_resource type="Texture2D" uid="uid://b2wudcksi60jx" path="res://assets/ui/textures/icons/upgrades/blade_sharpness.png" id="1_iaqt7"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_iaqt7"]
+
+[sub_resource type="Resource" id="Resource_vljr6"]
+script = ExtResource("2_iaqt7")
+level_requirement = 1
+value = 0.25
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_qnp42"]
+script = ExtResource("2_iaqt7")
+level_requirement = 4
+value = 0.4
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_qmkic"]
+script = ExtResource("2_iaqt7")
+level_requirement = 8
+value = 0.85
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_whlw6"]
+script = ExtResource("2_iaqt7")
+level_requirement = 12
+value = 1.35
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_cljfv"]
+script = ExtResource("2_iaqt7")
+level_requirement = 16
+value = 1.75
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_8secs")
+display_name = "Blade Sharpness"
+description = "Multiply blade damage"
+icon = ExtResource("1_iaqt7")
+is_percentage = true
+is_multiplicative = true
+tiers = Dictionary[int, ExtResource("2_iaqt7")]({
+0: SubResource("Resource_vljr6"),
+1: SubResource("Resource_qnp42"),
+2: SubResource("Resource_qmkic"),
+3: SubResource("Resource_whlw6"),
+4: SubResource("Resource_cljfv")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

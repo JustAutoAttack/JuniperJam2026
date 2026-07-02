@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SongData" format=3 uid="uid://dtucti8nleu21"]
+
+[ext_resource type="AudioStream" uid="uid://bkljto2fkjwk" path="res://assets/audio/music/game_over-ben_wolves.mp3" id="1_0756w"]
+[ext_resource type="Script" uid="uid://bxyppi4w4387h" path="res://common/resource_data/song.gd" id="1_n50pd"]
+
+[resource]
+script = ExtResource("1_n50pd")
+audio_stream = ExtResource("1_0756w")
+display_name = "Game Over"
+artist_name = "Ben Wolves"
+metadata/_custom_type_script = "uid://bxyppi4w4387h"

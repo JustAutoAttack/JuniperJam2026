@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://gt3o3jvnwvjd"]
+
+[ext_resource type="Texture2D" uid="uid://b0olu5mt632d7" path="res://assets/ui/textures/progress_bars/shield-under.png" id="1_i11wh"]
+[ext_resource type="Texture2D" uid="uid://dvprbxi4xi2rf" path="res://assets/ui/textures/progress_bars/shield-progress.png" id="2_gli5y"]
+
+[node name="ShieldBar" type="TextureProgressBar" unique_id=55929734]
+value = 50.0
+texture_under = ExtResource("1_i11wh")
+texture_progress = ExtResource("2_gli5y")

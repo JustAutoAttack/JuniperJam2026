@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://3yu5px4epp6q"]
+
+[ext_resource type="Script" uid="uid://eeubr6p3i7e7" path="res://ui/menus/pause/pause_menu.gd" id="1_23r80"]
+[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_nqosn"]
+
+[node name="PauseMenu" type="Control" unique_id=581349868 node_paths=PackedStringArray("first_focus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_nqosn")
+script = ExtResource("1_23r80")
+type = 1
+first_focus = NodePath("Control/HBoxContainer/Center/VBoxContainer/ResumeButton")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=263333691]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Upgrades" type="MarginContainer" parent="HBoxContainer" unique_id=199418505]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_top = 108
+
+[node name="Center" type="MarginContainer" parent="HBoxContainer" unique_id=607183954]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.55
+mouse_filter = 2
+theme_override_constants/margin_top = 108
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Center" unique_id=1479795783]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HBoxContainer/Center/VBoxContainer" unique_id=592876583]
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"MenuTitle"
+text = "Paused"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Stats" type="MarginContainer" parent="HBoxContainer" unique_id=2034390213]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_top = 108
+
+[node name="Control" type="Control" parent="." unique_id=1795717613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1072968016]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Upgrades" type="MarginContainer" parent="Control/HBoxContainer" unique_id=1799258396]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Center" type="MarginContainer" parent="Control/HBoxContainer" unique_id=35045579]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Center" unique_id=1196856978]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Control/HBoxContainer/Center/VBoxContainer" unique_id=1175699868]
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../QuitButton")
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../QuitButton")
+theme_type_variation = &"CTAButton"
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="Control/HBoxContainer/Center/VBoxContainer" unique_id=651916141]
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../ResumeButton")
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_right = NodePath("../MainMenuButton")
+focus_neighbor_bottom = NodePath("../MainMenuButton")
+focus_next = NodePath("../MainMenuButton")
+focus_previous = NodePath("../ResumeButton")
+theme_type_variation = &"CTAButton"
+text = "Settings"
+
+[node name="MainMenuButton" type="Button" parent="Control/HBoxContainer/Center/VBoxContainer" unique_id=672371614]
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../SettingsButton")
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_right = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../SettingsButton")
+theme_type_variation = &"CTAButton"
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="Control/HBoxContainer/Center/VBoxContainer" unique_id=278169150]
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../MainMenuButton")
+focus_neighbor_top = NodePath("../MainMenuButton")
+focus_neighbor_right = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../MainMenuButton")
+theme_type_variation = &"CTAButton"
+text = "Quit"
+
+[node name="Stats" type="MarginContainer" parent="Control/HBoxContainer" unique_id=1396925746]
+layout_mode = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="Control/HBoxContainer/Center/VBoxContainer/ResumeButton" to="." method="_on_resume"]
+[connection signal="pressed" from="Control/HBoxContainer/Center/VBoxContainer/SettingsButton" to="." method="_on_settings"]
+[connection signal="pressed" from="Control/HBoxContainer/Center/VBoxContainer/MainMenuButton" to="." method="_on_main_menu"]
+[connection signal="pressed" from="Control/HBoxContainer/Center/VBoxContainer/QuitButton" to="." method="_on_quit"]

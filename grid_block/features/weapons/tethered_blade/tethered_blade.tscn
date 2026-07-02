@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c7vvocqs1nfwb"]
+
+[ext_resource type="Script" uid="uid://cij7ei8yyypqe" path="res://features/weapons/tethered_blade/tethered_blade.gd" id="1_gtti2"]
+[ext_resource type="Material" uid="uid://b7gp2esnc8gv6" path="res://assets/materials/tether.material" id="2_xmbs1"]
+[ext_resource type="PackedScene" uid="uid://ben6lvlrkc5rp" path="res://features/weapons/blade/blade.tscn" id="3_j3sku"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gwu2l"]
+material = ExtResource("2_xmbs1")
+height = 1.0
+
+[node name="TetheredBlade" type="Node3D" unique_id=1315715489]
+process_mode = 1
+script = ExtResource("1_gtti2")
+
+[node name="TetherWrapper" type="Node3D" parent="." unique_id=1287297025]
+unique_name_in_owner = true
+
+[node name="Tether" type="MeshInstance3D" parent="TetherWrapper" unique_id=705255089]
+unique_name_in_owner = true
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, 2.5, 0, 0)
+mesh = SubResource("CylinderMesh_gwu2l")
+
+[node name="Blade" parent="." unique_id=703571801 instance=ExtResource("3_j3sku")]
+unique_name_in_owner = true

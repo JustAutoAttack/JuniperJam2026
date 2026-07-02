@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ukcvp7f7sb1w"]
+
+[ext_resource type="Script" uid="uid://bulmydxkabqo6" path="res://common/resource_data/enemy/enemy.gd" id="1_167dd"]
+
+[resource]
+script = ExtResource("1_167dd")
+type = 3
+display_name = "Seeker"
+primary_color = Color(1, 0, 0.23529412, 1)
+secondary_color = Color(0.18039216, 0, 0, 1)
+points = 40
+xp = 60.0
+movement_speed = 4.5
+attack_damage = 10.0
+health = 200.0
+body_damage = 5.0
+metadata/_custom_type_script = "uid://bulmydxkabqo6"

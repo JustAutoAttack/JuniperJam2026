@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://cg0j2g1ol0eva"]
+
+[ext_resource type="Texture2D" uid="uid://83h3h38qqan0" path="res://assets/ui/textures/icons/upgrades/gravity_well.png" id="1_p3kjt"]
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_re82q"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_p3kjt"]
+
+[sub_resource type="Resource" id="Resource_5aqg7"]
+script = ExtResource("2_p3kjt")
+level_requirement = 1
+value = 0.25
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_bsoh8"]
+script = ExtResource("2_p3kjt")
+level_requirement = 4
+value = 0.65
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_mw0cu"]
+script = ExtResource("2_p3kjt")
+level_requirement = 8
+value = 1.15
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_fj5pa"]
+script = ExtResource("2_p3kjt")
+level_requirement = 12
+value = 1.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_wkn1j"]
+script = ExtResource("2_p3kjt")
+level_requirement = 16
+value = 2.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_re82q")
+type = 17
+category = 2
+stat_type = 17
+display_name = "Gravity Well"
+description = "XP pickup range"
+icon = ExtResource("1_p3kjt")
+is_percentage = true
+is_multiplicative = true
+tiers = Dictionary[int, ExtResource("2_p3kjt")]({
+0: SubResource("Resource_5aqg7"),
+1: SubResource("Resource_bsoh8"),
+2: SubResource("Resource_mw0cu"),
+3: SubResource("Resource_fj5pa"),
+4: SubResource("Resource_wkn1j")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

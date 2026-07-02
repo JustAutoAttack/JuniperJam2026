@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://bomu7hmwblwf5"]
+
+[ext_resource type="Script" uid="uid://30bvus31o15v" path="res://ui/menus/game_over/game_over.gd" id="1_4m3fg"]
+[ext_resource type="Theme" uid="uid://chw0h5kuct5ah" path="res://assets/ui/themes/hud.theme" id="1_dosym"]
+[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_skcuu"]
+
+[node name="GameOver" type="Control" unique_id=583448917 node_paths=PackedStringArray("first_focus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dosym")
+script = ExtResource("1_4m3fg")
+type = 5
+first_focus = NodePath("Control/HBoxContainer/Control/Actions/RespinButton")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=834405777]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Upgrades" type="MarginContainer" parent="HBoxContainer" unique_id=1537812663]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_top = 108
+
+[node name="Center" type="MarginContainer" parent="HBoxContainer" unique_id=322466263]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.55
+mouse_filter = 2
+theme_override_constants/margin_top = 108
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Center" unique_id=908940403]
+layout_mode = 2
+theme_override_constants/separation = 96
+
+[node name="Title" type="Label" parent="HBoxContainer/Center/VBoxContainer" unique_id=1643813406]
+layout_mode = 2
+theme = ExtResource("1_skcuu")
+theme_type_variation = &"MenuTitle"
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ratings" type="HBoxContainer" parent="HBoxContainer/Center/VBoxContainer" unique_id=881636157]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Score" type="VBoxContainer" parent="HBoxContainer/Center/VBoxContainer/Ratings" unique_id=34790084]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="HBoxContainer/Center/VBoxContainer/Ratings/Score" unique_id=1370653954]
+layout_mode = 2
+theme_type_variation = &"RatingTitle"
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="HBoxContainer/Center/VBoxContainer/Ratings/Score" unique_id=314273142]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RatingValue"
+text = "999,999,999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Erased" type="VBoxContainer" parent="HBoxContainer/Center/VBoxContainer/Ratings" unique_id=1079159411]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="HBoxContainer/Center/VBoxContainer/Ratings/Erased" unique_id=2042748020]
+layout_mode = 2
+theme_type_variation = &"RatingTitle"
+text = "Erased"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Erased" type="Label" parent="HBoxContainer/Center/VBoxContainer/Ratings/Erased" unique_id=2011294674]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RatingValue"
+text = "999,999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stats" type="MarginContainer" parent="HBoxContainer" unique_id=1752976113]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_top = 108
+
+[node name="Control" type="Control" parent="." unique_id=1280629520]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=583773276]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrades" type="MarginContainer" parent="Control/HBoxContainer" unique_id=1172833440]
+layout_mode = 2
+
+[node name="Control" type="MarginContainer" parent="Control/HBoxContainer" unique_id=454429328]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Actions" type="VBoxContainer" parent="Control/HBoxContainer/Control" unique_id=1487183970]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="RespinButton" type="Button" parent="Control/HBoxContainer/Control/Actions" unique_id=2114243365]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../MainMenuButton")
+focus_neighbor_top = NodePath("../MainMenuButton")
+focus_neighbor_right = NodePath("../MainMenuButton")
+focus_neighbor_bottom = NodePath("../MainMenuButton")
+focus_next = NodePath("../MainMenuButton")
+focus_previous = NodePath("../MainMenuButton")
+theme = ExtResource("1_skcuu")
+theme_type_variation = &"CTAButton"
+text = "RESPIN"
+
+[node name="MainMenuButton" type="Button" parent="Control/HBoxContainer/Control/Actions" unique_id=109452225]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../RespinButton")
+focus_neighbor_top = NodePath("../RespinButton")
+focus_neighbor_right = NodePath("../RespinButton")
+focus_neighbor_bottom = NodePath("../RespinButton")
+focus_next = NodePath("../RespinButton")
+focus_previous = NodePath("../RespinButton")
+theme = ExtResource("1_skcuu")
+theme_type_variation = &"CTAButton"
+text = "MAIN MENU"
+
+[node name="Stats" type="MarginContainer" parent="Control/HBoxContainer" unique_id=1180241777]
+layout_mode = 2
+
+[connection signal="pressed" from="Control/HBoxContainer/Control/Actions/RespinButton" to="." method="_on_respin"]
+[connection signal="pressed" from="Control/HBoxContainer/Control/Actions/MainMenuButton" to="." method="_on_main_menu"]

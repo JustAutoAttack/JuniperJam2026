@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dr88v3v7s7381"]
+
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_5upx4"]
+[ext_resource type="Texture2D" uid="uid://58psyueid7qk" path="res://assets/ui/textures/icons/upgrades/repulsion_field.png" id="1_xmlfn"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_xmlfn"]
+
+[sub_resource type="Resource" id="Resource_xt60u"]
+script = ExtResource("2_xmlfn")
+level_requirement = 5
+value = 1.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_u75be"]
+script = ExtResource("2_xmlfn")
+level_requirement = 10
+value = 2.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_bm0hh"]
+script = ExtResource("2_xmlfn")
+level_requirement = 15
+value = 4.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_5mdaj"]
+script = ExtResource("2_xmlfn")
+level_requirement = 20
+value = 7.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_d0cgy"]
+script = ExtResource("2_xmlfn")
+level_requirement = 25
+value = 10.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_5upx4")
+type = 14
+category = 1
+stat_type = 14
+display_name = "Repulsion Field"
+description = "Blades push enemies farther away"
+icon = ExtResource("1_xmlfn")
+is_percentage = true
+tiers = Dictionary[int, ExtResource("2_xmlfn")]({
+0: SubResource("Resource_xt60u"),
+1: SubResource("Resource_u75be"),
+2: SubResource("Resource_bm0hh"),
+3: SubResource("Resource_5mdaj"),
+4: SubResource("Resource_d0cgy")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

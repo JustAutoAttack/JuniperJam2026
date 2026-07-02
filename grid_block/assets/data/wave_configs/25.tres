@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="WaveConfig" format=3 uid="uid://bhfkdmti1bw7i"]
+
+[ext_resource type="Script" uid="uid://crknqjmt452nf" path="res://common/resource_data/enemy/enemy_weight.gd" id="1_e8378"]
+[ext_resource type="Script" uid="uid://ddiu018g3qw8w" path="res://common/resource_data/configs/wave_config.gd" id="2_w5tl0"]
+
+[sub_resource type="Resource" id="Resource_50t4c"]
+script = ExtResource("1_e8378")
+weight = 0.3
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_l6flf"]
+script = ExtResource("1_e8378")
+type = 1
+weight = 0.2
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_w0m4a"]
+script = ExtResource("1_e8378")
+type = 2
+weight = 0.3
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_7wu8h"]
+script = ExtResource("1_e8378")
+type = 3
+weight = 0.2
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_2rg30"]
+script = ExtResource("1_e8378")
+type = 1
+weight = 0.2
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_iaru8"]
+script = ExtResource("1_e8378")
+type = 2
+weight = 0.4
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_lyiya"]
+script = ExtResource("1_e8378")
+type = 3
+weight = 0.4
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[resource]
+script = ExtResource("2_w5tl0")
+min_enemy_count = 350
+max_enemy_count = 500
+base_weights = Array[ExtResource("1_e8378")]([SubResource("Resource_50t4c"), SubResource("Resource_l6flf"), SubResource("Resource_w0m4a"), SubResource("Resource_7wu8h")])
+milestone_weights = Array[ExtResource("1_e8378")]([SubResource("Resource_2rg30"), SubResource("Resource_iaru8"), SubResource("Resource_lyiya")])
+arena_radius = 30.0
+metadata/_custom_type_script = "uid://ddiu018g3qw8w"

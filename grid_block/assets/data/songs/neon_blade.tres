@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SongData" format=3 uid="uid://bavq6gqmriwjp"]
+
+[ext_resource type="AudioStream" uid="uid://c8hqrwhqwnrwk" path="res://assets/audio/music/neon_blade-ben_wolves.mp3" id="1_4020m"]
+[ext_resource type="Script" uid="uid://bxyppi4w4387h" path="res://common/resource_data/song.gd" id="1_e022y"]
+
+[resource]
+script = ExtResource("1_e022y")
+audio_stream = ExtResource("1_4020m")
+display_name = "Neon Blade"
+artist_name = "Ben Wolves"
+metadata/_custom_type_script = "uid://bxyppi4w4387h"

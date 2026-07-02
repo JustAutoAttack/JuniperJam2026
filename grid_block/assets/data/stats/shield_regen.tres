@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatData" format=3 uid="uid://vbse8n7ulgdy"]
+
+[ext_resource type="Texture2D" uid="uid://bu06xuhin3u4n" path="res://assets/ui/textures/icons/stats/shield_regen.png" id="1_1emom"]
+[ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_jrcuf"]
+
+[resource]
+script = ExtResource("1_jrcuf")
+type = 13
+display_name = "Shield Regen"
+icon = ExtResource("1_1emom")
+metadata/_custom_type_script = "uid://c3nhvijkqh5sk"

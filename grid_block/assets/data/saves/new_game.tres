@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GameSaveData" format=3 uid="uid://d1ow66h65y8g3"]
+
+[ext_resource type="Script" uid="uid://bciwux2jteus6" path="res://common/resource_data/save/game_save.gd" id="1_n03y6"]
+
+[resource]
+script = ExtResource("1_n03y6")
+player_current_health = 100.0
+world_wave = 1
+metadata/_custom_type_script = "uid://bciwux2jteus6"

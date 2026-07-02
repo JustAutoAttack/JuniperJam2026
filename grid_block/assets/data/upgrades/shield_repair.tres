@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://ctlnuf1qwspw6"]
+
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_6a774"]
+[ext_resource type="Texture2D" uid="uid://ba0d1qp5liymo" path="res://assets/ui/textures/icons/upgrades/shield_recharge.png" id="1_knknb"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_knknb"]
+
+[sub_resource type="Resource" id="Resource_7p40j"]
+script = ExtResource("2_knknb")
+level_requirement = 4
+value = 0.25
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_ts2hu"]
+script = ExtResource("2_knknb")
+level_requirement = 8
+value = 0.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_yjlse"]
+script = ExtResource("2_knknb")
+level_requirement = 12
+value = 0.75
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_ox25s"]
+script = ExtResource("2_knknb")
+level_requirement = 16
+value = 1.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_1hhom"]
+script = ExtResource("2_knknb")
+level_requirement = 20
+value = 1.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_6a774")
+type = 13
+category = 1
+stat_type = 13
+display_name = "Shield Repair"
+description = "Repair shields faster"
+icon = ExtResource("1_knknb")
+is_percentage = true
+tiers = Dictionary[int, ExtResource("2_knknb")]({
+0: SubResource("Resource_7p40j"),
+1: SubResource("Resource_ts2hu"),
+2: SubResource("Resource_yjlse"),
+3: SubResource("Resource_ox25s"),
+4: SubResource("Resource_1hhom")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

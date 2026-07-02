@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b8q7440q35dmw"]
+
+[ext_resource type="Script" uid="uid://dpth35xbowfii" path="res://core/scenes/audio/audio.gd" id="1_ecni3"]
+[ext_resource type="Script" uid="uid://bxyppi4w4387h" path="res://common/resource_data/song.gd" id="2_mhecf"]
+[ext_resource type="Resource" uid="uid://c4f06upjm55b8" path="res://assets/data/songs/space_ranger.tres" id="3_ljy66"]
+[ext_resource type="Resource" uid="uid://bavq6gqmriwjp" path="res://assets/data/songs/neon_blade.tres" id="3_nc3wg"]
+[ext_resource type="Resource" uid="uid://cvjleb7st2ia0" path="res://assets/data/songs/take_me_somewhere_else.tres" id="4_ik0p4"]
+[ext_resource type="Resource" uid="uid://hhh1sl8h3rfo" path="res://assets/data/songs/space_dancers.tres" id="5_w28fe"]
+[ext_resource type="AudioStream" uid="uid://bwu3q2d7ek1j6" path="res://assets/audio/music/space_dancers-2050.mp3" id="6_a1uas"]
+[ext_resource type="Resource" uid="uid://diprikagyonh2" path="res://assets/data/songs/low_abyss.tres" id="7_et03d"]
+[ext_resource type="Resource" uid="uid://dx84scudcv4o0" path="res://assets/data/songs/lost_in_bass.tres" id="8_jrxq1"]
+[ext_resource type="Resource" uid="uid://dtucti8nleu21" path="res://assets/data/songs/game_over.tres" id="9_jrxq1"]
+
+[node name="Audio" type="Node" unique_id=1456845276]
+script = ExtResource("1_ecni3")
+title_playlist = Array[ExtResource("2_mhecf")]([ExtResource("3_nc3wg")])
+world_playlist = Array[ExtResource("2_mhecf")]([ExtResource("4_ik0p4"), ExtResource("3_nc3wg"), ExtResource("3_ljy66"), ExtResource("5_w28fe"), ExtResource("7_et03d"), ExtResource("8_jrxq1")])
+game_over_song = ExtResource("9_jrxq1")
+priority_sfx = Array[int]([6, 8, 13, 9])
+
+[node name="Music" type="Node" parent="." unique_id=1948097610]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Music" unique_id=913479480]
+unique_name_in_owner = true
+stream = ExtResource("6_a1uas")
+bus = &"Music"
+
+[node name="SFX" type="Node" parent="." unique_id=1931787040]
+
+[node name="SFXPriority" type="AudioStreamPlayer" parent="SFX" unique_id=1250847647]
+unique_name_in_owner = true
+mix_target = 1
+bus = &"SFX"
+
+[node name="GeneralSFX" type="Node" parent="SFX" unique_id=81690433]
+unique_name_in_owner = true

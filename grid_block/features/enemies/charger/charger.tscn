@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cx8ohuevkofx6"]
+
+[ext_resource type="Script" uid="uid://dkloooxevvmsh" path="res://features/enemies/charger/charger.gd" id="1_tcc1s"]
+[ext_resource type="PackedScene" uid="uid://yptic57wud3v" path="res://common/components/health/health.tscn" id="2_vhkak"]
+[ext_resource type="PackedScene" uid="uid://bcvlyixapem36" path="res://common/components/damage/hurtbox.tscn" id="3_cclpg"]
+[ext_resource type="PackedScene" uid="uid://btdn58vw0fk74" path="res://common/components/damage/hitbox.tscn" id="4_xhkie"]
+[ext_resource type="Script" uid="uid://dran37ceqie5g" path="res://features/enemies/shared/states/unused.gd" id="5_vhkak"]
+[ext_resource type="Script" uid="uid://bknkswwy0cjlc" path="res://features/enemies/shared/enemy.gd" id="5_xbnyy"]
+[ext_resource type="Shader" uid="uid://dq85vscxt8fhv" path="res://assets/shaders/shape_grids/shape_grid.gdshader" id="6_jhl4a"]
+[ext_resource type="Material" uid="uid://cicejhnddfj4w" path="res://assets/materials/charger_enemy_telegraph.material" id="7_tcc1s"]
+[ext_resource type="PackedScene" uid="uid://sxrqwb32268k" path="res://common/components/health/health_bar_3d.tscn" id="7_vhhbf"]
+[ext_resource type="Script" uid="uid://b326i5lqbtxbk" path="res://core/base_classes/state_machine.gd" id="9_2inst"]
+[ext_resource type="Script" uid="uid://dqijrbwkh2f4j" path="res://features/enemies/shared/states/chase.gd" id="10_7td2c"]
+[ext_resource type="Script" uid="uid://deevly3d7j0fu" path="res://features/enemies/charger/states/attack.gd" id="11_4fy2g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mile5"]
+material = ExtResource("7_tcc1s")
+size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynbk8"]
+render_priority = 0
+shader = ExtResource("6_jhl4a")
+shader_parameter/base_color = Color(0.19966345, 0.09985284, 0, 1)
+shader_parameter/grid_color = Color(1, 0.6156863, 0, 1)
+shader_parameter/grid_scale = 2.0
+shader_parameter/line_width = 3.0
+shader_parameter/face_alpha = 1.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_6m316"]
+material = SubResource("ShaderMaterial_ynbk8")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vhkak"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g7ypf"]
+points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qkr3y"]
+points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Charger" type="Node3D" unique_id=1863096077]
+process_mode = 1
+script = ExtResource("1_tcc1s")
+type = 2
+color = Color(1, 0.6156863, 0, 1)
+
+[node name="Health" parent="." unique_id=1968159283 node_paths=PackedStringArray("health_bar") instance=ExtResource("2_vhkak")]
+health_bar = NodePath("../HealthBar3D/SubViewport/HealthBar")
+
+[node name="StateMachine" type="Node" parent="." unique_id=195884358 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("9_2inst")
+initial_state = NodePath("Chase")
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=2032787884]
+script = ExtResource("10_7td2c")
+
+[node name="Patrol" type="Node" parent="StateMachine" unique_id=211875146]
+script = ExtResource("5_vhkak")
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=626502080 node_paths=PackedStringArray("body_mesh_instance", "telegraph_mesh_instance")]
+script = ExtResource("11_4fy2g")
+body_mesh_instance = NodePath("../../Model/Body")
+telegraph_mesh_instance = NodePath("Telegraph")
+
+[node name="Telegraph" type="MeshInstance3D" parent="StateMachine/Attack" unique_id=194072816]
+mesh = SubResource("BoxMesh_mile5")
+
+[node name="Model" type="Node3D" parent="." unique_id=1323201187]
+
+[node name="Body" type="MeshInstance3D" parent="Model" unique_id=541973343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("PrismMesh_6m316")
+
+[node name="HealthBar3D" parent="." unique_id=1803482784 instance=ExtResource("7_vhhbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+texture = SubResource("ViewportTexture_vhkak")
+
+[node name="HealthBar" parent="HealthBar3D/SubViewport" parent_id_path=PackedInt32Array(1803482784, 1344817539) index="0" unique_id=902557929]
+fill_color = Color(1, 0.09019608, 0.26666668, 1)
+
+[node name="Hurtbox" parent="." unique_id=1086022905 instance=ExtResource("3_cclpg")]
+
+[node name="CollisionShape3D" parent="Hurtbox" index="0" unique_id=947784951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("ConvexPolygonShape3D_g7ypf")
+
+[node name="BodyHitbox" parent="." unique_id=2078628729 node_paths=PackedStringArray("hurtbox_blacklist") instance=ExtResource("4_xhkie")]
+hurtbox_blacklist = [NodePath("../Hurtbox")]
+class_blacklist = Array[Script]([ExtResource("5_xbnyy")])
+
+[node name="CollisionShape3D" parent="BodyHitbox" index="0" unique_id=473784805]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 0.5, 0)
+shape = SubResource("ConvexPolygonShape3D_qkr3y")
+
+[editable path="HealthBar3D"]
+[editable path="Hurtbox"]
+[editable path="BodyHitbox"]

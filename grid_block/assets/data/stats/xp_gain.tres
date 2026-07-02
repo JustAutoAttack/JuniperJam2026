@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatData" format=3 uid="uid://b80ba6n13bykf"]
+
+[ext_resource type="Texture2D" uid="uid://bqwrl5cpoyxgv" path="res://assets/ui/textures/icons/stats/xp_gain.png" id="1_7mc3c"]
+[ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_ochkg"]
+
+[resource]
+script = ExtResource("1_ochkg")
+type = 18
+display_name = "XP Gain"
+icon = ExtResource("1_7mc3c")
+metadata/_custom_type_script = "uid://c3nhvijkqh5sk"

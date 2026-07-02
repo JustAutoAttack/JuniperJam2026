@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dsdmvywsfeit6"]
+
+[ext_resource type="Script" uid="uid://cgsb2q4u4lw40" path="res://core/scenes/world/world.gd" id="1_luigy"]
+[ext_resource type="Shader" uid="uid://dpcoa3rrvdpq3" path="res://assets/shaders/shape_grids/floor_grid.gdshader" id="2_1vx1y"]
+[ext_resource type="Script" uid="uid://daqdmgnm5rihr" path="res://core/scenes/world/controllers/wave.gd" id="2_4smtg"]
+[ext_resource type="Script" uid="uid://c8m22lma8l65a" path="res://core/scenes/world/controllers/instances.gd" id="3_iev5t"]
+[ext_resource type="Script" uid="uid://ddiu018g3qw8w" path="res://common/resource_data/configs/wave_config.gd" id="5_583uf"]
+[ext_resource type="Resource" uid="uid://domltdp58r3fb" path="res://assets/data/wave_configs/5.tres" id="6_5304l"]
+[ext_resource type="Resource" uid="uid://esef56o6hdwg" path="res://assets/data/wave_configs/10.tres" id="7_kjtg2"]
+[ext_resource type="Resource" uid="uid://684vgqwn110f" path="res://assets/data/wave_configs/15.tres" id="8_kjtg2"]
+[ext_resource type="Resource" uid="uid://cqpg6xxl08sce" path="res://assets/data/wave_configs/20.tres" id="9_vxprp"]
+[ext_resource type="Resource" uid="uid://bhfkdmti1bw7i" path="res://assets/data/wave_configs/25.tres" id="9_wgafb"]
+[ext_resource type="PackedScene" uid="uid://c7wca8jah4ub" path="res://features/arena_ring/arena_ring.tscn" id="10_1vx1y"]
+[ext_resource type="Resource" uid="uid://cott66tojl58w" path="res://assets/data/wave_configs/30.tres" id="10_583uf"]
+[ext_resource type="Resource" uid="uid://brnqkv6nyjbuc" path="res://assets/data/wave_configs/35.tres" id="12_kjtg2"]
+[ext_resource type="Resource" uid="uid://dr0pp4ihx08ef" path="res://assets/data/wave_configs/45.tres" id="13_4n0g8"]
+[ext_resource type="Material" uid="uid://pcrysec424nc" path="res://assets/materials/debris/enemy/blocker.material" id="13_583uf"]
+[ext_resource type="Resource" uid="uid://v1ofc8l4m3dj" path="res://assets/data/wave_configs/40.tres" id="13_vxprp"]
+[ext_resource type="Resource" uid="uid://b07n2gk824otl" path="res://assets/data/wave_configs/50.tres" id="14_xjqs1"]
+[ext_resource type="Script" uid="uid://crknqjmt452nf" path="res://common/resource_data/enemy/enemy_weight.gd" id="15_4n0g8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iev5t"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_cnk8u"]
+sky_material = SubResource("ProceduralSkyMaterial_iev5t")
+
+[sub_resource type="Environment" id="Environment_fyloc"]
+background_mode = 3
+sky = SubResource("Sky_cnk8u")
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.7
+glow_bloom = 1.0
+glow_hdr_luminance_cap = 20.0
+fog_mode = 1
+fog_light_color = Color(0.019607844, 0.019607844, 0.039215688, 1)
+fog_density = 1.0
+fog_depth_end = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fyloc"]
+render_priority = 0
+shader = ExtResource("2_1vx1y")
+shader_parameter/base_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+shader_parameter/grid_color = Color(0.96035105, 0.96035105, 0.96035093, 1)
+shader_parameter/grid_scale = 0.25
+shader_parameter/line_width = 2.0
+
+[sub_resource type="Resource" id="Resource_xjqs1"]
+script = ExtResource("15_4n0g8")
+weight = 0.25
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_dwhnq"]
+script = ExtResource("15_4n0g8")
+type = 1
+weight = 0.25
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_aim2l"]
+script = ExtResource("15_4n0g8")
+type = 2
+weight = 0.25
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_esjs0"]
+script = ExtResource("15_4n0g8")
+type = 3
+weight = 0.25
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_ofk8a"]
+script = ExtResource("15_4n0g8")
+type = 2
+weight = 1.0
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_6md04"]
+script = ExtResource("5_583uf")
+min_enemy_count = 1500
+max_enemy_count = 1750
+base_weights = Array[ExtResource("15_4n0g8")]([SubResource("Resource_xjqs1"), SubResource("Resource_dwhnq"), SubResource("Resource_aim2l"), SubResource("Resource_esjs0")])
+milestone_weights = Array[ExtResource("15_4n0g8")]([SubResource("Resource_ofk8a")])
+duration = 125.0
+arena_radius = 45.0
+metadata/_custom_type_script = "uid://ddiu018g3qw8w"
+
+[node name="World" type="Node3D" unique_id=1091521823]
+process_mode = 1
+script = ExtResource("1_luigy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1317170073]
+environment = SubResource("Environment_fyloc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=577143778]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Spawns" type="Node" parent="." unique_id=1517777598]
+
+[node name="PlayerSpawn" type="Marker3D" parent="Spawns" unique_id=1446576377]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="Static" type="Node3D" parent="." unique_id=181673485]
+
+[node name="Floor" type="Node3D" parent="Static" unique_id=856128662]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Static/Floor" unique_id=957055968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04527092, -0.47888756, -0.00078582764)
+use_collision = true
+collision_mask = 0
+size = Vector3(256, 1, 256)
+material = SubResource("ShaderMaterial_fyloc")
+
+[node name="Walls" type="Node3D" parent="Static" unique_id=337722081]
+
+[node name="Props" type="Node3D" parent="Static" unique_id=529203430]
+
+[node name="WaveController" type="Node" parent="." unique_id=893129872 node_paths=PackedStringArray("arena_ring")]
+script = ExtResource("2_4smtg")
+arena_ring = NodePath("../ArenaRing")
+wave_configs = Array[ExtResource("5_583uf")]([ExtResource("6_5304l"), ExtResource("7_kjtg2"), ExtResource("8_kjtg2"), ExtResource("9_vxprp"), ExtResource("9_wgafb"), ExtResource("10_583uf"), ExtResource("12_kjtg2"), ExtResource("13_vxprp"), ExtResource("13_4n0g8"), ExtResource("14_xjqs1"), SubResource("Resource_6md04")])
+max_active_enemies = 50
+
+[node name="InstancesController" type="Node" parent="." unique_id=950679161]
+unique_name_in_owner = true
+script = ExtResource("3_iev5t")
+debris_material = ExtResource("13_583uf")
+
+[node name="Player" type="Node" parent="InstancesController" unique_id=1730506944]
+unique_name_in_owner = true
+
+[node name="ArenaRing" parent="." unique_id=1373490178 instance=ExtResource("10_1vx1y")]
+collision_layer = 64
+glow_color = Color(0.7604822, 0.97633153, 1, 0.8)
+height = 10.0

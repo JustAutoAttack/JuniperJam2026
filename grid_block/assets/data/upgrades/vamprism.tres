@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://d25ymq8otk01b"]
+
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_eil8n"]
+[ext_resource type="Texture2D" uid="uid://b3xrudkrec54f" path="res://assets/ui/textures/icons/upgrades/lifesteal_percentage.png" id="1_f72u4"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_f72u4"]
+
+[sub_resource type="Resource" id="Resource_xa0pr"]
+script = ExtResource("2_f72u4")
+level_requirement = 5
+value = 0.01
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_gjvdd"]
+script = ExtResource("2_f72u4")
+level_requirement = 10
+value = 0.02
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_3nn2q"]
+script = ExtResource("2_f72u4")
+level_requirement = 15
+value = 0.03
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_28y0m"]
+script = ExtResource("2_f72u4")
+level_requirement = 20
+value = 0.04
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_x18e7"]
+script = ExtResource("2_f72u4")
+level_requirement = 25
+value = 0.05
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_eil8n")
+type = 10
+category = 1
+stat_type = 10
+display_name = "Vamprism"
+description = "Steal a percentage of enemy health"
+icon = ExtResource("1_f72u4")
+is_percentage = true
+tiers = Dictionary[int, ExtResource("2_f72u4")]({
+0: SubResource("Resource_xa0pr"),
+1: SubResource("Resource_gjvdd"),
+2: SubResource("Resource_3nn2q"),
+3: SubResource("Resource_28y0m"),
+4: SubResource("Resource_x18e7")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

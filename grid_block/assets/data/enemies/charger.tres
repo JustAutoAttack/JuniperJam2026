@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ukcvp7f7sb1w"]
+
+[ext_resource type="Script" uid="uid://bulmydxkabqo6" path="res://common/resource_data/enemy/enemy.gd" id="1_167dd"]
+
+[resource]
+script = ExtResource("1_167dd")
+type = 2
+display_name = "Charger"
+primary_color = Color(1, 0.6156863, 0, 1)
+secondary_color = Color(0.2, 0.09803922, 0, 1)
+points = 30
+xp = 100.0
+movement_speed = 5.0
+attack_radius = 3.0
+attack_damage = 7.0
+health = 120.0
+body_damage = 7.0
+metadata/_custom_type_script = "uid://bulmydxkabqo6"

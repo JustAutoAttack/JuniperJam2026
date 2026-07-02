@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b1osi0k1u3m0y"]
+
+[ext_resource type="Script" uid="uid://qapk0efgrt5w" path="res://features/popup_label/popup_label.gd" id="1_0hbv6"]
+[ext_resource type="FontFile" uid="uid://drapkd1d04444" path="res://assets/ui/fonts/saiba-45.regular.ttf" id="2_vemf4"]
+
+[node name="DamageNumber" type="Node3D" unique_id=378251996]
+process_mode = 1
+script = ExtResource("1_0hbv6")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1588597968]
+pixel_size = 0.0015
+billboard = 1
+fixed_size = true
+modulate = Color(0.95686275, 1, 0, 0)
+outline_modulate = Color(0.7411765, 0, 1, 0)
+text = "999"
+font = ExtResource("2_vemf4")
+uppercase = true

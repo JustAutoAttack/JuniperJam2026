@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="WaveConfig" format=3 uid="uid://fjw0w4donfl3"]
+
+[ext_resource type="Script" uid="uid://crknqjmt452nf" path="res://common/resource_data/enemy/enemy_weight.gd" id="1_tnmr1"]
+[ext_resource type="Script" uid="uid://ddiu018g3qw8w" path="res://common/resource_data/configs/wave_config.gd" id="2_cxmss"]
+
+[sub_resource type="Resource" id="Resource_tnmr1"]
+script = ExtResource("1_tnmr1")
+type = 3
+weight = 1.0
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_cxmss"]
+script = ExtResource("1_tnmr1")
+type = 3
+weight = 1.0
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[resource]
+script = ExtResource("2_cxmss")
+base_weights = Array[ExtResource("1_tnmr1")]([SubResource("Resource_tnmr1")])
+milestone_weights = Array[ExtResource("1_tnmr1")]([SubResource("Resource_cxmss")])
+duration = 15.0
+arena_radius = 30.0
+metadata/_custom_type_script = "uid://ddiu018g3qw8w"

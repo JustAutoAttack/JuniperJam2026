@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://cwecmu22b6udh"]
+
+[ext_resource type="Texture2D" uid="uid://cx6b0tkp8u4mb" path="res://assets/ui/textures/icons/upgrades/repulsion_rate.png" id="1_li3vs"]
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_tv61v"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_li3vs"]
+
+[sub_resource type="Resource" id="Resource_tv61v"]
+script = ExtResource("2_li3vs")
+level_requirement = 5
+value = 0.04
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_li3vs"]
+script = ExtResource("2_li3vs")
+level_requirement = 10
+value = 0.12
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_o7v67"]
+script = ExtResource("2_li3vs")
+level_requirement = 15
+value = 0.17
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_nka17"]
+script = ExtResource("2_li3vs")
+level_requirement = 20
+value = 0.21
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_xeetq"]
+script = ExtResource("2_li3vs")
+level_requirement = 25
+value = 0.29
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_tv61v")
+type = 15
+category = 1
+stat_type = 15
+display_name = "Repulsion Rate"
+description = "Increase knockback chance"
+icon = ExtResource("1_li3vs")
+is_percentage = true
+tiers = Dictionary[int, ExtResource("2_li3vs")]({
+0: SubResource("Resource_tv61v"),
+1: SubResource("Resource_li3vs"),
+2: SubResource("Resource_o7v67"),
+3: SubResource("Resource_nka17"),
+4: SubResource("Resource_xeetq")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

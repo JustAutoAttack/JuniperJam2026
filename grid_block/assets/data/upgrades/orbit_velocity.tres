@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://bfgi3207fv54p"]
+
+[ext_resource type="Texture2D" uid="uid://miq2av5mq24s" path="res://assets/ui/textures/icons/upgrades/orbit_velocity.png" id="1_b2npr"]
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_v5lrq"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_b2npr"]
+
+[sub_resource type="Resource" id="Resource_qqmxb"]
+script = ExtResource("2_b2npr")
+level_requirement = 2
+value = 0.75
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_rb7w2"]
+script = ExtResource("2_b2npr")
+level_requirement = 6
+value = 1.25
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_injlv"]
+script = ExtResource("2_b2npr")
+level_requirement = 10
+value = 2.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_qqnul"]
+script = ExtResource("2_b2npr")
+level_requirement = 15
+value = 3.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_glxtx"]
+script = ExtResource("2_b2npr")
+level_requirement = 20
+value = 1.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_v5lrq")
+type = 6
+stat_type = 5
+display_name = "Orbit Velocity"
+description = "Blades orbit faster"
+icon = ExtResource("1_b2npr")
+is_percentage = true
+is_multiplicative = true
+tiers = Dictionary[int, ExtResource("2_b2npr")]({
+0: SubResource("Resource_qqmxb"),
+1: SubResource("Resource_rb7w2"),
+2: SubResource("Resource_injlv"),
+3: SubResource("Resource_qqnul"),
+4: SubResource("Resource_glxtx")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

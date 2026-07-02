@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d3e44go4sck84"]
+
+[ext_resource type="Script" uid="uid://cnj1um6xv7ik2" path="res://ui/loading/screen/loading_screen.gd" id="1_38wdr"]
+
+[node name="LoadingScreen" type="Control" unique_id=1960349614]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_38wdr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1646019145]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26657522, 0.2665752, 0.2665752, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1121659675]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=1273780815]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Spinning..."
+horizontal_alignment = 1
+vertical_alignment = 1

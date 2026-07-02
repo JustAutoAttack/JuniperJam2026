@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://bmorjhsg5xpq2"]
+
+[ext_resource type="Theme" uid="uid://dikscacoajblv" path="res://assets/ui/themes/main_menu.theme" id="1_27bbg"]
+[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_86e05"]
+[ext_resource type="Script" uid="uid://b7gtvcf64ug4e" path="res://ui/menus/main/main_menu.gd" id="1_t7e0r"]
+
+[node name="MainMenu" type="Control" unique_id=147841640 node_paths=PackedStringArray("first_focus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_27bbg")
+script = ExtResource("1_t7e0r")
+first_focus = NodePath("SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer/Spin")
+
+[node name="SafeArea" type="MarginContainer" parent="." unique_id=1129195523]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"SafeAreaMargin"
+
+[node name="Control" type="Control" parent="SafeArea" unique_id=571842371]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="SafeArea/Control" unique_id=1874245137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="SplitView" type="HBoxContainer" parent="SafeArea/Control/Control" unique_id=75265998]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="MarginContainer" parent="SafeArea/Control/Control/SplitView" unique_id=1725456511]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_bottom = 280
+
+[node name="Control" type="Control" parent="SafeArea/Control/Control/SplitView/Left" unique_id=1871260426]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Buttons" type="MarginContainer" parent="SafeArea/Control/Control/SplitView/Left/Control" unique_id=1108693506]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 96
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/Control/SplitView/Left/Control/Buttons" unique_id=1280895750]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Spin" type="Button" parent="SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer" unique_id=2126996224]
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Quit")
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_right = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../Settings")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../Quit")
+theme = ExtResource("1_86e05")
+theme_type_variation = &"CTAButton"
+text = "Spin"
+
+[node name="Settings" type="Button" parent="SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer" unique_id=75227074]
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Spin")
+focus_neighbor_top = NodePath("../Spin")
+focus_neighbor_right = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Spin")
+theme = ExtResource("1_86e05")
+theme_type_variation = &"CTAButton"
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="Quit" type="Button" parent="SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer" unique_id=728495840]
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Settings")
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_right = NodePath("../Spin")
+focus_neighbor_bottom = NodePath("../Spin")
+focus_next = NodePath("../Spin")
+focus_previous = NodePath("../Settings")
+theme = ExtResource("1_86e05")
+theme_type_variation = &"CTAButton"
+text = "Quit"
+
+[node name="Right" type="MarginContainer" parent="SafeArea/Control/Control/SplitView" unique_id=1772264860]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control" unique_id=332298867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Top" type="MarginContainer" parent="SafeArea/Control/VBoxContainer" unique_id=824207274]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Footer" type="MarginContainer" parent="SafeArea/Control/VBoxContainer" unique_id=748347444]
+custom_minimum_size = Vector2(0, 142)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 32
+
+[node name="Control" type="Control" parent="SafeArea/Control/VBoxContainer/Footer" unique_id=1435173927]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="SafeArea/Control/VBoxContainer/Footer/Control" unique_id=1240168834]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/VBoxContainer/Footer/Control/CenterContainer" unique_id=9483777]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="InsertCoin" type="Label" parent="SafeArea/Control/VBoxContainer/Footer/Control/CenterContainer/VBoxContainer" unique_id=25960602]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"InsertCoin"
+text = "Insert Coin"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Credits" type="HBoxContainer" parent="SafeArea/Control/VBoxContainer/Footer/Control/CenterContainer/VBoxContainer" unique_id=1006954164]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Title" type="Label" parent="SafeArea/Control/VBoxContainer/Footer/Control/CenterContainer/VBoxContainer/Credits" unique_id=318484283]
+layout_mode = 2
+theme_type_variation = &"Credit"
+text = "Credit"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Credits" type="Label" parent="SafeArea/Control/VBoxContainer/Footer/Control/CenterContainer/VBoxContainer/Credits" unique_id=1174287295]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Credit"
+text = "(0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VersionLabel" type="Label" parent="SafeArea/Control/VBoxContainer/Footer/Control" unique_id=874421134]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -10.5
+offset_bottom = 10.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 1
+theme = ExtResource("1_86e05")
+theme_type_variation = &"VersionLabel"
+text = "V.1.0.0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="pressed" from="SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer/Spin" to="." method="_on_spin"]
+[connection signal="pressed" from="SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer/Settings" to="." method="_on_settings"]
+[connection signal="pressed" from="SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer/Quit" to="." method="_on_quit"]

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bctesatm3mh5q"]
+
+[ext_resource type="Script" uid="uid://b6xqmo8r1h0jt" path="res://common/components/health/health_bar.gd" id="1_w3805"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtovr"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykkxv"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3805"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2kqf"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HealthBar" type="Control" unique_id=902557929]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_w3805")
+
+[node name="Under" type="ProgressBar" parent="." unique_id=448951635]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 32)
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 8.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qtovr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ykkxv")
+show_percentage = false
+
+[node name="Current" type="ProgressBar" parent="." unique_id=250046224]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 32)
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 8.0
+theme_override_styles/background = SubResource("StyleBoxFlat_w3805")
+theme_override_styles/fill = SubResource("StyleBoxFlat_m2kqf")
+show_percentage = false

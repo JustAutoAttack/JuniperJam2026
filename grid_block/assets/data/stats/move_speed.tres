@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatData" format=3 uid="uid://b78nt14t7v763"]
+
+[ext_resource type="Texture2D" uid="uid://blbudbq7rdc7c" path="res://assets/ui/textures/icons/stats/move_speed.png" id="1_5es3l"]
+[ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_arbdr"]
+
+[resource]
+script = ExtResource("1_arbdr")
+type = 16
+display_name = "Move Speed"
+icon = ExtResource("1_5es3l")
+metadata/_custom_type_script = "uid://c3nhvijkqh5sk"

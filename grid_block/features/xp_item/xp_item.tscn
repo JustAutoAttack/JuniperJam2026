@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dte643vohwxu6"]
+
+[ext_resource type="Script" uid="uid://blfhok68kewcb" path="res://features/xp_item/xp_item.gd" id="1_xr1sh"]
+[ext_resource type="Material" uid="uid://2rmay5gh77yt" path="res://assets/materials/xp_item.material" id="2_3v62m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xi771"]
+material = ExtResource("2_3v62m")
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xi771"]
+height = 0.25
+radius = 0.25
+
+[node name="XPItem" type="Node3D" unique_id=1826625607]
+process_mode = 1
+process_priority = 1
+script = ExtResource("1_xr1sh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1300990115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+mesh = SubResource("BoxMesh_xi771")
+
+[node name="CollectionArea" type="Area3D" parent="." unique_id=517135934]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectionArea" unique_id=606983977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+shape = SubResource("CylinderShape3D_xi771")

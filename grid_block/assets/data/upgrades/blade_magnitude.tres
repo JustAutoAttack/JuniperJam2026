@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://b8fyheoe5fw72"]
+
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_102h0"]
+[ext_resource type="Texture2D" uid="uid://5rqdv7no6y2b" path="res://assets/ui/textures/icons/upgrades/blade_magnitude.png" id="1_bm04x"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_bm04x"]
+
+[sub_resource type="Resource" id="Resource_sj3qk"]
+script = ExtResource("2_bm04x")
+level_requirement = 4
+value = 0.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_wel3r"]
+script = ExtResource("2_bm04x")
+level_requirement = 8
+value = 0.75
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_pgn1a"]
+script = ExtResource("2_bm04x")
+level_requirement = 13
+value = 1.25
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_3o3b1"]
+script = ExtResource("2_bm04x")
+level_requirement = 20
+value = 1.75
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_kcm7y"]
+script = ExtResource("2_bm04x")
+level_requirement = 25
+value = 2.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_102h0")
+type = 3
+stat_type = 3
+display_name = "Blade Magnitude"
+description = "Bigger blades"
+icon = ExtResource("1_bm04x")
+is_percentage = true
+tiers = Dictionary[int, ExtResource("2_bm04x")]({
+0: SubResource("Resource_sj3qk"),
+1: SubResource("Resource_wel3r"),
+2: SubResource("Resource_pgn1a"),
+3: SubResource("Resource_3o3b1"),
+4: SubResource("Resource_kcm7y")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

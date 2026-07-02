@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SettingsSaveData" format=3 uid="uid://c2nfq8768gvrr"]
+
+[ext_resource type="Script" uid="uid://boickp22w0bym" path="res://common/resource_data/save/settings_save.gd" id="1_xrmr4"]
+
+[resource]
+script = ExtResource("1_xrmr4")
+metadata/_custom_type_script = "uid://boickp22w0bym"

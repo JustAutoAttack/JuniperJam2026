@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bmmk441obi61g"]
+
+[ext_resource type="Script" uid="uid://pobmad6mx4v2" path="res://ui/menus/settings/components/volume_control.gd" id="1_7qfwy"]
+[ext_resource type="Theme" uid="uid://m2afd335qkd2" path="res://assets/ui/themes/settings_menu.theme" id="1_axin4"]
+
+[node name="VolumeControl" type="HBoxContainer" unique_id=991297135]
+theme = ExtResource("1_axin4")
+theme_override_constants/separation = 12
+script = ExtResource("1_7qfwy")
+
+[node name="MuteButton" type="Button" parent="." unique_id=729850661]
+layout_mode = 2
+toggle_mode = true
+text = "mute"
+
+[node name="Title" type="Label" parent="." unique_id=1221638591]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_type_variation = &"VolumeText"
+vertical_alignment = 1
+
+[node name="Slider" type="HSlider" parent="." unique_id=1310851586]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"VolumeSlider"
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Percentage" type="Label" parent="." unique_id=1676779261]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_type_variation = &"VolumeText"
+text = "100%"
+horizontal_alignment = 2
+vertical_alignment = 1

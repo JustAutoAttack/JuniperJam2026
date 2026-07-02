@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://bgrwg1u5f8rph"]
+
+[ext_resource type="Texture2D" uid="uid://5jxtqqpxyt8v" path="res://assets/ui/textures/icons/upgrades/xp_gain.png" id="1_dj75e"]
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_riquu"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_dj75e"]
+
+[sub_resource type="Resource" id="Resource_aiuwv"]
+script = ExtResource("2_dj75e")
+level_requirement = 5
+value = 0.05
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_b1kkw"]
+script = ExtResource("2_dj75e")
+level_requirement = 10
+value = 0.1
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_a7q8j"]
+script = ExtResource("2_dj75e")
+level_requirement = 15
+value = 0.15
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_cao4a"]
+script = ExtResource("2_dj75e")
+level_requirement = 20
+value = 0.2
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_sl38c"]
+script = ExtResource("2_dj75e")
+level_requirement = 25
+value = 0.25
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_riquu")
+type = 18
+category = 2
+stat_type = 18
+display_name = "XP Gain"
+description = "Earn more XP"
+icon = ExtResource("1_dj75e")
+is_percentage = true
+tiers = Dictionary[int, ExtResource("2_dj75e")]({
+0: SubResource("Resource_aiuwv"),
+1: SubResource("Resource_b1kkw"),
+2: SubResource("Resource_a7q8j"),
+3: SubResource("Resource_cao4a"),
+4: SubResource("Resource_sl38c")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

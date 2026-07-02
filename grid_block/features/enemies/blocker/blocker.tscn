@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://b5jx5qphelwjx"]
+
+[ext_resource type="Shader" uid="uid://dq85vscxt8fhv" path="res://assets/shaders/shape_grids/shape_grid.gdshader" id="1_jjhjl"]
+[ext_resource type="Script" uid="uid://dt0c7y37jrobn" path="res://features/enemies/blocker/blocker.gd" id="1_y3gc4"]
+[ext_resource type="PackedScene" uid="uid://bcvlyixapem36" path="res://common/components/damage/hurtbox.tscn" id="2_e5g1c"]
+[ext_resource type="PackedScene" uid="uid://yptic57wud3v" path="res://common/components/health/health.tscn" id="3_sxov5"]
+[ext_resource type="PackedScene" uid="uid://btdn58vw0fk74" path="res://common/components/damage/hitbox.tscn" id="4_rdju2"]
+[ext_resource type="Script" uid="uid://dran37ceqie5g" path="res://features/enemies/shared/states/unused.gd" id="5_7t3p0"]
+[ext_resource type="PackedScene" uid="uid://sxrqwb32268k" path="res://common/components/health/health_bar_3d.tscn" id="5_lwvhd"]
+[ext_resource type="Script" uid="uid://b326i5lqbtxbk" path="res://core/base_classes/state_machine.gd" id="7_1uixk"]
+[ext_resource type="Script" uid="uid://dqijrbwkh2f4j" path="res://features/enemies/shared/states/chase.gd" id="8_3jgcy"]
+[ext_resource type="Script" uid="uid://bknkswwy0cjlc" path="res://features/enemies/shared/enemy.gd" id="8_vw10t"]
+[ext_resource type="Shader" uid="uid://bk3c21cbib1tj" path="res://assets/shaders/blocker_enemy_attack_telegraph.gdshader" id="9_7t3p0"]
+[ext_resource type="Script" uid="uid://58b3m36fur8c" path="res://features/enemies/blocker/states/attack.gd" id="9_bi62m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jgcy"]
+render_priority = 0
+shader = ExtResource("1_jjhjl")
+shader_parameter/base_color = Color(0.101960786, 0, 0.14901961, 1)
+shader_parameter/grid_color = Color(0.7372549, 0, 1, 1)
+shader_parameter/grid_scale = 2.0
+shader_parameter/line_width = 3.0
+shader_parameter/face_alpha = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_rqux2"]
+material = SubResource("ShaderMaterial_3jgcy")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7t3p0"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxov5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vw10t"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rdju2"]
+height = 1.0
+radius = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yrlqt"]
+render_priority = 0
+shader = ExtResource("9_7t3p0")
+shader_parameter/color_inner = Color(0.7372549, 0, 1, 1)
+shader_parameter/color_outer = Color(0.101960786, 0, 0.14901961, 1)
+shader_parameter/radius = 3.0000001425
+shader_parameter/animation_progress = 0.9290000441275
+shader_parameter/alpha_override = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bi62m"]
+material = SubResource("ShaderMaterial_yrlqt")
+top_radius = 3.0
+bottom_radius = 3.0
+height = 0.05
+
+[node name="Blocker" type="Node3D" unique_id=281757576]
+process_mode = 1
+script = ExtResource("1_y3gc4")
+color = Color(0.7372549, 0, 1, 1)
+
+[node name="Health" parent="." unique_id=1968159283 node_paths=PackedStringArray("health_bar") instance=ExtResource("3_sxov5")]
+health_bar = NodePath("../HealthBar3D/SubViewport/HealthBar")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1866896142 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("7_1uixk")
+initial_state = NodePath("Chase")
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=1056233414]
+script = ExtResource("8_3jgcy")
+
+[node name="Patrol" type="Node" parent="StateMachine" unique_id=2038364341]
+script = ExtResource("5_7t3p0")
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=1643017439 node_paths=PackedStringArray("aoe_area", "aoe_indicator")]
+script = ExtResource("9_bi62m")
+aoe_area = NodePath("../../AOEHitbox")
+aoe_indicator = NodePath("../../AOEHitbox/AOEIndicator")
+lift_duration = 1.0
+
+[node name="Model" type="Node3D" parent="." unique_id=466982391]
+
+[node name="Body" type="MeshInstance3D" parent="Model" unique_id=852595576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_rqux2")
+
+[node name="HealthBar3D" parent="." unique_id=1803482784 instance=ExtResource("5_lwvhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+texture = SubResource("ViewportTexture_7t3p0")
+
+[node name="Hurtbox" parent="." unique_id=1086022905 instance=ExtResource("2_e5g1c")]
+
+[node name="CollisionShape3D" parent="Hurtbox" index="0" unique_id=947784951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_sxov5")
+
+[node name="BodyHitbox" parent="." unique_id=2078628729 node_paths=PackedStringArray("hurtbox_blacklist") instance=ExtResource("4_rdju2")]
+hurtbox_blacklist = [NodePath("../Hurtbox")]
+class_blacklist = Array[Script]([ExtResource("8_vw10t")])
+
+[node name="CollisionShape3D" parent="BodyHitbox" index="0" unique_id=473784805]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_vw10t")
+
+[node name="AOEHitbox" parent="." unique_id=1754876191 node_paths=PackedStringArray("hurtbox_blacklist") instance=ExtResource("4_rdju2")]
+hurtbox_blacklist = [NodePath("../Hurtbox")]
+class_blacklist = Array[Script]([ExtResource("8_vw10t")])
+
+[node name="CollisionShape3D" parent="AOEHitbox" index="0" unique_id=473784805]
+shape = SubResource("CylinderShape3D_rdju2")
+
+[node name="AOEIndicator" type="MeshInstance3D" parent="AOEHitbox" unique_id=1696238773]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+mesh = SubResource("CylinderMesh_bi62m")
+
+[editable path="HealthBar3D"]
+[editable path="Hurtbox"]
+[editable path="BodyHitbox"]
+[editable path="AOEHitbox"]

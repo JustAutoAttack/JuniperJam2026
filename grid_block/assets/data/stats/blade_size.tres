@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatData" format=3 uid="uid://dbadluwxyi8cq"]
+
+[ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_d0fmf"]
+[ext_resource type="Texture2D" uid="uid://beq8ma0nviyn8" path="res://assets/ui/textures/icons/stats/blade_size.png" id="1_k0qi0"]
+
+[resource]
+script = ExtResource("1_d0fmf")
+type = 3
+display_name = "Blade Size"
+icon = ExtResource("1_k0qi0")
+metadata/_custom_type_script = "uid://c3nhvijkqh5sk"

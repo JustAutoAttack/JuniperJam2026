@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cqtv1ll7tm0yo"]
+
+[ext_resource type="Script" uid="uid://bltntnw3xrxkb" path="res://features/debris/debris.gd" id="1_6jeey"]
+[ext_resource type="Material" uid="uid://pcrysec424nc" path="res://assets/materials/debris/enemy/blocker.material" id="2_nc7qo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6jeey"]
+material = ExtResource("2_nc7qo")
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nc7qo"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[node name="Debris" type="RigidBody3D" unique_id=1429659569]
+process_mode = 1
+collision_layer = 32
+collision_mask = 7
+script = ExtResource("1_6jeey")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1455317397]
+mesh = SubResource("BoxMesh_6jeey")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=816318499]
+shape = SubResource("BoxShape3D_nc7qo")

@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://db6prqfmb2py5"]
+
+[ext_resource type="Texture2D" uid="uid://bjir5etxw4w6v" path="res://assets/ui/textures/icons/upgrades/blade_multiplier.png" id="1_jfbwp"]
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_wcuci"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_jfbwp"]
+
+[sub_resource type="Resource" id="Resource_ouqo7"]
+script = ExtResource("2_jfbwp")
+level_requirement = 3
+value = 1.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_fapds"]
+script = ExtResource("2_jfbwp")
+level_requirement = 8
+value = 2.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_lm2od"]
+script = ExtResource("2_jfbwp")
+level_requirement = 13
+value = 3.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_u8cf2"]
+script = ExtResource("2_jfbwp")
+level_requirement = 18
+value = 4.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_uynsw"]
+script = ExtResource("2_jfbwp")
+level_requirement = 25
+value = 5.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_wcuci")
+type = 2
+stat_type = 2
+display_name = "Blade Multiplier"
+description = "Additional orbital blades"
+icon = ExtResource("1_jfbwp")
+is_multiplicative = true
+tiers = Dictionary[int, ExtResource("2_jfbwp")]({
+0: SubResource("Resource_ouqo7"),
+1: SubResource("Resource_fapds"),
+2: SubResource("Resource_lm2od"),
+3: SubResource("Resource_u8cf2"),
+4: SubResource("Resource_uynsw")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

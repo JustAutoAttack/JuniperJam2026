@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://g2favhm7g6vm"]
+
+[ext_resource type="Script" uid="uid://cjhamuwgkergy" path="res://features/projectiles/burster/burster.gd" id="1_1n3oh"]
+[ext_resource type="Shader" uid="uid://dq85vscxt8fhv" path="res://assets/shaders/shape_grids/shape_grid.gdshader" id="1_p4wyv"]
+[ext_resource type="PackedScene" uid="uid://btdn58vw0fk74" path="res://common/components/damage/hitbox.tscn" id="2_pkgo8"]
+[ext_resource type="Script" uid="uid://bknkswwy0cjlc" path="res://features/enemies/shared/enemy.gd" id="3_we02o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqdq0"]
+render_priority = 0
+shader = ExtResource("1_p4wyv")
+shader_parameter/base_color = Color(0.98039216, 1, 0, 1)
+shader_parameter/grid_color = Color(0.14901961, 0.12941177, 0, 1)
+shader_parameter/grid_scale = 2.0
+shader_parameter/line_width = 3.0
+shader_parameter/face_alpha = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pkgo8"]
+material = SubResource("ShaderMaterial_bqdq0")
+top_radius = 0.15
+bottom_radius = 0.15
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_we02o"]
+height = 0.2
+radius = 0.05
+
+[node name="Burster" type="Node3D" unique_id=206114466]
+script = ExtResource("1_1n3oh")
+base_speed = 15.0
+max_speed = 35.0
+damage = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1520307384]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.1)
+mesh = SubResource("CylinderMesh_pkgo8")
+
+[node name="Hitbox" parent="." unique_id=2078628729 instance=ExtResource("2_pkgo8")]
+process_mode = 1
+class_blacklist = Array[Script]([ExtResource("3_we02o")])
+
+[node name="CollisionShape3D" parent="Hitbox" index="0" unique_id=473784805]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.1)
+shape = SubResource("CylinderShape3D_we02o")
+
+[editable path="Hitbox"]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cnju0g136s1sx"]
+
+[ext_resource type="Script" uid="uid://bulmydxkabqo6" path="res://common/resource_data/enemy/enemy.gd" id="1_bam27"]
+
+[resource]
+script = ExtResource("1_bam27")
+type = 1
+display_name = "Burster"
+primary_color = Color(0.98039216, 1, 0, 1)
+secondary_color = Color(0.14901961, 0.12941177, 0, 1)
+points = 20
+xp = 35.0
+movement_speed = 3.0
+attack_radius = 5.0
+attack_damage = 2.0
+attack_speed = 2.0
+health = 40.0
+body_damage = 5.0
+metadata/_custom_type_script = "uid://bulmydxkabqo6"

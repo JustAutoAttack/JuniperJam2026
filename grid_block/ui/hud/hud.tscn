@@ -1,0 +1,774 @@
+[gd_scene format=3 uid="uid://c27t3y07bh6tb"]
+
+[ext_resource type="Theme" uid="uid://chw0h5kuct5ah" path="res://assets/ui/themes/hud.theme" id="1_4d6w6"]
+[ext_resource type="Script" uid="uid://s63r50hcocbs" path="res://ui/hud/hud.gd" id="1_xmswo"]
+[ext_resource type="Shader" uid="uid://bfcqkj7khf6fl" path="res://assets/shaders/damage_flash.gdshader" id="4_p3vm3"]
+[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="5_4jjo0"]
+[ext_resource type="Texture2D" uid="uid://bcb5b7o3ygk17" path="res://assets/ui/textures/hud_player_background.png" id="5_m6r7j"]
+[ext_resource type="Texture2D" uid="uid://cio7yjpuuifwm" path="res://assets/ui/textures/hud_tracker_background.png" id="5_wkyli"]
+[ext_resource type="Texture2D" uid="uid://d35ongm5mo7t3" path="res://assets/ui/textures/progress_bars/health_xp-under.png" id="6_3rj2y"]
+[ext_resource type="Texture2D" uid="uid://dhv667aogxchy" path="res://assets/ui/textures/icons/audio/prev_track-normal.png" id="7_6gxmt"]
+[ext_resource type="Texture2D" uid="uid://dp1gtb6duv0kn" path="res://assets/ui/textures/icons/audio/shuffle-normal.png" id="7_aixkq"]
+[ext_resource type="Texture2D" uid="uid://b2h10gu1biabn" path="res://assets/ui/textures/progress_bars/health_xp-over.png" id="7_sm7np"]
+[ext_resource type="Texture2D" uid="uid://55d8a70d2ccq" path="res://assets/ui/textures/icons/audio/shuffle-hover_pressed.png" id="8_cxhb7"]
+[ext_resource type="Texture2D" uid="uid://dqfda5h6qaolh" path="res://assets/ui/textures/icons/audio/prev_track-hover_pressed.png" id="8_olkg6"]
+[ext_resource type="Texture2D" uid="uid://s0ghshuwoiva" path="res://assets/ui/textures/progress_bars/health_xp-progress.png" id="8_wkyli"]
+[ext_resource type="Texture2D" uid="uid://hg0y4wb6s3fh" path="res://assets/ui/textures/icons/audio/play-normal.png" id="9_5uuaq"]
+[ext_resource type="Texture2D" uid="uid://djj86y2trkv0l" path="res://assets/ui/textures/icons/audio/pause-normal.png" id="9_gv4gi"]
+[ext_resource type="Texture2D" uid="uid://d263htf6qx86u" path="res://assets/ui/textures/icons/audio/pause-hover_pressed.png" id="10_5mn0o"]
+[ext_resource type="Texture2D" uid="uid://c1fnibysxy1gp" path="res://assets/ui/textures/progress_bars/health_low-progress.png" id="10_fs87q"]
+[ext_resource type="Texture2D" uid="uid://bddgp6w3dnsg3" path="res://assets/ui/textures/icons/audio/play-hover_pressed.png" id="10_p3vm3"]
+[ext_resource type="PackedScene" uid="uid://gt3o3jvnwvjd" path="res://ui/hud/components/shield_bar.tscn" id="11_3i4ml"]
+[ext_resource type="Material" uid="uid://dj0yr8y3qq344" path="res://assets/shaders/icon_color.material" id="13_5mn0o"]
+[ext_resource type="Texture2D" uid="uid://dsw1cuccap34d" path="res://assets/ui/textures/icons/audio/next_track-hover_pressed.png" id="14_hk13k"]
+[ext_resource type="Texture2D" uid="uid://bp278bf4rp1ua" path="res://assets/ui/textures/icons/audio/loop-normal.png" id="15_uyo40"]
+[ext_resource type="Texture2D" uid="uid://dspgju7hrwm7d" path="res://assets/ui/textures/icons/audio/loop-hover_pressed.png" id="16_m6r7j"]
+[ext_resource type="Texture2D" uid="uid://cbyihbe2gwvdc" path="res://assets/ui/textures/icons/audio/next_track-normal.png" id="19_b6qa6"]
+[ext_resource type="Texture2D" uid="uid://c8t0fvbre6n58" path="res://assets/ui/textures/buttons/upgrade_button-normal.png" id="21_sm7np"]
+[ext_resource type="Texture2D" uid="uid://i7h5svslcrj1" path="res://assets/ui/textures/buttons/upgrade_button-hover_pressed.png" id="22_wkyli"]
+[ext_resource type="Texture2D" uid="uid://caxp3i4ct51xe" path="res://assets/ui/textures/panels/open_upgrade_menu_indicator_background.png" id="26_b6qa6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gv4gi"]
+shader = ExtResource("4_p3vm3")
+shader_parameter/flash_color = Color(0.8721487, 0, 0.17426983, 1)
+shader_parameter/intensity = 0.0
+shader_parameter/reach = 0.2000000095
+shader_parameter/softness = 1.0
+
+[node name="HUD" type="Control" unique_id=400514899]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_4d6w6")
+script = ExtResource("1_xmswo")
+icon_color_material = ExtResource("13_5mn0o")
+low_health_threshold = 0.7
+min_pulse_intensity = 0.2
+max_pulse_intensity = 0.6
+
+[node name="DamageFlash" type="ColorRect" parent="." unique_id=58141173]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_gv4gi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SafeArea" type="MarginContainer" parent="." unique_id=770207305]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"SafeAreaMargin"
+
+[node name="Control" type="Control" parent="SafeArea" unique_id=2112309892]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Tracker" type="MarginContainer" parent="SafeArea/Control" unique_id=987047437]
+custom_minimum_size = Vector2(1872, 224)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -936.0
+offset_right = 936.0
+offset_bottom = 224.0
+grow_horizontal = 2
+
+[node name="Control" type="Control" parent="SafeArea/Control/Tracker" unique_id=1205242586]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Control" type="Control" parent="SafeArea/Control/Tracker/Control" unique_id=1145564716]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+
+[node name="Background" type="MarginContainer" parent="SafeArea/Control/Tracker/Control/Control" unique_id=125754176]
+custom_minimum_size = Vector2(1872, 224)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -936.0
+offset_right = 936.0
+offset_bottom = 224.0
+grow_horizontal = 2
+
+[node name="Background" type="TextureRect" parent="SafeArea/Control/Tracker/Control/Control/Background" unique_id=2038909610]
+layout_mode = 2
+texture = ExtResource("5_wkyli")
+
+[node name="TopBotSplit" type="MarginContainer" parent="SafeArea/Control/Tracker/Control/Control" unique_id=947768919]
+custom_minimum_size = Vector2(1872, 224)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -936.0
+offset_right = 936.0
+offset_bottom = 224.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit" unique_id=1729620551]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Top" type="MarginContainer" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer" unique_id=181950780]
+custom_minimum_size = Vector2(0, 224)
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Wave" type="MarginContainer" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top" unique_id=935282931]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Wave" unique_id=2007255622]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Title" type="Label" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Wave/VBoxContainer" unique_id=1744754746]
+layout_mode = 2
+theme_type_variation = &"WaveTitle"
+text = "Wave"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Wave" type="Label" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Wave/VBoxContainer" unique_id=1351081494]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"WaveValue"
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveTime" type="Label" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Wave/VBoxContainer" unique_id=1777607708]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"WaveTime"
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ratings" type="HBoxContainer" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top" unique_id=1716186982]
+layout_mode = 2
+
+[node name="Score" type="MarginContainer" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Ratings" unique_id=27366817]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_top = -48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Ratings/Score" unique_id=2102362114]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Title" type="Label" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Ratings/Score/VBoxContainer" unique_id=1059961323]
+layout_mode = 2
+theme_type_variation = &"RatingTitle"
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Score" type="Label" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Ratings/Score/VBoxContainer" unique_id=1058152857]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RatingValue"
+text = "999,999,999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gap" type="MarginContainer" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Ratings" unique_id=1262494139]
+layout_mode = 2
+theme_override_constants/margin_left = 192
+theme_override_constants/margin_right = 192
+
+[node name="Erased" type="MarginContainer" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Ratings" unique_id=21167547]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_top = -48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Ratings/Erased" unique_id=198041147]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Title" type="Label" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Ratings/Erased/VBoxContainer" unique_id=47415890]
+layout_mode = 2
+theme_type_variation = &"RatingTitle"
+text = "Erased"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Erased" type="Label" parent="SafeArea/Control/Tracker/Control/Control/TopBotSplit/VBoxContainer/Top/Ratings/Erased/VBoxContainer" unique_id=863178588]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RatingValue"
+text = "999,999,999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" type="MarginContainer" parent="SafeArea/Control" unique_id=1328098782]
+custom_minimum_size = Vector2(1872, 224)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -936.0
+offset_top = -224.0
+offset_right = 936.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Control" type="Control" parent="SafeArea/Control/Player" unique_id=1493806715]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Control" type="Control" parent="SafeArea/Control/Player/Control" unique_id=1414302892]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+mouse_filter = 1
+
+[node name="Background" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control" unique_id=1819892846]
+custom_minimum_size = Vector2(1872, 224)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -936.0
+offset_top = -224.0
+offset_right = 936.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Background" type="TextureRect" parent="SafeArea/Control/Player/Control/Control/Background" unique_id=1764822513]
+layout_mode = 2
+texture = ExtResource("5_m6r7j")
+
+[node name="TopBotSplit" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control" unique_id=1418971892]
+custom_minimum_size = Vector2(1872, 224)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -936.0
+offset_top = -224.0
+offset_right = 936.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit" unique_id=4276493]
+layout_mode = 2
+theme_override_constants/separation = -24
+
+[node name="Top" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer" unique_id=1825665906]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 0
+
+[node name="Control" type="Control" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top" unique_id=1714517218]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TrackPaused" type="Label" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Control" unique_id=2024366423]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_top = -24.0
+offset_right = 31.0
+offset_bottom = -1.0
+grow_horizontal = 2
+theme_type_variation = &"SongTime"
+text = "Paused"
+uppercase = true
+
+[node name="TrackDetails" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top" unique_id=536558636]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/TrackDetails" unique_id=1142134489]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="SongDetails" type="VBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/TrackDetails/VBoxContainer" unique_id=1737888644]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="SongName" type="Label" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/TrackDetails/VBoxContainer/SongDetails" unique_id=900750830]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SongName"
+text = "Space Dancers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SongArtist" type="Label" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/TrackDetails/VBoxContainer/SongDetails" unique_id=1274527940]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SongArtist"
+text = "2050"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="HBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/TrackDetails/VBoxContainer" unique_id=763364811]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="CurrentPlaybackTime" type="Label" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/TrackDetails/VBoxContainer/Time" unique_id=1947940006]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SongTime"
+text = "00:01"
+vertical_alignment = 1
+
+[node name="TrackProgressBar" type="ProgressBar" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/TrackDetails/VBoxContainer/Time" unique_id=1195788199]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 8)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"TrackProgressBar"
+show_percentage = false
+
+[node name="TrackDuration" type="Label" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/TrackDetails/VBoxContainer/Time" unique_id=830460386]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SongTime"
+text = "02:49"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Resources" type="HBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top" unique_id=1041883571]
+layout_mode = 2
+theme_override_constants/separation = 450
+alignment = 1
+
+[node name="HealthShield" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources" unique_id=495255259]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 12
+
+[node name="Bar" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield" unique_id=1679009209]
+layout_mode = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Bar" unique_id=198050554]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+value = 100.0
+fill_mode = 1
+texture_under = ExtResource("6_3rj2y")
+texture_over = ExtResource("7_sm7np")
+texture_progress = ExtResource("8_wkyli")
+
+[node name="LowHealthBar" type="TextureProgressBar" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Bar" unique_id=655162877]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+value = 100.0
+fill_mode = 1
+texture_under = ExtResource("6_3rj2y")
+texture_over = ExtResource("7_sm7np")
+texture_progress = ExtResource("10_fs87q")
+
+[node name="Control" type="Control" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield" unique_id=368912246]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control" unique_id=444591285]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer" unique_id=1965828810]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_right = 112
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer/MarginContainer" unique_id=1861461281]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 48
+alignment = 2
+
+[node name="Shields" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1574514145]
+layout_mode = 2
+
+[node name="ShieldBarsContainer" type="HBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer/MarginContainer/HBoxContainer/Shields" unique_id=1054483583]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(352, 64)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 8
+
+[node name="ShieldBar" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer/MarginContainer/HBoxContainer/Shields/ShieldBarsContainer" unique_id=55929734 instance=ExtResource("11_3i4ml")]
+visible = false
+layout_mode = 2
+value = 100.0
+
+[node name="ShieldBar2" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer/MarginContainer/HBoxContainer/Shields/ShieldBarsContainer" unique_id=55891881 instance=ExtResource("11_3i4ml")]
+visible = false
+layout_mode = 2
+value = 100.0
+
+[node name="ShieldBar3" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer/MarginContainer/HBoxContainer/Shields/ShieldBarsContainer" unique_id=969459778 instance=ExtResource("11_3i4ml")]
+visible = false
+layout_mode = 2
+value = 40.0
+
+[node name="ShieldBar4" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer/MarginContainer/HBoxContainer/Shields/ShieldBarsContainer" unique_id=1004167211 instance=ExtResource("11_3i4ml")]
+visible = false
+layout_mode = 2
+value = 0.0
+
+[node name="ShieldBar5" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer/MarginContainer/HBoxContainer/Shields/ShieldBarsContainer" unique_id=62371093 instance=ExtResource("11_3i4ml")]
+visible = false
+layout_mode = 2
+value = 0.0
+
+[node name="Title" type="Label" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1458559456]
+layout_mode = 2
+theme_type_variation = &"ResourceTitle"
+theme_override_font_sizes/font_size = 40
+text = "HP"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Gap" type="Control" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/HealthShield/Control/VBoxContainer" unique_id=763640563]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LevelUpgrades" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources" unique_id=357619597]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bar" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades" unique_id=218393059]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades/Bar" unique_id=1276372598]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="XPBar" type="TextureProgressBar" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades/Bar/Control" unique_id=915089048]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -48.0
+offset_right = 640.0
+offset_bottom = 48.0
+grow_vertical = 2
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(320, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 100.0
+texture_under = ExtResource("6_3rj2y")
+texture_over = ExtResource("7_sm7np")
+texture_progress = ExtResource("8_wkyli")
+
+[node name="Control" type="Control" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades" unique_id=461924876]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades/Control" unique_id=1292570924]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades/Control/VBoxContainer" unique_id=2075114791]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 112
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades/Control/VBoxContainer/MarginContainer" unique_id=1410865855]
+layout_mode = 2
+
+[node name="Level" type="HBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades/Control/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1800608090]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades/Control/VBoxContainer/MarginContainer/HBoxContainer/Level" unique_id=1513798179]
+layout_mode = 2
+theme_type_variation = &"ResourceTitle"
+theme_override_font_sizes/font_size = 40
+text = "Lv."
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Level" type="Label" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades/Control/VBoxContainer/MarginContainer/HBoxContainer/Level" unique_id=1526068828]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ResourceTitle"
+theme_override_font_sizes/font_size = 40
+text = "99"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Gap" type="Control" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Top/Resources/LevelUpgrades/Control/VBoxContainer" unique_id=505869385]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Bot" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer" unique_id=1764535514]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 24
+
+[node name="AudioControls" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Bot" unique_id=1265509424]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Bot/AudioControls" unique_id=2074561547]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="ShufflePlaylistButton" type="TextureButton" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Bot/AudioControls/HBoxContainer" unique_id=1586785281]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("7_aixkq")
+texture_pressed = ExtResource("8_cxhb7")
+texture_hover = ExtResource("8_cxhb7")
+
+[node name="PrevTrackButton" type="TextureButton" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Bot/AudioControls/HBoxContainer" unique_id=1463819075]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_6gxmt")
+texture_pressed = ExtResource("8_olkg6")
+texture_hover = ExtResource("8_olkg6")
+
+[node name="PausePlay" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Bot/AudioControls/HBoxContainer" unique_id=1924375857]
+layout_mode = 2
+
+[node name="PauseTrackButton" type="TextureButton" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Bot/AudioControls/HBoxContainer/PausePlay" unique_id=38261073]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("9_gv4gi")
+texture_pressed = ExtResource("10_5mn0o")
+texture_hover = ExtResource("10_5mn0o")
+
+[node name="ResumeTrackButton" type="TextureButton" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Bot/AudioControls/HBoxContainer/PausePlay" unique_id=205727859]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("9_5uuaq")
+texture_pressed = ExtResource("10_p3vm3")
+texture_hover = ExtResource("10_p3vm3")
+
+[node name="NextTrackButton" type="TextureButton" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Bot/AudioControls/HBoxContainer" unique_id=1199369811]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("19_b6qa6")
+texture_pressed = ExtResource("14_hk13k")
+texture_hover = ExtResource("14_hk13k")
+
+[node name="LoopTrackButton" type="TextureButton" parent="SafeArea/Control/Player/Control/Control/TopBotSplit/VBoxContainer/Bot/AudioControls/HBoxContainer" unique_id=1083498202]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("15_uyo40")
+texture_pressed = ExtResource("16_m6r7j")
+texture_hover = ExtResource("16_m6r7j")
+
+[node name="Foreground" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control" unique_id=2034829023]
+custom_minimum_size = Vector2(1872, 224)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = -96.0
+offset_right = 272.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_right = -320
+
+[node name="Control" type="Control" parent="SafeArea/Control/Player/Control/Control/Foreground" unique_id=881836669]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="UpgradeReady" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/Foreground/Control" unique_id=1842051947]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -544.0
+offset_bottom = 96.0
+grow_horizontal = 0
+
+[node name="UpgradeButton" type="TextureButton" parent="SafeArea/Control/Player/Control/Control/Foreground/Control/UpgradeReady" unique_id=1837152733]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("21_sm7np")
+texture_pressed = ExtResource("22_wkyli")
+texture_hover = ExtResource("22_wkyli")
+texture_focused = ExtResource("22_wkyli")
+
+[node name="TitleMargin" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/Foreground/Control/UpgradeReady" unique_id=438616599]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 12
+
+[node name="Title" type="Label" parent="SafeArea/Control/Player/Control/Control/Foreground/Control/UpgradeReady/TitleMargin" unique_id=1058917923]
+layout_mode = 2
+theme_type_variation = &"UpgradeButtonTitle"
+text = "Upgrade Ready"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Control" type="Control" parent="SafeArea/Control/Player/Control/Control/Foreground/Control/UpgradeReady" unique_id=261526298]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="OpenIndicator" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/Foreground/Control/UpgradeReady/Control" unique_id=2092563605]
+layout_mode = 1
+offset_left = 64.0
+offset_top = -24.0
+offset_right = 160.0
+offset_bottom = 40.0
+theme_type_variation = &"UpgradeButtonOpenIndicatorPanel"
+
+[node name="Background" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/Foreground/Control/UpgradeReady/Control/OpenIndicator" unique_id=351184449]
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="SafeArea/Control/Player/Control/Control/Foreground/Control/UpgradeReady/Control/OpenIndicator/Background" unique_id=1833091012]
+layout_mode = 2
+texture = ExtResource("26_b6qa6")
+
+[node name="Key" type="MarginContainer" parent="SafeArea/Control/Player/Control/Control/Foreground/Control/UpgradeReady/Control/OpenIndicator" unique_id=566129407]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="UpgradeMenuKey" type="Label" parent="SafeArea/Control/Player/Control/Control/Foreground/Control/UpgradeReady/Control/OpenIndicator/Key" unique_id=2099951408]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"UpgradeButtonOpenIndicatorKey"
+text = "tab"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="PauseButton" type="MarginContainer" parent="SafeArea/Control" unique_id=503280640]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="SafeArea/Control/PauseButton" unique_id=152614301]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="SafeArea/Control/PauseButton/Control" unique_id=1180146341]
+anchors_preset = 0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/PauseButton/Control/Control" unique_id=608735814]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="PauseButton" type="Button" parent="SafeArea/Control/PauseButton/Control/Control/VBoxContainer" unique_id=1328100319]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../QuitButton")
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../QuitButton")
+theme = ExtResource("5_4jjo0")
+theme_type_variation = &"CTAButton"
+text = "PAUSE"
+
+[node name="Label" type="Label" parent="SafeArea/Control/PauseButton/Control/Control/VBoxContainer" unique_id=1767644582]
+layout_mode = 2
+theme = ExtResource("5_4jjo0")
+theme_type_variation = &"WaveTitle"
+text = "(ESC)"
+horizontal_alignment = 1
+vertical_alignment = 1

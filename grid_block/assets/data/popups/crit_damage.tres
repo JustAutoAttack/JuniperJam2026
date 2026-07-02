@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PopupData" format=3 uid="uid://bxqnm8swg7hfh"]
+
+[ext_resource type="Script" uid="uid://dk1o3v2rspc8m" path="res://common/resource_data/popup.gd" id="1_7hswo"]
+
+[resource]
+script = ExtResource("1_7hswo")
+type = 1
+color = Color(0.827451, 0.03529412, 0.37254903, 1)
+outline = Color(1, 0.4, 0, 1)
+size = 0.0025
+scale = 1.25
+metadata/_custom_type_script = "uid://dk1o3v2rspc8m"

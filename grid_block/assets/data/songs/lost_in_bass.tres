@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SongData" format=3 uid="uid://dx84scudcv4o0"]
+
+[ext_resource type="AudioStream" uid="uid://cbdsllas6i0u3" path="res://assets/audio/music/lost_in_base-ben_wolves.mp3" id="1_e2h22"]
+[ext_resource type="Script" uid="uid://bxyppi4w4387h" path="res://common/resource_data/song.gd" id="1_opxjy"]
+
+[resource]
+script = ExtResource("1_opxjy")
+audio_stream = ExtResource("1_e2h22")
+display_name = "Lost In Bass"
+artist_name = "Ben Wolves"
+metadata/_custom_type_script = "uid://bxyppi4w4387h"

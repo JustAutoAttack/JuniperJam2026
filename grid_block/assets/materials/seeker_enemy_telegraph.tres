@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dd7wu6pnsvb7v"]
+
+[sub_resource type="Gradient" id="Gradient_baxt8"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.18039216, 0, 0, 1, 0.18039216, 0, 0, 1, 1, 0, 0.23529412, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_81er7"]
+gradient = SubResource("Gradient_baxt8")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 0, 0.2347951, 0.5)
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = SubResource("GradientTexture2D_81er7")

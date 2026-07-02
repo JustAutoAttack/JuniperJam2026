@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatData" format=3 uid="uid://e2i8bok7emx2"]
+
+[ext_resource type="Texture2D" uid="uid://bx6qd63mqfvx2" path="res://assets/ui/textures/icons/stats/crit_chance.png" id="1_l7snl"]
+[ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_lqxf0"]
+
+[resource]
+script = ExtResource("1_lqxf0")
+type = 4
+display_name = "Crit Chance"
+icon = ExtResource("1_l7snl")
+metadata/_custom_type_script = "uid://c3nhvijkqh5sk"

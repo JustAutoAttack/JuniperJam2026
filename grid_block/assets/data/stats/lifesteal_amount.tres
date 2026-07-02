@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatData" format=3 uid="uid://ddtqagf7jtchg"]
+
+[ext_resource type="Texture2D" uid="uid://bcrkvpihvlxx1" path="res://assets/ui/textures/icons/stats/lifesteal_percentage.png" id="1_ntr1n"]
+[ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_u21tq"]
+
+[resource]
+script = ExtResource("1_u21tq")
+type = 10
+display_name = "Lifesteal Amount"
+icon = ExtResource("1_ntr1n")
+metadata/_custom_type_script = "uid://c3nhvijkqh5sk"

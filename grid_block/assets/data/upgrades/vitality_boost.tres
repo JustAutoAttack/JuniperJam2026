@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://c548byrwpmot2"]
+
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_i4w06"]
+[ext_resource type="Texture2D" uid="uid://c222d4doa3qq3" path="res://assets/ui/textures/icons/upgrades/vitality_boost.png" id="1_vsmrd"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_vsmrd"]
+
+[sub_resource type="Resource" id="Resource_q2wne"]
+script = ExtResource("2_vsmrd")
+level_requirement = 2
+value = 0.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_03n3u"]
+script = ExtResource("2_vsmrd")
+level_requirement = 4
+value = 1.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_k7wrv"]
+script = ExtResource("2_vsmrd")
+level_requirement = 8
+value = 1.6
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_n4kiw"]
+script = ExtResource("2_vsmrd")
+level_requirement = 16
+value = 2.6
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_4ltc7"]
+script = ExtResource("2_vsmrd")
+level_requirement = 32
+value = 3.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_i4w06")
+type = 7
+category = 1
+stat_type = 7
+display_name = "Vitality Boost"
+description = "More max health"
+icon = ExtResource("1_vsmrd")
+is_percentage = true
+is_multiplicative = true
+tiers = Dictionary[int, ExtResource("2_vsmrd")]({
+0: SubResource("Resource_q2wne"),
+1: SubResource("Resource_03n3u"),
+2: SubResource("Resource_k7wrv"),
+3: SubResource("Resource_n4kiw"),
+4: SubResource("Resource_4ltc7")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

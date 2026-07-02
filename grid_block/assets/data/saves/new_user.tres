@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="UserSaveData" format=3 uid="uid://cty5uc2u7cxcc"]
+
+[ext_resource type="Script" uid="uid://bt6yjgltll7va" path="res://common/resource_data/save/user_save.gd" id="1_m4fol"]
+
+[resource]
+script = ExtResource("1_m4fol")
+metadata/_custom_type_script = "uid://bt6yjgltll7va"

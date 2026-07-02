@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://b0m5w3mwl2dmd"]
+
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_3ljli"]
+[ext_resource type="Texture2D" uid="uid://c6tnlyrv33qjf" path="res://assets/ui/textures/icons/upgrades/blade_velocity.png" id="1_owmn6"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_owmn6"]
+
+[sub_resource type="Resource" id="Resource_ncqx1"]
+script = ExtResource("2_owmn6")
+level_requirement = 1
+value = 0.25
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_0rc38"]
+script = ExtResource("2_owmn6")
+level_requirement = 5
+value = 0.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_y6bm0"]
+script = ExtResource("2_owmn6")
+level_requirement = 10
+value = 1.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_6oc26"]
+script = ExtResource("2_owmn6")
+level_requirement = 15
+value = 1.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_7wwky"]
+script = ExtResource("2_owmn6")
+level_requirement = 20
+value = 2.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_3ljli")
+type = 1
+stat_type = 1
+display_name = "Blade Velocity"
+description = "Blade hits per second"
+icon = ExtResource("1_owmn6")
+is_percentage = true
+is_multiplicative = true
+tiers = Dictionary[int, ExtResource("2_owmn6")]({
+0: SubResource("Resource_ncqx1"),
+1: SubResource("Resource_0rc38"),
+2: SubResource("Resource_y6bm0"),
+3: SubResource("Resource_6oc26"),
+4: SubResource("Resource_7wwky")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

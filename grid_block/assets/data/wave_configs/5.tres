@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="WaveConfig" format=3 uid="uid://domltdp58r3fb"]
+
+[ext_resource type="Script" uid="uid://ddiu018g3qw8w" path="res://common/resource_data/configs/wave_config.gd" id="1_d4nys"]
+[ext_resource type="Script" uid="uid://crknqjmt452nf" path="res://common/resource_data/enemy/enemy_weight.gd" id="1_shj8d"]
+
+[sub_resource type="Resource" id="Resource_no1wh"]
+script = ExtResource("1_shj8d")
+weight = 0.9
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_n2srv"]
+script = ExtResource("1_shj8d")
+type = 1
+weight = 0.1
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[sub_resource type="Resource" id="Resource_ubjnt"]
+script = ExtResource("1_shj8d")
+weight = 1.0
+metadata/_custom_type_script = "uid://crknqjmt452nf"
+
+[resource]
+script = ExtResource("1_d4nys")
+min_enemy_count = 5
+max_enemy_count = 15
+base_weights = Array[ExtResource("1_shj8d")]([SubResource("Resource_no1wh"), SubResource("Resource_n2srv")])
+milestone_weights = Array[ExtResource("1_shj8d")]([SubResource("Resource_ubjnt")])
+duration = 20.0
+metadata/_custom_type_script = "uid://ddiu018g3qw8w"

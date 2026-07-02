@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://c1frwpro0xt6j"]
+
+[ext_resource type="Script" uid="uid://bcrvw16ic2i6r" path="res://features/enemies/burster/burster.gd" id="1_6qsoq"]
+[ext_resource type="PackedScene" uid="uid://yptic57wud3v" path="res://common/components/health/health.tscn" id="1_bnwm0"]
+[ext_resource type="Shader" uid="uid://dq85vscxt8fhv" path="res://assets/shaders/shape_grids/shape_grid.gdshader" id="1_xtvpl"]
+[ext_resource type="PackedScene" uid="uid://bcvlyixapem36" path="res://common/components/damage/hurtbox.tscn" id="2_bqdq0"]
+[ext_resource type="PackedScene" uid="uid://sxrqwb32268k" path="res://common/components/health/health_bar_3d.tscn" id="4_6qsoq"]
+[ext_resource type="PackedScene" uid="uid://btdn58vw0fk74" path="res://common/components/damage/hitbox.tscn" id="4_t1djd"]
+[ext_resource type="Script" uid="uid://dran37ceqie5g" path="res://features/enemies/shared/states/unused.gd" id="5_t1djd"]
+[ext_resource type="Script" uid="uid://bknkswwy0cjlc" path="res://features/enemies/shared/enemy.gd" id="5_uyrt3"]
+[ext_resource type="Script" uid="uid://b326i5lqbtxbk" path="res://core/base_classes/state_machine.gd" id="7_6kpcq"]
+[ext_resource type="Script" uid="uid://dqijrbwkh2f4j" path="res://features/enemies/shared/states/chase.gd" id="8_1wrgg"]
+[ext_resource type="Script" uid="uid://bfrogc6cod38n" path="res://features/enemies/burster/states/attack.gd" id="9_t1djd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1wrgg"]
+render_priority = 0
+shader = ExtResource("1_xtvpl")
+shader_parameter/base_color = Color(0.14901961, 0.12941177, 0, 1)
+shader_parameter/grid_color = Color(0.98039216, 1, 0, 1)
+shader_parameter/grid_scale = 2.0
+shader_parameter/line_width = 3.0
+shader_parameter/face_alpha = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8mqnv"]
+material = SubResource("ShaderMaterial_1wrgg")
+height = 1.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_t1djd"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ja7ql"]
+height = 0.99902344
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jypnq"]
+height = 1.0
+
+[node name="Burster" type="Node3D" unique_id=1843990197]
+process_mode = 1
+script = ExtResource("1_6qsoq")
+type = 1
+color = Color(0.98039216, 1, 0, 1)
+
+[node name="Health" parent="." unique_id=1968159283 node_paths=PackedStringArray("health_bar") instance=ExtResource("1_bnwm0")]
+health_bar = NodePath("../HealthBar3D/SubViewport/HealthBar")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1197316760 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("7_6kpcq")
+initial_state = NodePath("Chase")
+
+[node name="Chase" type="Node" parent="StateMachine" unique_id=603351504]
+script = ExtResource("8_1wrgg")
+
+[node name="Patrol" type="Node" parent="StateMachine" unique_id=1543951955]
+script = ExtResource("5_t1djd")
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=733831505 node_paths=PackedStringArray("mesh_instance")]
+script = ExtResource("9_t1djd")
+mesh_instance = NodePath("../../Model/MeshInstance3D")
+
+[node name="Model" type="Node3D" parent="." unique_id=2031974595]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model" unique_id=1293361570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_8mqnv")
+
+[node name="HealthBar3D" parent="." unique_id=1803482784 instance=ExtResource("4_6qsoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+texture = SubResource("ViewportTexture_t1djd")
+
+[node name="HealthBar" parent="HealthBar3D/SubViewport" parent_id_path=PackedInt32Array(1803482784, 1344817539) index="0" unique_id=902557929]
+fill_color = Color(0.4627451, 1, 0.011764706, 1)
+
+[node name="Hurtbox" parent="." unique_id=1086022905 instance=ExtResource("2_bqdq0")]
+
+[node name="CollisionShape3D" parent="Hurtbox" index="0" unique_id=947784951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_ja7ql")
+
+[node name="BodyHitbox" parent="." unique_id=2078628729 node_paths=PackedStringArray("hurtbox_blacklist") instance=ExtResource("4_t1djd")]
+hurtbox_blacklist = [NodePath("../Hurtbox")]
+class_blacklist = Array[Script]([ExtResource("5_uyrt3")])
+
+[node name="CollisionShape3D" parent="BodyHitbox" index="0" unique_id=473784805]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_jypnq")
+
+[editable path="HealthBar3D"]
+[editable path="Hurtbox"]
+[editable path="BodyHitbox"]

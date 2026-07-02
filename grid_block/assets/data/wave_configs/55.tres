@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WaveConfig" format=3 uid="uid://ds3yso3qgg2lt"]
+
+[ext_resource type="Script" uid="uid://crknqjmt452nf" path="res://common/resource_data/enemy/enemy_weight.gd" id="1_1i6dm"]
+[ext_resource type="Script" uid="uid://ddiu018g3qw8w" path="res://common/resource_data/configs/wave_config.gd" id="2_skpib"]
+
+[resource]
+script = ExtResource("2_skpib")
+arena_radius = 55.0
+metadata/_custom_type_script = "uid://ddiu018g3qw8w"

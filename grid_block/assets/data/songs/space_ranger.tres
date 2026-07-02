@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SongData" format=3 uid="uid://c4f06upjm55b8"]
+
+[ext_resource type="Script" uid="uid://bxyppi4w4387h" path="res://common/resource_data/song.gd" id="1_fyciq"]
+[ext_resource type="AudioStream" uid="uid://dieqj74t0efkk" path="res://assets/audio/music/space_ranger-moire.mp3" id="1_m6ke6"]
+
+[resource]
+script = ExtResource("1_fyciq")
+audio_stream = ExtResource("1_m6ke6")
+display_name = "Space Ranger"
+artist_name = "Moire"
+metadata/_custom_type_script = "uid://bxyppi4w4387h"

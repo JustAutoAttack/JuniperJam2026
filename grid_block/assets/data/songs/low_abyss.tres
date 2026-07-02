@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SongData" format=3 uid="uid://diprikagyonh2"]
+
+[ext_resource type="AudioStream" uid="uid://cg5lov0mfdel5" path="res://assets/audio/music/low_abyss-ben_wolves.mp3" id="1_astb5"]
+[ext_resource type="Script" uid="uid://bxyppi4w4387h" path="res://common/resource_data/song.gd" id="1_v3200"]
+
+[resource]
+script = ExtResource("1_v3200")
+audio_stream = ExtResource("1_astb5")
+display_name = "Low Abyss"
+artist_name = "Ben Wolves"
+metadata/_custom_type_script = "uid://bxyppi4w4387h"

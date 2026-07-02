@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://bryp8v6o5xfvb"]
+
+[ext_resource type="Texture2D" uid="uid://c5a0fu464vsbd" path="res://assets/ui/textures/icons/upgrades/blade_precision.png" id="1_qdjns"]
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_ttq8u"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_qdjns"]
+
+[sub_resource type="Resource" id="Resource_qds5c"]
+script = ExtResource("2_qdjns")
+level_requirement = 2
+value = 0.05
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_otey0"]
+script = ExtResource("2_qdjns")
+level_requirement = 6
+value = 0.15
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_5wkjm"]
+script = ExtResource("2_qdjns")
+level_requirement = 10
+value = 0.28
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_pagvu"]
+script = ExtResource("2_qdjns")
+level_requirement = 15
+value = 0.36
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_15m8a"]
+script = ExtResource("2_qdjns")
+level_requirement = 20
+value = 0.5
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_ttq8u")
+type = 4
+stat_type = 4
+display_name = "Blade Precision"
+description = "Chance to crit"
+icon = ExtResource("1_qdjns")
+is_percentage = true
+tiers = Dictionary[int, ExtResource("2_qdjns")]({
+0: SubResource("Resource_qds5c"),
+1: SubResource("Resource_otey0"),
+2: SubResource("Resource_5wkjm"),
+3: SubResource("Resource_pagvu"),
+4: SubResource("Resource_15m8a")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

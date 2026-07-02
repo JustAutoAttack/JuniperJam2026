@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://sxrqwb32268k"]
+
+[ext_resource type="PackedScene" uid="uid://bctesatm3mh5q" path="res://common/components/health/health_bar.tscn" id="1_bvsir"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lwvhd"]
+viewport_path = NodePath("SubViewport")
+
+[node name="HealthBar3D" type="Sprite3D" unique_id=1803482784]
+pixel_size = 0.005
+billboard = 1
+alpha_cut = 2
+texture = SubResource("ViewportTexture_lwvhd")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1344817539]
+transparent_bg = true
+size = Vector2i(200, 32)
+
+[node name="HealthBar" parent="SubViewport" unique_id=902557929 instance=ExtResource("1_bvsir")]
+fill_color = Color(1, 0.5686275, 0, 1)

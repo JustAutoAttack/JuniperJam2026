@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://b6bvouh5nsanw"]
+
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_rsrdy"]
+[ext_resource type="Texture2D" uid="uid://bl6rr86rkf1mn" path="res://assets/ui/textures/icons/upgrades/lifesteal_chance.png" id="1_tg17v"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_o5wu0"]
+
+[sub_resource type="Resource" id="Resource_j1ob6"]
+script = ExtResource("2_o5wu0")
+level_requirement = 5
+value = 0.05
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_wk0oi"]
+script = ExtResource("2_o5wu0")
+level_requirement = 9
+value = 0.1
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_rfcmj"]
+script = ExtResource("2_o5wu0")
+level_requirement = 18
+value = 0.15
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_ev8ms"]
+script = ExtResource("2_o5wu0")
+level_requirement = 27
+value = 0.2
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_ray6u"]
+script = ExtResource("2_o5wu0")
+level_requirement = 35
+value = 0.25
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_rsrdy")
+type = 11
+category = 1
+stat_type = 11
+display_name = "Vamprism Chance"
+description = "Increase lifesteal chance"
+icon = ExtResource("1_tg17v")
+is_percentage = true
+tiers = Dictionary[int, ExtResource("2_o5wu0")]({
+0: SubResource("Resource_j1ob6"),
+1: SubResource("Resource_wk0oi"),
+2: SubResource("Resource_rfcmj"),
+3: SubResource("Resource_ev8ms"),
+4: SubResource("Resource_ray6u")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

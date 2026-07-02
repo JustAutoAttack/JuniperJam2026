@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cm4sn5whi612u"]
+
+[ext_resource type="Script" uid="uid://bulmydxkabqo6" path="res://common/resource_data/enemy/enemy.gd" id="1_8wtgu"]
+
+[resource]
+script = ExtResource("1_8wtgu")
+display_name = "Blocker"
+primary_color = Color(0.7372549, 0, 1, 1)
+secondary_color = Color(0.101960786, 0, 0.14901961, 1)
+points = 10
+xp = 15.0
+movement_speed = 2.0
+attack_radius = 1.5
+attack_damage = 2.0
+health = 150.0
+body_damage = 1.0
+metadata/_custom_type_script = "uid://bulmydxkabqo6"

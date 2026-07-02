@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://c6246ujxe24tp"]
+
+[ext_resource type="Texture2D" uid="uid://c285381f3u1x6" path="res://assets/ui/textures/icons/upgrades/shield_array.png" id="1_4hqpj"]
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_6i501"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_4hqpj"]
+
+[sub_resource type="Resource" id="Resource_ahxu6"]
+script = ExtResource("2_4hqpj")
+level_requirement = 4
+value = 1.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_5ixpn"]
+script = ExtResource("2_4hqpj")
+level_requirement = 8
+value = 2.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_50xve"]
+script = ExtResource("2_4hqpj")
+level_requirement = 12
+value = 3.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_ugkh3"]
+script = ExtResource("2_4hqpj")
+level_requirement = 16
+value = 4.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_pba04"]
+script = ExtResource("2_4hqpj")
+level_requirement = 20
+value = 5.0
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_6i501")
+type = 12
+category = 1
+stat_type = 12
+display_name = "Shield Array"
+description = "Add protective layers"
+icon = ExtResource("1_4hqpj")
+tiers = Dictionary[int, ExtResource("2_4hqpj")]({
+0: SubResource("Resource_ahxu6"),
+1: SubResource("Resource_5ixpn"),
+2: SubResource("Resource_50xve"),
+3: SubResource("Resource_ugkh3"),
+4: SubResource("Resource_pba04")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatData" format=3 uid="uid://da0kfcc5t7hhy"]
+
+[ext_resource type="Texture2D" uid="uid://c3dvce3bo3xxq" path="res://assets/ui/textures/icons/stats/evasion.png" id="1_q8yxm"]
+[ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_qpxjg"]
+
+[resource]
+script = ExtResource("1_qpxjg")
+type = 9
+display_name = "Evasion"
+icon = ExtResource("1_q8yxm")
+metadata/_custom_type_script = "uid://c3nhvijkqh5sk"

@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://xus30h061qx0"]
+
+[ext_resource type="Texture2D" uid="uid://dbc7wu3ot7jiu" path="res://assets/ui/textures/icons/upgrades/hp_regeneration.png" id="1_eterb"]
+[ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_ob1ph"]
+[ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_eterb"]
+
+[sub_resource type="Resource" id="Resource_fyeq7"]
+script = ExtResource("2_eterb")
+level_requirement = 2
+value = 0.005
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_3vvem"]
+script = ExtResource("2_eterb")
+level_requirement = 6
+value = 0.01
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_8g8yb"]
+script = ExtResource("2_eterb")
+level_requirement = 10
+value = 0.015
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_mqelp"]
+script = ExtResource("2_eterb")
+level_requirement = 15
+value = 0.025
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[sub_resource type="Resource" id="Resource_nmfgj"]
+script = ExtResource("2_eterb")
+level_requirement = 20
+value = 0.04
+metadata/_custom_type_script = "uid://bfv5bg27dntj"
+
+[resource]
+script = ExtResource("1_ob1ph")
+type = 9
+category = 1
+stat_type = 8
+display_name = "Regeneration"
+description = "Restore a percentage of HP every second"
+icon = ExtResource("1_eterb")
+is_percentage = true
+tiers = Dictionary[int, ExtResource("2_eterb")]({
+0: SubResource("Resource_fyeq7"),
+1: SubResource("Resource_3vvem"),
+2: SubResource("Resource_8g8yb"),
+3: SubResource("Resource_mqelp"),
+4: SubResource("Resource_nmfgj")
+})
+metadata/_custom_type_script = "uid://bndoaybxeoamf"

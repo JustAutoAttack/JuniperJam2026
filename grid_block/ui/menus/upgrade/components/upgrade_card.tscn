@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://uir4l2nsvijp"]
+
+[ext_resource type="Theme" uid="uid://cq4trsjkqbajw" path="res://assets/ui/themes/upgrade_card.tres" id="1_xlj38"]
+[ext_resource type="Script" uid="uid://cts7w2d0qrexy" path="res://ui/menus/upgrade/components/upgrade_card.gd" id="2_efo7a"]
+[ext_resource type="Texture2D" uid="uid://dsq1htsqkuu6e" path="res://assets/ui/textures/panels/primary_background.png" id="3_gydj2"]
+[ext_resource type="Resource" uid="uid://dgcda05uqjhmd" path="res://assets/data/upgrades/agility.tres" id="3_nse4c"]
+[ext_resource type="Texture2D" uid="uid://boyha3014ynfi" path="res://assets/ui/textures/panels/primary_foreground.png" id="4_j746k"]
+[ext_resource type="Texture2D" uid="uid://dknhhrxbtjq4t" path="res://assets/ui/textures/panels/accent_border.png" id="5_j746k"]
+[ext_resource type="Texture2D" uid="uid://rqc5t4hpddh8" path="res://assets/ui/textures/icons/stats/damage.png" id="6_oge0k"]
+[ext_resource type="Texture2D" uid="uid://c1u5ysm3v1ukv" path="res://assets/ui/textures/icons/upgrades/agility.png" id="8_3fhvg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5bls"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03bii"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bq1s"]
+bg_color = Color(1, 1, 1, 0.2)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jnp5"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[node name="UpgradeCard" type="MarginContainer" unique_id=1148706798]
+custom_minimum_size = Vector2(256, 512)
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("1_xlj38")
+script = ExtResource("2_efo7a")
+colors = Dictionary[int, Color]({
+0: Color(0.827451, 0.03529412, 0.37254903, 1),
+1: Color(0, 0.9529412, 1, 1),
+2: Color(0.22352941, 1, 0.078431375, 1)
+})
+foreground_alpha = 0.2
+upgrade_data = ExtResource("3_nse4c")
+
+[node name="BaseTextures" type="MarginContainer" parent="." unique_id=1587950534]
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="BaseTextures" unique_id=173100986]
+unique_name_in_owner = true
+self_modulate = Color(0.22352941, 1, 0.078431375, 1)
+layout_mode = 2
+texture = ExtResource("3_gydj2")
+
+[node name="Foreground" type="TextureRect" parent="BaseTextures" unique_id=1219093816]
+unique_name_in_owner = true
+self_modulate = Color(0.22352941, 1, 0.078431375, 0.2)
+layout_mode = 2
+texture = ExtResource("4_j746k")
+
+[node name="Border" type="TextureRect" parent="BaseTextures" unique_id=1969197481]
+unique_name_in_owner = true
+self_modulate = Color(0.22352941, 1, 0.078431375, 1)
+layout_mode = 2
+texture = ExtResource("5_j746k")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=772812698]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=381484518]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="UpgradeNameMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1010828850]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UpgradeName" type="Label" parent="MarginContainer/VBoxContainer/UpgradeNameMargin" unique_id=448885660]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Name"
+text = "Agility"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="DescriptionMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1851746276]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/DescriptionMargin" unique_id=1170365642]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(332, 232)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"Description"
+text = "Improve movement speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="StatMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1200751905]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/StatMargin" unique_id=963679176]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/StatMargin/CenterContainer" unique_id=1236219291]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="StatName" type="Label" parent="MarginContainer/VBoxContainer/StatMargin/CenterContainer/VBoxContainer" unique_id=890747312]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Name"
+text = "Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/StatMargin/CenterContainer/VBoxContainer" unique_id=330608520]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="StatIcon" type="PanelContainer" parent="MarginContainer/VBoxContainer/StatMargin/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1036304557]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"IconBorder"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/StatMargin/CenterContainer/VBoxContainer/HBoxContainer/StatIcon" unique_id=1972425671]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="StatIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/StatMargin/CenterContainer/VBoxContainer/HBoxContainer/StatIcon/MarginContainer" unique_id=40363601]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("6_oge0k")
+expand_mode = 1
+
+[node name="StatValue" type="Label" parent="MarginContainer/VBoxContainer/StatMargin/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1396555312]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"StatValue"
+text = "+50%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=1810594273]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="UpgradeIcon" type="PanelContainer" parent="Control" unique_id=683953477]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = -100.0
+offset_right = 60.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_type_variation = &"IconBorder"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/UpgradeIcon" unique_id=1376910457]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="UpgradeIcon" type="TextureRect" parent="Control/UpgradeIcon/MarginContainer" unique_id=1210668426]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("8_3fhvg")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Control" unique_id=799476441]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_a5bls")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_03bii")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3bq1s")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8jnp5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3bq1s")

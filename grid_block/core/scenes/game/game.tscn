@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ckn68ld6htu1s"]
+
+[ext_resource type="Script" uid="uid://bf6tu60rc6eij" path="res://core/scenes/game/game.gd" id="1_8gt8o"]
+[ext_resource type="Script" uid="uid://b326i5lqbtxbk" path="res://core/base_classes/state_machine.gd" id="2_1xc84"]
+[ext_resource type="Script" uid="uid://cslu8bfr6vvux" path="res://core/scenes/game/states/title.gd" id="3_oonc4"]
+[ext_resource type="Script" uid="uid://swjpa7i25vsm" path="res://core/scenes/game/states/load.gd" id="4_7k0gx"]
+[ext_resource type="Script" uid="uid://d08yqsl2ssow3" path="res://core/scenes/game/states/world.gd" id="5_oonc4"]
+[ext_resource type="Script" uid="uid://c5nvj2a3qf4x4" path="res://core/scenes/game/controllers/scene.gd" id="6_7k0gx"]
+[ext_resource type="Script" uid="uid://cv2jeim1p84h1" path="res://core/scenes/game/controllers/object.gd" id="7_x2cc6"]
+
+[node name="Game" type="Node" unique_id=1591121742]
+script = ExtResource("1_8gt8o")
+
+[node name="StateMachine" type="Node" parent="." unique_id=2112084787 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_1xc84")
+initial_state = NodePath("Load")
+
+[node name="Title" type="Node" parent="StateMachine" unique_id=945618497]
+script = ExtResource("3_oonc4")
+
+[node name="Load" type="Node" parent="StateMachine" unique_id=343500259 node_paths=PackedStringArray("object_controller")]
+script = ExtResource("4_7k0gx")
+object_controller = NodePath("../../ObjectController")
+
+[node name="World" type="Node" parent="StateMachine" unique_id=678477269]
+script = ExtResource("5_oonc4")
+
+[node name="SceneController" type="Node" parent="." unique_id=2063509557]
+script = ExtResource("6_7k0gx")
+
+[node name="ObjectController" type="Node" parent="." unique_id=477044497]
+script = ExtResource("7_x2cc6")
+
+[node name="Enemies" type="Node" parent="ObjectController" unique_id=1274748867]
+unique_name_in_owner = true
+process_mode = 1
+
+[node name="XP" type="Node" parent="ObjectController" unique_id=633382942]
+unique_name_in_owner = true
+process_mode = 1
+
+[node name="PopupLabels" type="Node" parent="ObjectController" unique_id=1927784218]
+unique_name_in_owner = true
+process_mode = 1
+
+[node name="Debris" type="Node" parent="ObjectController" unique_id=1591795818]
+unique_name_in_owner = true
+process_mode = 1
+
+[node name="Projectiles" type="Node" parent="ObjectController" unique_id=1485518417]
+unique_name_in_owner = true
+process_mode = 1

@@ -1,0 +1,46 @@
+[gd_resource type="Theme" format=3 uid="uid://cq4trsjkqbajw"]
+
+[ext_resource type="Texture2D" uid="uid://dsq1htsqkuu6e" path="res://assets/ui/textures/panels/primary_background.png" id="1_dn0ie"]
+[ext_resource type="Texture2D" uid="uid://boyha3014ynfi" path="res://assets/ui/textures/panels/primary_foreground.png" id="2_mev6s"]
+[ext_resource type="FontFile" uid="uid://bgyp8r8e10jrt" path="res://assets/ui/fonts/KHInterferenceTRIAL-Regular.otf" id="3_v0m0b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mev6s"]
+texture = ExtResource("1_dn0ie")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v0m0b"]
+texture = ExtResource("2_mev6s")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0m0b"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[resource]
+Background/base_type = &"PanelContainer"
+Background/styles/panel = SubResource("StyleBoxTexture_mev6s")
+Description/base_type = &"Label"
+Description/font_sizes/font_size = 32
+Description/fonts/font = ExtResource("3_v0m0b")
+Foreground/base_type = &"PanelContainer"
+Foreground/styles/panel = SubResource("StyleBoxTexture_v0m0b")
+IconBorder/base_type = &"PanelContainer"
+IconBorder/styles/panel = SubResource("StyleBoxFlat_v0m0b")
+Name/base_type = &"Label"
+Name/font_sizes/font_size = 36
+Name/fonts/font = ExtResource("3_v0m0b")
+SectionMargin/base_type = &"MarginContainer"
+SectionMargin/constants/margin_bottom = 24
+SectionMargin/constants/margin_left = 24
+SectionMargin/constants/margin_right = 24
+SectionMargin/constants/margin_top = 24
+StatValue/base_type = &"Label"
+StatValue/font_sizes/font_size = 60
+StatValue/fonts/font = ExtResource("3_v0m0b")

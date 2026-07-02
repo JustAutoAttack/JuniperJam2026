@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://brveqynad6bsq"]
+
+[ext_resource type="Theme" uid="uid://d0dghejn0nuhl" path="res://assets/ui/themes/upgrade_menu.theme" id="1_a5bls"]
+[ext_resource type="Script" uid="uid://tytvx7whkb1g" path="res://ui/menus/upgrade/upgrade_menu.gd" id="1_xkw44"]
+[ext_resource type="PackedScene" uid="uid://uir4l2nsvijp" path="res://ui/menus/upgrade/components/upgrade_card.tscn" id="4_8jnp5"]
+
+[node name="UpgradeMenu" type="Control" unique_id=8548658]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_a5bls")
+script = ExtResource("1_xkw44")
+type = 3
+
+[node name="Control" type="Control" parent="." unique_id=1609690613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=2084290992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrades" type="MarginContainer" parent="Control/HBoxContainer" unique_id=1987266964]
+layout_mode = 2
+
+[node name="Control" type="MarginContainer" parent="Control/HBoxContainer" unique_id=2045133127]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HBoxContainer/Control" unique_id=1831817337]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/Control/CenterContainer" unique_id=2117814952]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 96
+
+[node name="OffenseCard" parent="Control/HBoxContainer/Control/CenterContainer/HBoxContainer" unique_id=1148706798 instance=ExtResource("4_8jnp5")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../UtilityCard")
+focus_neighbor_top = NodePath("../UtilityCard")
+focus_neighbor_right = NodePath("../DefenseCard")
+focus_neighbor_bottom = NodePath("../DefenseCard")
+focus_next = NodePath("../DefenseCard")
+focus_previous = NodePath("../UtilityCard")
+focus_mode = 2
+mouse_filter = 2
+
+[node name="DefenseCard" parent="Control/HBoxContainer/Control/CenterContainer/HBoxContainer" unique_id=937805109 instance=ExtResource("4_8jnp5")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../OffenseCard")
+focus_neighbor_top = NodePath("../OffenseCard")
+focus_neighbor_right = NodePath("../UtilityCard")
+focus_neighbor_bottom = NodePath("../UtilityCard")
+focus_next = NodePath("../UtilityCard")
+focus_previous = NodePath("../OffenseCard")
+focus_mode = 2
+mouse_filter = 2
+upgrade_category = 1
+
+[node name="UtilityCard" parent="Control/HBoxContainer/Control/CenterContainer/HBoxContainer" unique_id=789666408 instance=ExtResource("4_8jnp5")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../DefenseCard")
+focus_neighbor_top = NodePath("../DefenseCard")
+focus_neighbor_right = NodePath("../OffenseCard")
+focus_neighbor_bottom = NodePath("../OffenseCard")
+focus_next = NodePath("../OffenseCard")
+focus_previous = NodePath("../DefenseCard")
+focus_mode = 2
+mouse_filter = 2
+upgrade_category = 2
+
+[node name="Stats" type="MarginContainer" parent="Control/HBoxContainer" unique_id=1378872307]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1738038879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Upgrades" type="MarginContainer" parent="HBoxContainer" unique_id=1021969530]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_top = 108
+
+[node name="Center" type="MarginContainer" parent="HBoxContainer" unique_id=228247543]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.55
+mouse_filter = 2
+theme_override_constants/margin_top = 108
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Center" unique_id=92517460]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 580
+
+[node name="Instructions" type="VBoxContainer" parent="HBoxContainer/Center/VBoxContainer" unique_id=571251156]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Title" type="Label" parent="HBoxContainer/Center/VBoxContainer/Instructions" unique_id=304431259]
+layout_mode = 2
+theme_type_variation = &"InstructionsTitle"
+text = "Upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SubTitle" type="Label" parent="HBoxContainer/Center/VBoxContainer/Instructions" unique_id=1966054266]
+layout_mode = 2
+theme_type_variation = &"InstructionsSubTitle"
+text = "Select an upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="UpgradesRemaining" type="HBoxContainer" parent="HBoxContainer/Center/VBoxContainer" unique_id=1169472848]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="UpgradesRemaining" type="Label" parent="HBoxContainer/Center/VBoxContainer/UpgradesRemaining" unique_id=1019735855]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"UpgradesRemaining"
+theme_override_colors/font_color = Color(0.95686275, 1, 0, 1)
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Title" type="Label" parent="HBoxContainer/Center/VBoxContainer/UpgradesRemaining" unique_id=1519461246]
+layout_mode = 2
+theme_type_variation = &"UpgradesRemaining"
+text = "Upgrades Remaining"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Stats" type="MarginContainer" parent="HBoxContainer" unique_id=1117845215]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_top = 108
