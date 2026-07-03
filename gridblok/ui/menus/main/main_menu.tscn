@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://bmorjhsg5xpq2"]
+[gd_scene format=3]
 
-[ext_resource type="Theme" uid="uid://dikscacoajblv" path="res://assets/ui/themes/main_menu.theme" id="1_27bbg"]
-[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_86e05"]
-[ext_resource type="Script" uid="uid://b7gtvcf64ug4e" path="res://ui/menus/main/main_menu.gd" id="1_t7e0r"]
+[ext_resource type="Theme" path="res://assets/ui/themes/main_menu.theme" id="1_27bbg"]
+[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="1_86e05"]
+[ext_resource type="Script" path="res://ui/menus/main/main_menu.gd" id="1_t7e0r"]
 
-[node name="MainMenu" type="Control" unique_id=147841640 node_paths=PackedStringArray("first_focus")]
+[node name="MainMenu" type="Control" unique_id=147841640]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_27bbg")
 script = ExtResource("1_t7e0r")
-first_focus = NodePath("SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer/Spin")
 
 [node name="SafeArea" type="MarginContainer" parent="." unique_id=1129195523]
 layout_mode = 1
@@ -118,8 +117,37 @@ text = "Quit"
 [node name="Right" type="MarginContainer" parent="SafeArea/Control/Control/SplitView" unique_id=1772264860]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 48
+theme_override_constants/margin_right = 96
+theme_override_constants/margin_bottom = 280
+
+[node name="Control" type="Control" parent="SafeArea/Control/Control/SplitView/Right" unique_id=863659274]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SafeArea/Control/Control/SplitView/Right/Control" unique_id=2043341862]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -574.0
+offset_top = -281.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_bottom = 96
+
+[node name="Credits" type="Button" parent="SafeArea/Control/Control/SplitView/Right/Control/MarginContainer" unique_id=1283042947]
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../../Left/Control/Buttons/VBoxContainer/Spin")
+focus_neighbor_top = NodePath("../../../../Left/Control/Buttons/VBoxContainer/Spin")
+focus_neighbor_right = NodePath("../../../../Left/Control/Buttons/VBoxContainer/Quit")
+focus_neighbor_bottom = NodePath("../../../../Left/Control/Buttons/VBoxContainer/Quit")
+focus_next = NodePath("../../../../Left/Control/Buttons/VBoxContainer/Quit")
+focus_previous = NodePath("../../../../Left/Control/Buttons/VBoxContainer/Spin")
+theme = ExtResource("1_86e05")
+theme_type_variation = &"CTAButton"
+text = "Credits"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control" unique_id=332298867]
 layout_mode = 1
@@ -216,3 +244,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer/Spin" to="." method="_on_spin"]
 [connection signal="pressed" from="SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer/Settings" to="." method="_on_settings"]
 [connection signal="pressed" from="SafeArea/Control/Control/SplitView/Left/Control/Buttons/VBoxContainer/Quit" to="." method="_on_quit"]
+[connection signal="pressed" from="SafeArea/Control/Control/SplitView/Right/Control/MarginContainer/Credits" to="." method="_on_credits"]

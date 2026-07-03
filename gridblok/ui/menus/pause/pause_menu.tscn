@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://3yu5px4epp6q"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://eeubr6p3i7e7" path="res://ui/menus/pause/pause_menu.gd" id="1_23r80"]
-[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_nqosn"]
+[ext_resource type="Script" path="res://ui/menus/pause/pause_menu.gd" id="1_23r80"]
+[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="1_nqosn"]
 
 [node name="PauseMenu" type="Control" unique_id=581349868 node_paths=PackedStringArray("first_focus")]
 layout_mode = 3

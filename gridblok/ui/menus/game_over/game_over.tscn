@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://bomu7hmwblwf5"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://30bvus31o15v" path="res://ui/menus/game_over/game_over.gd" id="1_4m3fg"]
-[ext_resource type="Theme" uid="uid://chw0h5kuct5ah" path="res://assets/ui/themes/hud.theme" id="1_dosym"]
-[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_skcuu"]
+[ext_resource type="Script" path="res://ui/menus/game_over/game_over.gd" id="1_4m3fg"]
+[ext_resource type="Theme" path="res://assets/ui/themes/hud.theme" id="1_dosym"]
+[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="1_skcuu"]
 
-[node name="GameOver" type="Control" unique_id=583448917 node_paths=PackedStringArray("first_focus")]
+[node name="GameOver" type="Control" unique_id=583448917]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,6 @@ grow_vertical = 2
 theme = ExtResource("1_dosym")
 script = ExtResource("1_4m3fg")
 type = 5
-first_focus = NodePath("Control/HBoxContainer/Control/Actions/RespinButton")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=834405777]
 layout_mode = 1
@@ -129,14 +128,19 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
+theme_override_constants/margin_top = 512
 
 [node name="Actions" type="VBoxContainer" parent="Control/HBoxContainer/Control" unique_id=1487183970]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 96
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Control/Actions" unique_id=792768404]
+layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="RespinButton" type="Button" parent="Control/HBoxContainer/Control/Actions" unique_id=2114243365]
+[node name="RespinButton" type="Button" parent="Control/HBoxContainer/Control/Actions/VBoxContainer" unique_id=2114243365]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(574, 185)
 layout_mode = 2
@@ -150,7 +154,7 @@ theme = ExtResource("1_skcuu")
 theme_type_variation = &"CTAButton"
 text = "RESPIN"
 
-[node name="MainMenuButton" type="Button" parent="Control/HBoxContainer/Control/Actions" unique_id=109452225]
+[node name="MainMenuButton" type="Button" parent="Control/HBoxContainer/Control/Actions/VBoxContainer" unique_id=109452225]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(574, 185)
 layout_mode = 2
@@ -164,8 +168,23 @@ theme = ExtResource("1_skcuu")
 theme_type_variation = &"CTAButton"
 text = "MAIN MENU"
 
+[node name="Credits" type="Button" parent="Control/HBoxContainer/Control/Actions" unique_id=910613027]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+focus_neighbor_left = NodePath("../VBoxContainer/MainMenuButton")
+focus_neighbor_top = NodePath("../VBoxContainer/MainMenuButton")
+focus_neighbor_right = NodePath("../VBoxContainer/MainMenuButton")
+focus_neighbor_bottom = NodePath("../VBoxContainer/MainMenuButton")
+focus_next = NodePath("../VBoxContainer/MainMenuButton")
+focus_previous = NodePath("../VBoxContainer/MainMenuButton")
+theme = ExtResource("1_skcuu")
+theme_type_variation = &"CTAButton"
+text = "Credits"
+
 [node name="Stats" type="MarginContainer" parent="Control/HBoxContainer" unique_id=1180241777]
 layout_mode = 2
 
-[connection signal="pressed" from="Control/HBoxContainer/Control/Actions/RespinButton" to="." method="_on_respin"]
-[connection signal="pressed" from="Control/HBoxContainer/Control/Actions/MainMenuButton" to="." method="_on_main_menu"]
+[connection signal="pressed" from="Control/HBoxContainer/Control/Actions/VBoxContainer/RespinButton" to="." method="_on_respin"]
+[connection signal="pressed" from="Control/HBoxContainer/Control/Actions/VBoxContainer/MainMenuButton" to="." method="_on_main_menu"]
+[connection signal="pressed" from="Control/HBoxContainer/Control/Actions/Credits" to="." method="_on_credits"]

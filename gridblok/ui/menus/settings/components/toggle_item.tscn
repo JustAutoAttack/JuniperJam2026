@@ -1,0 +1,42 @@
+[gd_scene format=3]
+
+[ext_resource type="Theme" path="res://assets/ui/themes/settings_menu.theme" id="1_n8frb"]
+[ext_resource type="Texture2D" path="res://assets/ui/textures/buttons/check_mark.png" id="1_ri6ft"]
+[ext_resource type="Script" path="res://ui/menus/settings/components/toggle_item.gd" id="2_wfxki"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfgqr"]
+bg_color = Color(0, 0, 0, 0.2)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+
+[node name="ToggleItem" type="HBoxContainer" unique_id=1897178644]
+size_flags_horizontal = 3
+theme = ExtResource("1_n8frb")
+theme_override_constants/separation = 0
+alignment = 2
+script = ExtResource("2_wfxki")
+
+[node name="Title" type="Label" parent="." unique_id=1036636918]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"VolumeText"
+text = "Disable Death VFX"
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1902647023]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mfgqr")
+
+[node name="CheckBox" type="TextureButton" parent="PanelContainer" unique_id=2089345332]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+texture_pressed = ExtResource("1_ri6ft")

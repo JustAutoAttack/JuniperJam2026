@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://g2favhm7g6vm"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://cjhamuwgkergy" path="res://features/projectiles/burster/burster.gd" id="1_1n3oh"]
-[ext_resource type="Shader" uid="uid://dq85vscxt8fhv" path="res://assets/shaders/shape_grids/shape_grid.gdshader" id="1_p4wyv"]
-[ext_resource type="PackedScene" uid="uid://btdn58vw0fk74" path="res://common/components/damage/hitbox.tscn" id="2_pkgo8"]
-[ext_resource type="Script" uid="uid://bknkswwy0cjlc" path="res://features/enemies/shared/enemy.gd" id="3_we02o"]
+[ext_resource type="Script" path="res://features/projectiles/burster/burster.gd" id="1_1n3oh"]
+[ext_resource type="Shader" path="res://assets/shaders/shape_grids/shape_grid.gdshader" id="1_p4wyv"]
+[ext_resource type="PackedScene" path="res://common/components/damage/hitbox.tscn" id="2_pkgo8"]
+[ext_resource type="Script" path="res://features/enemies/shared/enemy.gd" id="3_we02o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bqdq0"]
 render_priority = 0

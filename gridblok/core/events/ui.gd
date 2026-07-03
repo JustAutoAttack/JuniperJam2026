@@ -81,3 +81,12 @@ class SettingsMenu extends UIEvent:
 		p_action: Enums.SettingsMenuAction
 	) -> void:
 		action = p_action
+
+class CreditsMenu extends UIEvent:
+	
+	var action: Enums.CreditsMenuAction
+	
+	func _init(
+		p_action: Enums.CreditsMenuAction
+	) -> void:
+		action = p_action

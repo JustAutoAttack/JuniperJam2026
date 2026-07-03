@@ -47,10 +47,12 @@ func exit() -> void:
 func _subscribe() -> void:
 	EventBus.subscribe(UIEvent.MainMenu, _handle_ui_main_menu)
 	EventBus.subscribe(UIEvent.SettingsMenu, _handle_ui_settings_menu)
-	
+	EventBus.subscribe(UIEvent.CreditsMenu, _handle_ui_credits_menu)
+
 func _unsubscribe() -> void:
 	EventBus.unsubscribe(UIEvent.MainMenu, _handle_ui_main_menu)
 	EventBus.unsubscribe(UIEvent.SettingsMenu, _handle_ui_settings_menu)
+	EventBus.unsubscribe(UIEvent.CreditsMenu, _handle_ui_credits_menu)
 
 # ===
 # Private
@@ -92,6 +94,22 @@ func _handle_ui_main_menu(event: UIEvent.MainMenu) -> void:
 				)
 			)
 			
+		Enums.MainMenuAction.CREDITS:
+			# Close Main
+			EventBus.emit(
+				UIEvent.ToggleMenu.new(
+					Enums.MenuType.MAIN,
+					false
+				)
+			)
+			
+			# Open Credits
+			EventBus.emit(
+				UIEvent.ToggleMenu.new(
+					Enums.MenuType.CREDITS,
+					true
+				)
+			)
 		
 		# Quit
 		Enums.MainMenuAction.QUIT:
@@ -118,5 +136,24 @@ func _handle_ui_settings_menu(event: UIEvent.SettingsMenu) -> void:
 			EventBus.emit(
 				UIEvent.ToggleHUD.new(
 					false
+				)
+			)
+
+func _handle_ui_credits_menu(event: UIEvent.CreditsMenu) -> void:
+	match event.action:
+		Enums.CreditsMenuAction.DONE:
+			# Close Credits
+			EventBus.emit(
+				UIEvent.ToggleMenu.new(
+					Enums.MenuType.CREDITS,
+					false
+				)
+			)
+			
+			# Open Main
+			EventBus.emit(
+				UIEvent.ToggleMenu.new(
+					Enums.MenuType.MAIN,
+					true
 				)
 			)

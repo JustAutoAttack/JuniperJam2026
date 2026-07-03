@@ -153,6 +153,11 @@ func _settings_to_data(data: SettingsSaveData) -> void:
 	# Controls
 	data.controller_sensitivity_x = settings_context.controller_sensitivity_x
 	data.controller_sensitivity_y = settings_context.controller_sensitivity_y
+	
+	# Gameplay
+	data.death_particles = settings_context.death_particles
+	data.auto_open_upgrade = settings_context.auto_open_upgrade
+	data.damage_flash = settings_context.damage_flash
 
 func _data_to_settings(data: SettingsSaveData) -> void:
 	# Audio
@@ -164,6 +169,11 @@ func _data_to_settings(data: SettingsSaveData) -> void:
 	# Controls
 	settings_context.controller_sensitivity_x = data.controller_sensitivity_x
 	settings_context.controller_sensitivity_y = data.controller_sensitivity_y
+	
+	# Gameplay
+	settings_context.death_particles = data.death_particles
+	settings_context.auto_open_upgrade = data.auto_open_upgrade
+	settings_context.damage_flash = data.damage_flash
 
 func _current_timestamp() -> String:
 	var dt: Dictionary = Time.get_datetime_dict_from_system(true)

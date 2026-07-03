@@ -4,12 +4,15 @@ extends Control
 @export var stat_item_scene: PackedScene
 @export var upgrade_item_scene: PackedScene
 
+@onready var upgrades_scroll_container: UIAutoScrollContainer = %UpgradesScrollContainer
+@onready var stats_scroll_container: UIAutoScrollContainer = %StatsScrollContainer
 @onready var upgrades_container: VBoxContainer = %UpgradesContainer
 @onready var stats_container: VBoxContainer = %StatsContainer
 @onready var version_label: Label = %VersionLabel
 
 var _upgrade_items: Dictionary[Enums.UpgradeType, UIUpgradeMenuUpgradeItem] = {}
 var _stat_items: Dictionary[Enums.StatType, UIUpgradeMenuStatItem] = {}
+
 
 # ===
 # Built-In
@@ -28,6 +31,7 @@ func _ready() -> void:
 # ===
 
 func _setup() -> void:
+	visibility_changed.connect(_on_visibility_changed)
 	version_label.text = Session.full_version_string
 	
 	# Upgrade Items
@@ -56,12 +60,22 @@ func _update_side_items(owned_upgrades: Dictionary[Enums.UpgradeType, Enums.Upgr
 		var upgrade_item: UIUpgradeMenuUpgradeItem = _upgrade_items.get(upgrade_type)
 		var is_owned: bool = owned_upgrades.has(upgrade_type)
 		upgrade_item.is_owned = is_owned
+		
 		if is_owned:
 			upgrade_item.tier_level = owned_upgrades[upgrade_type]
+		
 		upgrades_container.custom_minimum_size.y = upgrades_container.get_combined_minimum_size().y
 	
 	# Stats
 	for stat_type: Enums.StatType in Enums.StatType.values():
 		var stat_item: UIUpgradeMenuStatItem = _stat_items.get(stat_type)
 		stat_item.update()
-		
+
+# ===
+# Signals
+# ===
+
+func _on_visibility_changed() -> void:
+	if visible:
+		upgrades_scroll_container.reset_scroll()
+		stats_scroll_container.reset_scroll()

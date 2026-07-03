@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://brveqynad6bsq"]
+[gd_scene format=3]
 
-[ext_resource type="Theme" uid="uid://d0dghejn0nuhl" path="res://assets/ui/themes/upgrade_menu.theme" id="1_a5bls"]
-[ext_resource type="Script" uid="uid://tytvx7whkb1g" path="res://ui/menus/upgrade/upgrade_menu.gd" id="1_xkw44"]
-[ext_resource type="PackedScene" uid="uid://uir4l2nsvijp" path="res://ui/menus/upgrade/components/upgrade_card.tscn" id="4_8jnp5"]
+[ext_resource type="Theme" path="res://assets/ui/themes/upgrade_menu.theme" id="1_a5bls"]
+[ext_resource type="Script" path="res://ui/menus/upgrade/upgrade_menu.gd" id="1_xkw44"]
+[ext_resource type="PackedScene" path="res://ui/menus/upgrade/components/upgrade_card.tscn" id="4_8jnp5"]
 
 [node name="UpgradeMenu" type="Control" unique_id=8548658]
 layout_mode = 3

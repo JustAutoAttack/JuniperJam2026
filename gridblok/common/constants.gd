@@ -3,6 +3,10 @@ extends RefCounted
 
 const MOUSE_INPUT_COEFFICIENT: float = 0.005
 
+## Multiplier applied to any stat whose StatData.display_name contains
+## "speed" once LIVING_TETHER is owned. See PlayerProvider.get_total_stat().
+const LIVING_TETHER_SPEED_MULTIPLIER: float = 2.0
+
 const BASE_STATS: Dictionary[Enums.StatType, float] = {
 	# Offense
 	Enums.StatType.DAMAGE: 35.0,

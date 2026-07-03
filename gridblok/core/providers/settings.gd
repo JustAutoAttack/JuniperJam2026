@@ -57,3 +57,13 @@ func get_controller_sensitivity() -> Vector2:
 		context.controller_sensitivity_x,
 		context.controller_sensitivity_y
 	)
+
+# --- Toggles ---
+func set_death_particles(value: bool) -> void:
+	context.death_particles = value
+
+func set_auto_open_upgrade(value: bool) -> void:
+	context.auto_open_upgrade = value
+
+func set_damage_flash(value: bool) -> void:
+	context.damage_flash = value

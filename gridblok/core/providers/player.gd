@@ -115,10 +115,11 @@ func get_available_upgrade_offers() -> Dictionary:
 		var next_level: Enums.UpgradeTierLevel = all_tiers[next_idx]
 		var tier_data: UpgradeTier = upgrade_data.tiers.get(next_level)
 		
-		# Level Requirement Check
+		# Level Requirement + Predicate Check
 		if (
-			tier_data and 
-			context.level >= tier_data.level_requirement
+			tier_data and
+			context.level >= tier_data.level_requirement and
+			upgrade_data.meets_predicate(context.owned_upgrades)
 		):
 			if not available_offers.has(category):
 				available_offers[category] = []
@@ -155,4 +156,13 @@ func get_total_stat(stat: Enums.StatType) -> float:
 					flat_bonus += tier_data.value
 
 	var total: float = (base_value + flat_bonus + added_percentage) * multiplicative_multiplier
+
 	return total
+
+# ===
+# Private
+# ===
+
+func _is_speed_stat(stat: Enums.StatType) -> bool:
+	var stat_data: StatData = AssetProvider.get_stat_data(stat)
+	return stat_data and stat_data.display_name.to_lower().contains("speed")

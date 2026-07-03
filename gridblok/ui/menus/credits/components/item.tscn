@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://ui/menus/credits/components/item.gd" id="1_8ul0j"]
+[ext_resource type="Theme" path="res://assets/ui/themes/credits_menu.theme" id="1_yeeyj"]
+
+[node name="Item" type="HBoxContainer" unique_id=1441607501]
+theme = ExtResource("1_yeeyj")
+theme_override_constants/separation = 0
+script = ExtResource("1_8ul0j")
+item_title = null
+item_value = null
+
+[node name="Title" type="Label" parent="." unique_id=1735828330]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ItemTitle"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="." unique_id=1442157406]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ItemValue"
+horizontal_alignment = 2

@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://cfpwwnajfflbx"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://bd73k7r6pwf6h" path="res://ui/paused_view/paused_view.gd" id="1_8j1v3"]
-[ext_resource type="Texture2D" uid="uid://cuhcbh1qx2oag" path="res://assets/ui/textures/upgrade_menu_background.png" id="1_bdume"]
-[ext_resource type="Theme" uid="uid://bp2vijtmwrabm" path="res://assets/ui/themes/paused_view.theme" id="1_dm1rk"]
-[ext_resource type="Texture2D" uid="uid://brc6dw71fwerl" path="res://assets/ui/textures/panels/upgrade_menu_upgrades_background.png" id="2_8j1v3"]
-[ext_resource type="Texture2D" uid="uid://bkkoh7yrpe4po" path="res://assets/ui/textures/panels/upgrade_menu_stats_background.png" id="3_4rqwn"]
-[ext_resource type="PackedScene" uid="uid://btkth3pxsy531" path="res://ui/paused_view/components/stat_item.tscn" id="3_dm1rk"]
-[ext_resource type="PackedScene" uid="uid://q52rd88gas8w" path="res://ui/paused_view/components/upgrade_item.tscn" id="4_5lj52"]
-[ext_resource type="Script" uid="uid://csn4a6yi354bs" path="res://ui/auto_scroll_container.gd" id="8_5lj52"]
-[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="9_5lj52"]
+[ext_resource type="Script" path="res://ui/paused_view/paused_view.gd" id="1_8j1v3"]
+[ext_resource type="Texture2D" path="res://assets/ui/textures/backgrounds/upgrade_menu_background.png" id="1_bdume"]
+[ext_resource type="Theme" path="res://assets/ui/themes/paused_view.theme" id="1_dm1rk"]
+[ext_resource type="Texture2D" path="res://assets/ui/textures/panels/upgrade_menu_upgrades_background.png" id="2_8j1v3"]
+[ext_resource type="Texture2D" path="res://assets/ui/textures/panels/upgrade_menu_stats_background.png" id="3_4rqwn"]
+[ext_resource type="PackedScene" path="res://ui/paused_view/components/stat_item.tscn" id="3_dm1rk"]
+[ext_resource type="PackedScene" path="res://ui/paused_view/components/upgrade_item.tscn" id="4_5lj52"]
+[ext_resource type="Script" path="res://ui/auto_scroll_container.gd" id="8_5lj52"]
+[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="9_5lj52"]
 
 [node name="PausedView" type="Control" unique_id=197821021]
 layout_mode = 3
@@ -113,7 +113,14 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 24
 
-[node name="Title" type="Label" parent="HBoxContainer/Upgrades/VBoxContainer" unique_id=1809980570]
+[node name="Header" type="MarginContainer" parent="HBoxContainer/Upgrades/VBoxContainer" unique_id=229079416]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="Title" type="Label" parent="HBoxContainer/Upgrades/VBoxContainer/Header" unique_id=1809980570]
 layout_mode = 2
 theme_type_variation = &"SidePanelTitle"
 text = "Upgrades"
@@ -121,30 +128,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Upgrades/VBoxContainer" unique_id=1709034041]
+[node name="Body" type="MarginContainer" parent="HBoxContainer/Upgrades/VBoxContainer" unique_id=1709034041]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_right = 16
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Upgrades/VBoxContainer/MarginContainer" unique_id=1762811843 node_paths=PackedStringArray("target_container")]
-custom_minimum_size = Vector2(0, 800)
+[node name="UpgradesScrollContainer" type="ScrollContainer" parent="HBoxContainer/Upgrades/VBoxContainer/Body" unique_id=1762811843 node_paths=PackedStringArray("target_container")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 700)
 layout_mode = 2
 mouse_filter = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 script = ExtResource("8_5lj52")
-scroll_speed = 80.0
+scroll_speed = 60.0
 target_container = NodePath("MarginContainer/UpgradesContainer")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Upgrades/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1165556366]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Upgrades/VBoxContainer/Body/UpgradesScrollContainer" unique_id=1165556366]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/margin_left = 8
 
-[node name="UpgradesContainer" type="VBoxContainer" parent="HBoxContainer/Upgrades/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer" unique_id=1738920246]
+[node name="UpgradesContainer" type="VBoxContainer" parent="HBoxContainer/Upgrades/VBoxContainer/Body/UpgradesScrollContainer/MarginContainer" unique_id=1738920246]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
@@ -177,7 +185,14 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 24
 
-[node name="Title" type="Label" parent="HBoxContainer/Stats/VBoxContainer" unique_id=875034102]
+[node name="Header" type="MarginContainer" parent="HBoxContainer/Stats/VBoxContainer" unique_id=2048678217]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="Title" type="Label" parent="HBoxContainer/Stats/VBoxContainer/Header" unique_id=1205083996]
 layout_mode = 2
 theme_type_variation = &"SidePanelTitle"
 text = "Stats"
@@ -185,30 +200,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Stats/VBoxContainer" unique_id=1743295508]
+[node name="Body" type="MarginContainer" parent="HBoxContainer/Stats/VBoxContainer" unique_id=1743295508]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 24
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Stats/VBoxContainer/MarginContainer" unique_id=1926422607 node_paths=PackedStringArray("target_container")]
-custom_minimum_size = Vector2(0, 800)
+[node name="StatsScrollContainer" type="ScrollContainer" parent="HBoxContainer/Stats/VBoxContainer/Body" unique_id=1926422607 node_paths=PackedStringArray("target_container")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 760)
 layout_mode = 2
 mouse_filter = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 script = ExtResource("8_5lj52")
-scroll_speed = 80.0
+scroll_speed = 60.0
 target_container = NodePath("MarginContainer/StatsContainer")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Stats/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1814203910]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Stats/VBoxContainer/Body/StatsScrollContainer" unique_id=1814203910]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/margin_right = 8
 
-[node name="StatsContainer" type="VBoxContainer" parent="HBoxContainer/Stats/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer" unique_id=676028000]
+[node name="StatsContainer" type="VBoxContainer" parent="HBoxContainer/Stats/VBoxContainer/Body/StatsScrollContainer/MarginContainer" unique_id=676028000]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2

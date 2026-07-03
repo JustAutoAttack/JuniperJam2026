@@ -60,9 +60,7 @@ func exit() -> void:
 	print_debug("Game: Exit WORLD")
 
 func handle_input(event: InputEvent) -> void:
-	# Always allow closing the Game Over menu if we want a way out, 
-	# but block opening new menus (Pause/Upgrade) if it's active.
-	var is_game_over = Session.ui_provider.is_menu_open(Enums.MenuType.GAME_OVER)
+	var is_game_over: bool = Session.ui_provider.is_menu_open(Enums.MenuType.GAME_OVER)
 	
 	if event.is_action_pressed("game_pause_resume"):
 		# If Game Over is active, ignore pause request
@@ -92,11 +90,21 @@ func handle_input(event: InputEvent) -> void:
 		if is_game_over: return
 		
 		if Session.ui_provider.is_menu_open(Enums.MenuType.UPGRADE):
-			EventBus.emit(UIEvent.ToggleMenu.new(Enums.MenuType.UPGRADE, false))
+			EventBus.emit(
+				UIEvent.ToggleMenu.new(
+					Enums.MenuType.UPGRADE, 
+					false
+				)
+			)
 			get_tree().paused = false
 		
 		elif Session.player_context.pending_upgrades > 0:
-			EventBus.emit(UIEvent.ToggleMenu.new(Enums.MenuType.UPGRADE, true))
+			EventBus.emit(
+				UIEvent.ToggleMenu.new(
+					Enums.MenuType.UPGRADE, 
+					true
+				)
+			)
 			get_tree().paused = true
 
 func _subscribe() -> void:
@@ -105,6 +113,8 @@ func _subscribe() -> void:
 	EventBus.subscribe(UIEvent.PauseMenu, _handle_ui_pause_menu)
 	EventBus.subscribe(UIEvent.SettingsMenu, _handle_ui_settings_menu)
 	EventBus.subscribe(UIEvent.GameOverMenu, _handle_ui_game_over_menu)
+	EventBus.subscribe(UIEvent.CreditsMenu, _handle_ui_credits_menu)
+	Session.player_context.pending_upgrades_updated.connect(_on_pending_upgrades_updated)
 
 func _unsubscribe() -> void:
 	EventBus.unsubscribe(GameEvent.GameOver, _handle_game_over)
@@ -112,6 +122,8 @@ func _unsubscribe() -> void:
 	EventBus.unsubscribe(UIEvent.PauseMenu, _handle_ui_pause_menu)
 	EventBus.unsubscribe(UIEvent.SettingsMenu, _handle_ui_settings_menu)
 	EventBus.unsubscribe(UIEvent.GameOverMenu, _handle_ui_game_over_menu)
+	EventBus.unsubscribe(UIEvent.CreditsMenu, _handle_ui_credits_menu)
+	Session.player_context.pending_upgrades_updated.disconnect(_on_pending_upgrades_updated)
 
 # ===
 # Private
@@ -148,6 +160,10 @@ func _toggle_pause(is_paused: bool) -> void:
 
 func _handle_game_over(_event: GameEvent.GameOver) -> void:
 	get_tree().paused = true
+	
+	EventBus.emit(
+		AudioEvent.PlayGameOverSong.new()
+	)
 	
 	EventBus.emit(
 		GameEvent.Paused.new()
@@ -270,11 +286,9 @@ func _handle_ui_settings_menu(event: UIEvent.SettingsMenu) -> void:
 			)
 
 func _handle_ui_game_over_menu(event: UIEvent.GameOverMenu) -> void:
-	var close_menu: bool = false
 	
 	match event.action:
 		Enums.GameOverMenuAction.RESPIN:
-			close_menu = true
 			Session.reset_game()
 			await get_tree().process_frame
 			_toggle_pause(false)
@@ -290,7 +304,6 @@ func _handle_ui_game_over_menu(event: UIEvent.GameOverMenu) -> void:
 			)
 		
 		Enums.GameOverMenuAction.TO_MAIN_MENU:
-			close_menu = true
 			_toggle_pause(false)
 			
 			await get_tree().process_frame
@@ -304,12 +317,71 @@ func _handle_ui_game_over_menu(event: UIEvent.GameOverMenu) -> void:
 					""
 				)
 			)
-	
+		
+		Enums.GameOverMenuAction.CREDITS:
+			# Close Game Over
+			EventBus.emit(
+				UIEvent.ToggleMenu.new(
+					Enums.MenuType.GAME_OVER,
+					false
+				)
+			)
+			
+			# Open Credits
+			EventBus.emit(
+				UIEvent.ToggleMenu.new(
+					Enums.MenuType.CREDITS,
+					true
+				)
+			)
+		
 	# Close
-	if close_menu:
+	EventBus.emit(
+		UIEvent.ToggleMenu.new(
+			Enums.MenuType.GAME_OVER, 
+			false
+		)
+	)
+
+func _handle_ui_credits_menu(event: UIEvent.CreditsMenu) -> void:
+	match event.action:
+		Enums.CreditsMenuAction.DONE:
+			# Close Credits
+			EventBus.emit(
+				UIEvent.ToggleMenu.new(
+					Enums.MenuType.CREDITS,
+					false
+				)
+			)
+			
+			# Open Game Over
+			EventBus.emit(
+				UIEvent.ToggleMenu.new(
+					Enums.MenuType.GAME_OVER,
+					true
+				)
+			)
+
+# ===
+# Signals
+# ===
+
+func _on_pending_upgrades_updated(value: int) -> void:
+	if value <= 0: return
+	
+	var is_upgrade_menu_open: bool = Session.ui_provider.is_menu_open(Enums.MenuType.UPGRADE)
+	var auto_open_enabled: bool = Session.settings_context.auto_open_upgrade
+	
+	if (
+		not is_upgrade_menu_open and 
+		auto_open_enabled
+	):
+		# Open the menu
 		EventBus.emit(
 			UIEvent.ToggleMenu.new(
-				Enums.MenuType.GAME_OVER, 
-				false
+				Enums.MenuType.UPGRADE, 
+				true
 			)
 		)
+		# Pause the game
+		get_tree().paused = true

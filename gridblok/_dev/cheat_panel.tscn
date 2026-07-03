@@ -1,0 +1,46 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://_dev/cheat_panel.gd" id="1_cpnl"]
+
+[node name="CheatPanel" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_cpnl")
+
+[node name="Panel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -70.0
+offset_right = -20.0
+offset_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Panel/Margin/VBox"]
+layout_mode = 2
+text = "Grant Upgrade (Cheat - F2 to close)"
+
+[node name="UpgradeOption" type="OptionButton" parent="Panel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GrantButton" type="Button" parent="Panel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Grant"

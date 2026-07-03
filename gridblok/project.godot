@@ -12,11 +12,11 @@ config_version=5
 
 config/name="Grid Blok"
 config/version="1.0.0"
-run/main_scene="uid://brgrgyyqvdm1h"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+run/main_scene="res://core/scenes/main/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=240
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://icon_64.png"
 
 [audio]
 
@@ -37,11 +37,13 @@ mouse_cursor/custom_image="uid://cle44aueffqie"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/project_statistics/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
+"res://_dev/": "gray",
+"res://addons/": "gray",
 "res://assets/": "orange",
 "res://common/": "green",
 "res://core/": "red",
@@ -132,6 +134,17 @@ menu_upgrade={
 game_pause_resume={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+]
+}
+cheat_grant_upgrade={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194332,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+cheat_toggle_panel={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194333,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 
@@ -155,5 +168,6 @@ common/physics_interpolation=true
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 viewport/hdr_2d=true
 anti_aliasing/quality/msaa_3d=3

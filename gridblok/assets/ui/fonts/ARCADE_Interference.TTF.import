@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://i4m1lyrlpsif"
+uid="uid://dtn4v24g1xt6i"
 path="res://.godot/imported/ARCADE_Interference.TTF-53ba15453547e3f4aa010f5044fc7ac0.fontdata"
 
 [deps]
@@ -22,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
-hinting=1
+hinting=3
 subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0

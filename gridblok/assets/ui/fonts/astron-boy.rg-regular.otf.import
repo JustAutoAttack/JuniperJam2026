@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cjccqqi8boo2m"
+uid="uid://bo1ni0eoyb0as"
 path="res://.godot/imported/astron-boy.rg-regular.otf-9cb7302915d6441b20e5c6b8e8bdae0c.fontdata"
 
 [deps]
@@ -22,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
-hinting=1
+hinting=3
 subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0

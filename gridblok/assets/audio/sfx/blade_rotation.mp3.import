@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/blade_rotation.mp3-23d8fb5d05086f08d1baad6960
 
 [params]
 
-loop=true
-loop_offset=0.0
-bpm=0.0
+loop=false
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4

@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://btdviww574nys"
+uid="uid://c3hn4snulouqc"
 path="res://.godot/imported/KHInterferenceTRIAL-Bold.otf-58e51b7b8f1f490fc2321f7ecea50063.fontdata"
 
 [deps]
@@ -22,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
-hinting=1
+hinting=3
 subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0

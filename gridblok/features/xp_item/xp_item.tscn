@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dte643vohwxu6"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://blfhok68kewcb" path="res://features/xp_item/xp_item.gd" id="1_xr1sh"]
-[ext_resource type="Material" uid="uid://2rmay5gh77yt" path="res://assets/materials/xp_item.material" id="2_3v62m"]
+[ext_resource type="Script" path="res://features/xp_item/xp_item.gd" id="1_xr1sh"]
+[ext_resource type="Material" path="res://assets/materials/xp_item.material" id="2_3v62m"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xi771"]
 material = ExtResource("2_3v62m")

@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://rfxwipqdwg8"]
+[gd_scene format=3 uid="uid://867wqfgh1k7s"]
 
 [ext_resource type="Script" uid="uid://dxctoqdwrc3s4" path="res://core/scenes/player/player.gd" id="1_8rfna"]
 [ext_resource type="Material" uid="uid://chdwxcfeflg5h" path="res://assets/materials/player_hurt.material" id="2_2tb1m"]
 [ext_resource type="Shader" uid="uid://dq85vscxt8fhv" path="res://assets/shaders/shape_grids/shape_grid.gdshader" id="2_7c6ec"]
 [ext_resource type="Script" uid="uid://b4tky4g7yvs13" path="res://core/scenes/player/controllers/camera.gd" id="2_78uwc"]
-[ext_resource type="PackedScene" uid="uid://bcvlyixapem36" path="res://common/components/damage/hurtbox.tscn" id="2_ebstt"]
+[ext_resource type="PackedScene" path="res://common/components/damage/hurtbox.tscn" id="2_ebstt"]
 [ext_resource type="Shader" uid="uid://c1vl32du45rr8" path="res://assets/shaders/player_hurt_pulse.gdshader" id="4_7p6rb"]
 [ext_resource type="Script" uid="uid://da4o8uierlyrg" path="res://core/scenes/player/controllers/weapons.gd" id="4_hnk8h"]
 [ext_resource type="Material" uid="uid://sjrfido7013b" path="res://assets/materials/player_shield.material" id="6_74ihg"]
-[ext_resource type="PackedScene" uid="uid://c7vvocqs1nfwb" path="res://features/weapons/tethered_blade/tethered_blade.tscn" id="7_x4oa3"]
-[ext_resource type="PackedScene" uid="uid://yptic57wud3v" path="res://common/components/health/health.tscn" id="8_7r5wh"]
+[ext_resource type="PackedScene" path="res://features/weapons/tethered_blade/tethered_blade.tscn" id="7_x4oa3"]
+[ext_resource type="PackedScene" path="res://common/components/health/health.tscn" id="8_7r5wh"]
 [ext_resource type="Shader" uid="uid://bx0juqca4f7sv" path="res://assets/shaders/glow_ring.gdshader" id="9_eusb2"]
 [ext_resource type="Script" uid="uid://cuf2er4t4bc38" path="res://core/scenes/player/components/collection_area.gd" id="9_x4oa3"]
 [ext_resource type="Script" uid="uid://diwwceqm5rft3" path="res://core/scenes/player/components/attack_radius.gd" id="11_7p6rb"]
@@ -17,25 +17,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ebstt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_78uwc"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_74ihg"]
-render_priority = 0
-shader = ExtResource("4_7p6rb")
-shader_parameter/flash_color = Color(0.827451, 0.03529412, 0.37254903, 1)
-shader_parameter/flash_alpha = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7r5wh"]
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_74ihg")
-shader = ExtResource("2_7c6ec")
-shader_parameter/base_color = Color(1, 1, 1, 1)
-shader_parameter/grid_color = Color(0, 0, 0, 1)
-shader_parameter/grid_scale = 1.0
-shader_parameter/line_width = 0.0
-shader_parameter/face_alpha = 0.3
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_8rfna"]
-material = SubResource("ShaderMaterial_7r5wh")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_87jrc"]
 material = ExtResource("6_74ihg")
@@ -177,11 +158,6 @@ shape = SubResource("CapsuleShape3D_78uwc")
 
 [node name="Model" type="Node3D" parent="." unique_id=683075243]
 
-[node name="ModelMesh" type="MeshInstance3D" parent="Model" unique_id=1310809217]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_8rfna")
-
 [node name="Shields" type="Node3D" parent="Model" unique_id=55213436]
 unique_name_in_owner = true
 
@@ -209,7 +185,7 @@ mesh = SubResource("CapsuleMesh_juqnv")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 script = ExtResource("2_78uwc")
-pitch_degrees_x = -70.0
+pitch_degrees_x = -65.0
 
 [node name="Yaw" type="Node3D" parent="CameraController" unique_id=573260998]
 unique_name_in_owner = true

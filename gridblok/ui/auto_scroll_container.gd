@@ -1,3 +1,4 @@
+class_name UIAutoScrollContainer
 extends ScrollContainer
 
 @export var scroll_speed: float = 200.0
@@ -33,3 +34,11 @@ func _process(delta: float) -> void:
 		target_container.move_child(first_child, -1)
 		_scroll_accumulator -= threshold
 		scroll_vertical = int(_scroll_accumulator)
+
+# ===
+# Public
+# ===
+
+func reset_scroll() -> void:
+	_scroll_accumulator = 0.0
+	scroll_vertical = 0

@@ -100,7 +100,8 @@ func _handle_toggle_menu(event: UIEvent.ToggleMenu) -> void:
 		menu_type_to_node.get(Enums.MenuType.PAUSE, UIMenu.new()).visible or
 		menu_type_to_node.get(Enums.MenuType.UPGRADE, UIMenu.new()).visible or
 		menu_type_to_node.get(Enums.MenuType.SETTINGS, UIMenu.new()).visible or
-		menu_type_to_node.get(Enums.MenuType.GAME_OVER, UIMenu.new()).visible
+		menu_type_to_node.get(Enums.MenuType.GAME_OVER, UIMenu.new()).visible or 
+		menu_type_to_node.get(Enums.MenuType.CREDITS, UIMenu.new()).visible
 	)
 	
 	_toggle_hud(not is_any_menu_blocking_hud)

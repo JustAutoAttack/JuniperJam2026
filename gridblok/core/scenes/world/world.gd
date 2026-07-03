@@ -57,18 +57,18 @@ func _handle_player_died(_event: WorldEvent.PlayerDied) -> void:
 		)
 	)
 	
-	# Spawn Debris
-	var debris_material: StandardMaterial3D = AssetProvider.get_player_debris_material()
-	var player_position: Vector3 = Session.player_context.world_location
-	EventBus.emit(
-		WorldEvent.SpawnDebris.new(
-			debris_material,
-			player_position
+	# Death Particles
+	if Session.settings_context.death_particles:
+		# Spawn Debris
+		var debris_material: StandardMaterial3D = AssetProvider.get_player_debris_material()
+		var player_position: Vector3 = Session.player_context.world_location
+		EventBus.emit(
+			WorldEvent.SpawnDebris.new(
+				debris_material,
+				player_position
+			)
 		)
-	)
 	
-	# Let that sink in
-	# MAYBE Slow time somehow?
 	get_tree().create_timer(2.0).timeout.connect(
 		func():
 			EventBus.emit(
@@ -121,16 +121,18 @@ func _handle_enemy_died(event: WorldEvent.EnemyDied) -> void:
 		)
 	)
 	
-	# Spawn Debris
-	var debris_material: StandardMaterial3D = AssetProvider.get_enemy_debris_material(
-		event.enemy_type
-	)
-	EventBus.emit(
-		WorldEvent.SpawnDebris.new(
-			debris_material,
-			event.world_location
+	# Death Particles
+	if Session.settings_context.death_particles:
+		# Spawn Debris
+		var debris_material: StandardMaterial3D = AssetProvider.get_enemy_debris_material(
+			event.enemy_type
 		)
-	)
+		EventBus.emit(
+			WorldEvent.SpawnDebris.new(
+				debris_material,
+				event.world_location
+			)
+		)
 
 func _handle_xp_collected(event: WorldEvent.XPItemCollected) -> void:
 	var base_value: float = event.value

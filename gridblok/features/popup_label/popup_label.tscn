@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://b1osi0k1u3m0y"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://qapk0efgrt5w" path="res://features/popup_label/popup_label.gd" id="1_0hbv6"]
-[ext_resource type="FontFile" uid="uid://drapkd1d04444" path="res://assets/ui/fonts/saiba-45.regular.ttf" id="2_vemf4"]
+[ext_resource type="Script" path="res://features/popup_label/popup_label.gd" id="1_0hbv6"]
+[ext_resource type="FontFile" path="res://assets/ui/fonts/saiba-45.regular.ttf" id="2_vemf4"]
 
 [node name="DamageNumber" type="Node3D" unique_id=378251996]
 process_mode = 1

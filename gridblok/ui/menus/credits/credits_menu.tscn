@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://m5khrk0j6xsi"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://fglpargnhm04" path="res://ui/menus/credits/credits_menu.gd" id="1_r046b"]
+[ext_resource type="Theme" path="res://assets/ui/themes/credits_menu.theme" id="1_r7qkv"]
+[ext_resource type="Script" path="res://ui/menus/credits/credits_menu.gd" id="1_r046b"]
+[ext_resource type="Script" path="res://ui/auto_scroll_container.gd" id="2_chxo5"]
+[ext_resource type="Texture2D" path="res://assets/ui/textures/backgrounds/upgrade_menu_background.png" id="2_dhar1"]
+[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="4_7aay0"]
+[ext_resource type="PackedScene" path="res://ui/menus/credits/components/item.tscn" id="5_7aay0"]
 
 [node name="CreditsMenu" type="Control" unique_id=1694449765]
 layout_mode = 3
@@ -9,5 +14,275 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_r7qkv")
 script = ExtResource("1_r046b")
 type = 4
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2034718524]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="Background" type="TextureRect" parent="." unique_id=1134788874]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_dhar1")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=122867009]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 96
+theme_override_constants/margin_top = 96
+theme_override_constants/margin_right = 96
+theme_override_constants/margin_bottom = 96
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2077692893]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1604011291]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=804605294]
+layout_mode = 2
+theme = ExtResource("4_7aay0")
+theme_type_variation = &"MenuTitle"
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubTitle" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1425184892]
+layout_mode = 2
+theme_type_variation = &"SubTitle"
+text = "Full links available on Itch.io page"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1532871797]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 96
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=472892128 node_paths=PackedStringArray("target_container")]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+script = ExtResource("2_chxo5")
+scroll_speed = 75.0
+target_container = NodePath("MarginContainer/VBoxContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=2083644730]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer" unique_id=61636879]
+layout_mode = 2
+theme_override_constants/separation = 240
+
+[node name="Gap" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1595842571]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+
+[node name="DevelopmentTeam" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=182831308]
+layout_mode = 2
+theme_override_constants/margin_left = 512
+theme_override_constants/margin_right = 512
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/DevelopmentTeam" unique_id=596309131]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/DevelopmentTeam/VBoxContainer" unique_id=1763071228]
+layout_mode = 2
+theme_type_variation = &"SectionTitle"
+text = "Development Team"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/DevelopmentTeam/VBoxContainer" unique_id=1180771125]
+layout_mode = 2
+
+[node name="Items" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/DevelopmentTeam/VBoxContainer/MarginContainer" unique_id=1060659502]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="UILead" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/DevelopmentTeam/VBoxContainer/MarginContainer/Items" unique_id=1441607501 instance=ExtResource("5_7aay0")]
+layout_mode = 2
+item_title = "UI Lead"
+item_value = "Gurzy"
+
+[node name="Icons" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/DevelopmentTeam/VBoxContainer/MarginContainer/Items" unique_id=57441113 instance=ExtResource("5_7aay0")]
+layout_mode = 2
+item_title = "Icons"
+item_value = "Rararaa"
+
+[node name="AudioLead" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/DevelopmentTeam/VBoxContainer/MarginContainer/Items" unique_id=638107308 instance=ExtResource("5_7aay0")]
+layout_mode = 2
+item_title = "Audio Lead"
+item_value = "Benz"
+
+[node name="ProgrammingLead" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/DevelopmentTeam/VBoxContainer/MarginContainer/Items" unique_id=75508764 instance=ExtResource("5_7aay0")]
+layout_mode = 2
+item_title = "Programming Lead"
+item_value = "JustAutoAttack"
+
+[node name="ThirdPartyAssets" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=659116205]
+layout_mode = 2
+theme_override_constants/margin_left = 512
+theme_override_constants/margin_right = 512
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/ThirdPartyAssets" unique_id=594535854]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/ThirdPartyAssets/VBoxContainer" unique_id=1309490913]
+layout_mode = 2
+theme_type_variation = &"SectionTitle"
+text = "Third-Party Assets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/ThirdPartyAssets/VBoxContainer" unique_id=1775129783]
+layout_mode = 2
+
+[node name="Items" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/ThirdPartyAssets/VBoxContainer/MarginContainer" unique_id=1359507604]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="Saw Blade" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/ThirdPartyAssets/VBoxContainer/MarginContainer/Items" unique_id=428702007 instance=ExtResource("5_7aay0")]
+layout_mode = 2
+item_title = "Saw Blade"
+item_value = "Quaternius"
+
+[node name="Song1" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/ThirdPartyAssets/VBoxContainer/MarginContainer/Items" unique_id=2143203673 instance=ExtResource("5_7aay0")]
+layout_mode = 2
+item_title = "Take Me SOmewhere"
+item_value = "2050"
+
+[node name="Song2" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/ThirdPartyAssets/VBoxContainer/MarginContainer/Items" unique_id=619928023 instance=ExtResource("5_7aay0")]
+layout_mode = 2
+item_title = "Space Ranger"
+item_value = "Moire"
+
+[node name="Song3" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/ThirdPartyAssets/VBoxContainer/MarginContainer/Items" unique_id=1848139977 instance=ExtResource("5_7aay0")]
+layout_mode = 2
+item_title = "Space Dancers"
+item_value = "2050"
+
+[node name="Saiba45Font" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/ThirdPartyAssets/VBoxContainer/MarginContainer/Items" unique_id=792643229 instance=ExtResource("5_7aay0")]
+layout_mode = 2
+item_title = "Saiba 45 Font"
+item_value = "Yuurin Bee"
+
+[node name="InHousePlaytesters" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1429167490]
+layout_mode = 2
+theme_override_constants/margin_left = 512
+theme_override_constants/margin_right = 512
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/InHousePlaytesters" unique_id=1704796972]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/InHousePlaytesters/VBoxContainer" unique_id=318267547]
+layout_mode = 2
+theme_type_variation = &"SectionTitle"
+text = "In-House Playtesters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/InHousePlaytesters/VBoxContainer" unique_id=1129172171]
+layout_mode = 2
+
+[node name="Items" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/InHousePlaytesters/VBoxContainer/MarginContainer" unique_id=1661169647]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="GameRuler" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/InHousePlaytesters/VBoxContainer/MarginContainer/Items" unique_id=1444487231]
+layout_mode = 2
+theme_type_variation = &"ItemValue"
+text = "Game Ruler"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameJamHost" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=45364834]
+layout_mode = 2
+theme_override_constants/margin_left = 512
+theme_override_constants/margin_right = 512
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/GameJamHost" unique_id=1576662283]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/GameJamHost/VBoxContainer" unique_id=871826775]
+layout_mode = 2
+theme_type_variation = &"SectionTitle"
+text = "Game Jam Host"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/GameJamHost/VBoxContainer" unique_id=653569242]
+layout_mode = 2
+
+[node name="Items" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/GameJamHost/VBoxContainer/MarginContainer" unique_id=305770604]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="JuniperDev" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/GameJamHost/VBoxContainer/MarginContainer/Items" unique_id=938944964]
+layout_mode = 2
+theme_type_variation = &"ItemValue"
+text = "Juniper Dev "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=38462749]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1770118013]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -92.5
+offset_right = 287.0
+offset_bottom = 92.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 540
+
+[node name="DoneButton" type="Button" parent="Control/MarginContainer" unique_id=859884078]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+theme = ExtResource("4_7aay0")
+theme_type_variation = &"CTAButton"
+text = "Done"
+
+[connection signal="pressed" from="Control/MarginContainer/DoneButton" to="." method="_on_done"]

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://c7wca8jah4ub"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://c3v230dmsohkt" path="res://features/arena_ring/arena_ring.gd" id="1_2gnvr"]
-[ext_resource type="Shader" uid="uid://bx0juqca4f7sv" path="res://assets/shaders/glow_ring.gdshader" id="2_aln5h"]
+[ext_resource type="Script" path="res://features/arena_ring/arena_ring.gd" id="1_2gnvr"]
+[ext_resource type="Shader" path="res://assets/shaders/glow_ring.gdshader" id="2_aln5h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aln5h"]
 render_priority = 0

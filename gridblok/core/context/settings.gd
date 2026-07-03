@@ -65,6 +65,34 @@ var controller_sensitivity_y: float:
 			_controller_sensitivity_y = value
 			controller_sensitivity_y_updated.emit(value)
 
+# --- Toggles ---
+signal death_particles_updated(value: bool)
+var _death_particles: bool
+var death_particles: bool:
+	get: return _death_particles
+	set(value):
+		if _authorize_write():
+			_death_particles = value
+			death_particles_updated.emit(value)
+
+signal auto_open_upgrade_updated(value: bool)
+var _auto_open_upgrade: bool
+var auto_open_upgrade: bool:
+	get: return _auto_open_upgrade
+	set(value):
+		if _authorize_write():
+			_auto_open_upgrade = value
+			auto_open_upgrade_updated.emit(value)
+
+signal damage_flash_updated(value: bool)
+var _damage_flash: bool
+var damage_flash: bool:
+	get: return _damage_flash
+	set(value):
+		if _authorize_write():
+			_damage_flash = value
+			damage_flash_updated.emit(value)
+
 # ===
 # Built-In
 # ===
@@ -82,3 +110,8 @@ func reset() -> void:
 	# Controls
 	_controller_sensitivity_x = 1.0
 	_controller_sensitivity_y = 1.0
+	
+	# Gameplay
+	_death_particles = true
+	_auto_open_upgrade = true
+	_damage_flash = true

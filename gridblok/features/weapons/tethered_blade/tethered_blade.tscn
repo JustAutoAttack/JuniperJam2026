@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://c7vvocqs1nfwb"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://cij7ei8yyypqe" path="res://features/weapons/tethered_blade/tethered_blade.gd" id="1_gtti2"]
-[ext_resource type="Material" uid="uid://b7gp2esnc8gv6" path="res://assets/materials/tether.material" id="2_xmbs1"]
-[ext_resource type="PackedScene" uid="uid://ben6lvlrkc5rp" path="res://features/weapons/blade/blade.tscn" id="3_j3sku"]
+[ext_resource type="Script" path="res://features/weapons/tethered_blade/tethered_blade.gd" id="1_gtti2"]
+[ext_resource type="Material" path="res://assets/materials/tether.material" id="2_xmbs1"]
+[ext_resource type="PackedScene" path="res://features/weapons/blade/blade.tscn" id="3_j3sku"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gwu2l"]
 material = ExtResource("2_xmbs1")

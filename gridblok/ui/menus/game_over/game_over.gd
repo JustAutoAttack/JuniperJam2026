@@ -31,7 +31,6 @@ func _emit_action(action: Enums.GameOverMenuAction) -> void:
 func _on_visibility_changed() -> void:
 	if not visible: return
 	
-	var p_context: PlayerContext = Session.player_context
 	var w_context: WorldContext = Session.world_context
 	
 	score_label.text = str(w_context.score)
@@ -44,3 +43,7 @@ func _on_respin() -> void:
 func _on_main_menu() -> void:
 	_emit_press_sfx()
 	_emit_action(Enums.GameOverMenuAction.TO_MAIN_MENU)
+
+func _on_credits() -> void:
+	_emit_press_sfx()
+	_emit_action(Enums.GameOverMenuAction.CREDITS)

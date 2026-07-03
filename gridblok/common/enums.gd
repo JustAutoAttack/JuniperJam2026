@@ -22,6 +22,7 @@ enum HUDAction {
 enum MainMenuAction { 
 	SPIN, 
 	SETTINGS,
+	CREDITS,
 	QUIT
 }
 
@@ -38,17 +39,14 @@ enum SettingsMenuAction {
 	DEFAULT_ALL
 }
 
-enum RewardMenuAction {
-	
-}
-
 enum CreditsMenuAction {
-	
+	DONE
 }
 
 enum GameOverMenuAction {
 	RESPIN,
 	TO_MAIN_MENU,
+	CREDITS,
 	QUIT
 }
 
@@ -130,7 +128,7 @@ enum StatType {
 	MOVE_SPEED,
 	COLLECT_RANGE,
 	XP_GAIN,
-	XP_DOUBLE_CHANCE
+	XP_DOUBLE_CHANCE,
 }
 
 # --- Status Effect ---
@@ -168,8 +166,8 @@ enum UpgradeType {
 	VITALITY_BOOST,       # Max Health
 	REGENERATION,         # Health Regen
 	DODGE_CHANCE,         # Evasion
-	VAMPRISM, # Lifesteal Amount
-	VAMPRISM_CHANCE,   # Lifesteal Chance
+	VAMPRISM,             # Lifesteal Amount
+	VAMPRISM_CHANCE,      # Lifesteal Chance
 	SHIELD_ARRAY,         # Shield Count
 	SHIELD_REPAIR,        # Shield Count
 	REPULSION_FIELD,      # Knockback Force
@@ -179,5 +177,5 @@ enum UpgradeType {
 	AGILITY,              # Move Speed
 	GRAVITY_WELL,         # Collect Range
 	XP_GAIN,              # + Percentage Amount
-	XP_DOUBLE_RATE        # Chance to Double Amount
+	XP_DOUBLE_RATE,       # Chance to Double Amount
 }

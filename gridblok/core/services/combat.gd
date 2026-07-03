@@ -95,9 +95,9 @@ static func request_status_effect(
 # ===
 
 static func _handle_blade_effect_enemy(
-	status_effect: StatusEffectData,
-	blade: Blade,
-	enemy: Enemy
+	_status_effect: StatusEffectData,
+	_blade: Blade,
+	_enemy: Enemy
 ) -> void:
 	pass
 

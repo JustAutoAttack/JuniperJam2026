@@ -1,4 +1,3 @@
-@tool
 class_name UIHUD
 extends Control
 
@@ -79,9 +78,13 @@ func _ready() -> void:
 	_setup_context()
 
 func _process(_delta: float) -> void:
-	var passive_intensity = 0.0
+	var is_flash_enabled: bool = Session.settings_context.damage_flash
+	var passive_intensity: float = 0.0
 	
-	if _last_health_ratio < low_health_threshold:
+	if (
+		is_flash_enabled and 
+		_last_health_ratio < low_health_threshold
+	):
 		var sine_wave = sin(Time.get_ticks_msec() / 1000.0 * (PI * pulse_speed))
 		var peak = remap(
 			_last_health_ratio, 
@@ -94,8 +97,9 @@ func _process(_delta: float) -> void:
 		# Boost the sine wave calculation
 		passive_intensity = (sine_wave * 0.5 + 0.5) * peak
 	
-	# Increase the contribution of passive vs impulse
-	var total_intensity = clamp(passive_intensity + _damage_impulse_intensity, 0.0, 1.0)
+	var total_intensity: float = 0.0
+	if is_flash_enabled:
+		total_intensity = clamp(passive_intensity + _damage_impulse_intensity, 0.0, 1.0)
 	
 	if damage_flash.material is ShaderMaterial:
 		damage_flash.material.set_shader_parameter("intensity", total_intensity)

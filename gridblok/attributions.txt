@@ -1,11 +1,6 @@
 --- Models ---
 - Saw Blade by Quaternius (https://poly.pizza/m/HLOlecPOVD)
 
---- Icons ---
-- <a href="https://www.flaticon.com/free-icons/toggle" title="toggle icons">Toggle icons created by Plastic Donut - Flaticon</a>
-- <a href="https://www.flaticon.com/free-icons/toggle-button" title="toggle button icons">Toggle button icons created by Plastic Donut - Flaticon</a>
---- Fonts ---
-
 - https://www.1001fonts.com/saiba-45-font.html
 - https://www.1001fonts.com/astron-boy-font.html
 

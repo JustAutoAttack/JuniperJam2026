@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dgcda05uqjhmd"]
 
-[ext_resource type="Texture2D" uid="uid://c1u5ysm3v1ukv" path="res://assets/ui/textures/icons/upgrades/agility.png" id="1_1jp17"]
+[ext_resource type="Texture2D" uid="uid://bc28iy3x4mi8e" path="res://assets/ui/textures/icons/upgrades/agility.png" id="1_1jp17"]
 [ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_fjpts"]
 [ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_1jp17"]
 

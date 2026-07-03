@@ -13,6 +13,7 @@ var pulse_tween: Tween
 
 func _ready() -> void:
 	version_label.text = Session.full_version_string
+	visibility_changed.connect(_on_visibility_changed)
 
 # ===
 # Private
@@ -31,9 +32,7 @@ func _emit_action(action: Enums.MainMenuAction) -> void:
 
 func _on_visibility_changed() -> void:
 	if visible:
-		
-		credits_label.text = "(0)"
-		# Animate insert coin to slowly pulse
+		credits_label.text = "(1)"
 		pulse_tween = create_tween().set_loops()
 		pulse_tween.tween_property(insert_coin_label, "modulate:a", 0.2, 1.0)
 		pulse_tween.tween_property(insert_coin_label, "modulate:a", 1.0, 1.0)
@@ -51,7 +50,7 @@ func _on_spin() -> void:
 			)
 		)
 	
-	credits_label.text = "(1)"
+	credits_label.text = "(0)"
 	
 	await get_tree().create_timer(0.5).timeout
 	
@@ -64,3 +63,7 @@ func _on_settings() -> void:
 func _on_quit() -> void:
 	_emit_press_sfx()
 	_emit_action(Enums.MainMenuAction.QUIT)
+
+func _on_credits() -> void:
+	_emit_press_sfx()
+	_emit_action(Enums.MainMenuAction.CREDITS)

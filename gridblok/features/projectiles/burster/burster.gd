@@ -8,7 +8,6 @@ extends Node3D
 
 @onready var hitbox: Hitbox = $Hitbox
 
-var _velocity: Vector3 = Vector3.ZERO
 var _current_speed: float = 0.0
 var _direction: Vector3 = Vector3.ZERO
 

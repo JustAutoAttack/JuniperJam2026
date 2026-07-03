@@ -1,10 +1,16 @@
-[gd_scene format=3 uid="uid://dxpg5m5drf3kr"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://j7ohg2f7tgb" path="res://ui/menus/settings/settings_menu.gd" id="1_jvj8q"]
-[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_ljtwq"]
-[ext_resource type="PackedScene" uid="uid://bmmk441obi61g" path="res://ui/menus/settings/components/volume_control.tscn" id="3_pm4q0"]
+[ext_resource type="Script" path="res://ui/menus/settings/settings_menu.gd" id="1_jvj8q"]
+[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="1_ljtwq"]
+[ext_resource type="Theme" path="res://assets/ui/themes/settings_menu.theme" id="1_mfgqr"]
+[ext_resource type="Texture2D" path="res://assets/ui/textures/backgrounds/settings_menu_background.png" id="3_3xokn"]
+[ext_resource type="PackedScene" path="res://ui/menus/settings/components/volume_control.tscn" id="3_pm4q0"]
+[ext_resource type="PackedScene" path="res://ui/menus/settings/components/toggle_item.tscn" id="6_mfgqr"]
 
-[node name="SettingsMenu" type="Control" unique_id=379611113 node_paths=PackedStringArray("first_focus")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kqt3j"]
+texture = ExtResource("3_3xokn")
+
+[node name="SettingsMenu" type="Control" unique_id=379611113]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,10 +18,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("1_ljtwq")
+theme = ExtResource("1_mfgqr")
 script = ExtResource("1_jvj8q")
 type = 2
-first_focus = NodePath("Control/HBoxContainer/Center/CTA/SaveButton")
 
 [node name="Control" type="Control" parent="." unique_id=479709093]
 layout_mode = 1
@@ -29,52 +34,7 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1296007484]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Upgrades" type="MarginContainer" parent="Control/HBoxContainer" unique_id=827510028]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Center" type="MarginContainer" parent="Control/HBoxContainer" unique_id=1715515062]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-theme_override_constants/margin_bottom = 240
-
-[node name="CTA" type="HBoxContainer" parent="Control/HBoxContainer/Center" unique_id=1360558698]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-mouse_filter = 2
-theme_override_constants/separation = 96
-
-[node name="SaveButton" type="Button" parent="Control/HBoxContainer/Center/CTA" unique_id=607806893]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(574, 185)
-layout_mode = 2
-theme_type_variation = &"CTAButton"
-text = "Save"
-
-[node name="DefaultAllButton" type="Button" parent="Control/HBoxContainer/Center/CTA" unique_id=644157347]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(574, 185)
-layout_mode = 2
-theme_type_variation = &"CTAButton"
-text = "Default All"
-
-[node name="Stats" type="MarginContainer" parent="Control/HBoxContainer" unique_id=980910868]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1320328409]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1320328409]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,82 +44,126 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Upgrades" type="MarginContainer" parent="HBoxContainer" unique_id=1980601859]
+[node name="Upgrades" type="MarginContainer" parent="Control/HBoxContainer" unique_id=1980601859]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/margin_top = 108
 
-[node name="Center" type="MarginContainer" parent="HBoxContainer" unique_id=128676791]
+[node name="Center" type="MarginContainer" parent="Control/HBoxContainer" unique_id=128676791]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.55
 mouse_filter = 2
-theme_override_constants/margin_top = 108
+theme_override_constants/margin_top = 240
+theme_override_constants/margin_bottom = 240
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Center" unique_id=1945623856]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Center" unique_id=1945623856]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="HBoxContainer/Center/VBoxContainer" unique_id=201939985]
+[node name="Title" type="Label" parent="Control/HBoxContainer/Center/VBoxContainer" unique_id=201939985]
 layout_mode = 2
 size_flags_vertical = 1
+theme = ExtResource("1_ljtwq")
 theme_type_variation = &"MenuTitle"
 text = "Settings"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Center/VBoxContainer" unique_id=960644017]
+[node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer/Center/VBoxContainer" unique_id=960644017]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/margin_left = 480
+theme_override_constants/margin_top = 240
+theme_override_constants/margin_right = 480
+theme_override_constants/margin_bottom = 240
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Center/VBoxContainer/MarginContainer" unique_id=12721331]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer" unique_id=1302229240]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer" unique_id=964346460]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1534503623]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer" unique_id=472342911]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kqt3j")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer" unique_id=774912913]
+layout_mode = 2
+theme_override_constants/margin_left = 148
+theme_override_constants/margin_top = 148
+theme_override_constants/margin_right = 148
+theme_override_constants/margin_bottom = 148
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer/MarginContainer" unique_id=1756801225]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 48
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Center/VBoxContainer/MarginContainer/CenterContainer" unique_id=1756801225]
+[node name="VolumeControls" type="VBoxContainer" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=885227957]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 24
 
-[node name="VolumeControls" type="VBoxContainer" parent="HBoxContainer/Center/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer" unique_id=885227957]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="MasterVolumeControl" parent="HBoxContainer/Center/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/VolumeControls" unique_id=991297135 instance=ExtResource("3_pm4q0")]
+[node name="MasterVolumeControl" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VolumeControls" unique_id=991297135 instance=ExtResource("3_pm4q0")]
 unique_name_in_owner = true
 layout_mode = 2
 title = "Master"
 
-[node name="MuteButton" parent="HBoxContainer/Center/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/VolumeControls/MasterVolumeControl" index="0" unique_id=729850661]
-text = "MUTE"
-
-[node name="Title" parent="HBoxContainer/Center/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/VolumeControls/MasterVolumeControl" index="1" unique_id=1221638591]
-text = "Master"
-
-[node name="MusicVolumeControl" parent="HBoxContainer/Center/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/VolumeControls" unique_id=639727741 instance=ExtResource("3_pm4q0")]
+[node name="MusicVolumeControl" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VolumeControls" unique_id=639727741 instance=ExtResource("3_pm4q0")]
 unique_name_in_owner = true
 layout_mode = 2
 title = "Music"
 
-[node name="SFXVolumeControl" parent="HBoxContainer/Center/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/VolumeControls" unique_id=530152981 instance=ExtResource("3_pm4q0")]
+[node name="SFXVolumeControl" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VolumeControls" unique_id=530152981 instance=ExtResource("3_pm4q0")]
 unique_name_in_owner = true
 layout_mode = 2
 title = "SFX"
 
-[node name="Toggles" type="VBoxContainer" parent="HBoxContainer/Center/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer" unique_id=1078725911]
+[node name="TogglesMargin" type="MarginContainer" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=70313716]
 layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 128
 
-[node name="CTA" type="HBoxContainer" parent="HBoxContainer/Center/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer" unique_id=961708310]
+[node name="Toggles" type="VBoxContainer" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TogglesMargin" unique_id=1650845674]
 layout_mode = 2
+theme_override_constants/separation = 24
 
-[node name="Stats" type="MarginContainer" parent="HBoxContainer" unique_id=1545139745]
+[node name="DeathParticles" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TogglesMargin/Toggles" unique_id=1897178644 instance=ExtResource("6_mfgqr")]
+unique_name_in_owner = true
+layout_mode = 2
+title = "explosion particles"
+
+[node name="AutoOpenUpgrade" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TogglesMargin/Toggles" unique_id=107673386 instance=ExtResource("6_mfgqr")]
+unique_name_in_owner = true
+layout_mode = 2
+title = "auto-open upgrade menu"
+
+[node name="DamageFlash" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TogglesMargin/Toggles" unique_id=1855450402 instance=ExtResource("6_mfgqr")]
+unique_name_in_owner = true
+layout_mode = 2
+title = "screen flash on damage"
+
+[node name="SaveButton" type="Button" parent="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer" unique_id=607806893]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(574, 185)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_ljtwq")
+theme_type_variation = &"CTAButton"
+text = "Save"
+
+[node name="Stats" type="MarginContainer" parent="Control/HBoxContainer" unique_id=1545139745]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/margin_top = 108
 
-[connection signal="pressed" from="Control/HBoxContainer/Center/CTA/SaveButton" to="." method="_on_save"]
-[connection signal="pressed" from="Control/HBoxContainer/Center/CTA/DefaultAllButton" to="." method="_on_default_all"]
-
-[editable path="HBoxContainer/Center/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/VolumeControls/MasterVolumeControl"]
+[connection signal="pressed" from="Control/HBoxContainer/Center/VBoxContainer/MarginContainer/VBoxContainer/SaveButton" to="." method="_on_save"]
