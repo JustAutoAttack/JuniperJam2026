@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://b6bvouh5nsanw"]
 
 [ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_rsrdy"]
-[ext_resource type="Texture2D" uid="uid://bl6rr86rkf1mn" path="res://assets/ui/textures/icons/upgrades/lifesteal_chance.png" id="1_tg17v"]
+[ext_resource type="Texture2D" uid="uid://c5rcln2acdg1l" path="res://assets/ui/textures/icons/upgrades/lifesteal_chance.png" id="1_tg17v"]
 [ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_o5wu0"]
 
 [sub_resource type="Resource" id="Resource_j1ob6"]

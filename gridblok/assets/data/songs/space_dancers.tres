@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SongData" format=3 uid="uid://hhh1sl8h3rfo"]
 
 [ext_resource type="Script" uid="uid://bxyppi4w4387h" path="res://common/resource_data/song.gd" id="1_eu1ax"]
-[ext_resource type="AudioStream" uid="uid://bwu3q2d7ek1j6" path="res://assets/audio/music/space_dancers-2050.mp3" id="1_srre3"]
+[ext_resource type="AudioStream" uid="uid://cxjpiru0csa18" path="res://assets/audio/music/space_dancers-2050.mp3" id="1_srre3"]
 
 [resource]
 script = ExtResource("1_eu1ax")

@@ -1,15 +1,16 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bl0l7oxxay2ih"]
 
-[ext_resource type="Script" path="res://_dev/cheat_panel.gd" id="1_cpnl"]
+[ext_resource type="Script" uid="uid://c5n77v76mdjx7" path="res://_dev/cheat_panel.gd" id="1_cpnl"]
 
-[node name="CheatPanel" type="CanvasLayer"]
+[node name="CheatPanel" type="CanvasLayer" unique_id=97671396]
 process_mode = 3
 layer = 128
 script = ExtResource("1_cpnl")
 
-[node name="Panel" type="PanelContainer" parent="."]
+[node name="Panel" type="PanelContainer" parent="." unique_id=1975573174]
 unique_name_in_owner = true
 visible = false
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -21,26 +22,26 @@ offset_bottom = 70.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Margin" type="MarginContainer" parent="Panel"]
+[node name="Margin" type="MarginContainer" parent="Panel" unique_id=1666546369]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin" unique_id=842159486]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Title" type="Label" parent="Panel/Margin/VBox"]
+[node name="Title" type="Label" parent="Panel/Margin/VBox" unique_id=1238277899]
 layout_mode = 2
 text = "Grant Upgrade (Cheat - F2 to close)"
 
-[node name="UpgradeOption" type="OptionButton" parent="Panel/Margin/VBox"]
+[node name="UpgradeOption" type="OptionButton" parent="Panel/Margin/VBox" unique_id=1072943268]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="GrantButton" type="Button" parent="Panel/Margin/VBox"]
+[node name="GrantButton" type="Button" parent="Panel/Margin/VBox" unique_id=1197080170]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Grant"

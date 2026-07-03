@@ -1,8 +1,8 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://dqnbcnw6ipcp2"]
 
-[ext_resource type="Script" path="res://features/weapons/blade/blade.gd" id="1_okyp5"]
-[ext_resource type="PackedScene" path="res://common/components/damage/hitbox.tscn" id="2_hy6hd"]
-[ext_resource type="Script" path="res://core/scenes/player/player.gd" id="3_11xxv"]
+[ext_resource type="Script" uid="uid://diabmimfj7nwd" path="res://features/weapons/blade/blade.gd" id="1_okyp5"]
+[ext_resource type="PackedScene" uid="uid://c6n74rvdqhue4" path="res://common/components/damage/hitbox.tscn" id="2_hy6hd"]
+[ext_resource type="Script" uid="uid://dxctoqdwrc3s4" path="res://core/scenes/player/player.gd" id="3_11xxv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hkq5"]
 resource_name = "Metal"

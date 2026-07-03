@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://bfgi3207fv54p"]
 
-[ext_resource type="Texture2D" uid="uid://miq2av5mq24s" path="res://assets/ui/textures/icons/upgrades/orbit_velocity.png" id="1_b2npr"]
+[ext_resource type="Texture2D" uid="uid://bbfm00d85sxex" path="res://assets/ui/textures/icons/upgrades/orbit_velocity.png" id="1_b2npr"]
 [ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_v5lrq"]
 [ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_b2npr"]
 

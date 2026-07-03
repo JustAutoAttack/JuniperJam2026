@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StatData" format=3 uid="uid://duylxuoyv10bc"]
 
-[ext_resource type="Texture2D" uid="uid://bpujph05k0gn" path="res://assets/ui/textures/icons/upgrades/orbit_radius.png" id="1_7fskb"]
+[ext_resource type="Texture2D" uid="uid://1jnwope7mdr5" path="res://assets/ui/textures/icons/upgrades/orbit_radius.png" id="1_7fskb"]
 [ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_egf8l"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://gksmxsarassu"]
 
-[ext_resource type="Texture2D" uid="uid://de34setrsoret" path="res://assets/ui/textures/icons/upgrades/dodge_chance.png" id="1_f4h2y"]
+[ext_resource type="Texture2D" uid="uid://d18edxt4veqly" path="res://assets/ui/textures/icons/upgrades/dodge_chance.png" id="1_f4h2y"]
 [ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_gv3eh"]
 [ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_f4h2y"]
 

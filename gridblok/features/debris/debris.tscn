@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://byqpvyowwbjqd"]
 
-[ext_resource type="Script" path="res://features/debris/debris.gd" id="1_6jeey"]
-[ext_resource type="Material" path="res://assets/materials/debris/enemy/blocker.material" id="2_nc7qo"]
+[ext_resource type="Script" uid="uid://bltntnw3xrxkb" path="res://features/debris/debris.gd" id="1_6jeey"]
+[ext_resource type="Material" uid="uid://pcrysec424nc" path="res://assets/materials/debris/enemy/blocker.material" id="2_nc7qo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6jeey"]
 material = ExtResource("2_nc7qo")

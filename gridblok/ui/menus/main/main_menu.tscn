@@ -1,8 +1,8 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bdkbsma71ju6u"]
 
-[ext_resource type="Theme" path="res://assets/ui/themes/main_menu.theme" id="1_27bbg"]
-[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="1_86e05"]
-[ext_resource type="Script" path="res://ui/menus/main/main_menu.gd" id="1_t7e0r"]
+[ext_resource type="Theme" uid="uid://dikscacoajblv" path="res://assets/ui/themes/main_menu.theme" id="1_27bbg"]
+[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_86e05"]
+[ext_resource type="Script" uid="uid://b7gtvcf64ug4e" path="res://ui/menus/main/main_menu.gd" id="1_t7e0r"]
 
 [node name="MainMenu" type="Control" unique_id=147841640]
 layout_mode = 3

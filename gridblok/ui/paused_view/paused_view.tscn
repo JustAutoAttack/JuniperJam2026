@@ -1,14 +1,14 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://7unwrrn38ku3"]
 
-[ext_resource type="Script" path="res://ui/paused_view/paused_view.gd" id="1_8j1v3"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/backgrounds/upgrade_menu_background.png" id="1_bdume"]
-[ext_resource type="Theme" path="res://assets/ui/themes/paused_view.theme" id="1_dm1rk"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/panels/upgrade_menu_upgrades_background.png" id="2_8j1v3"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/panels/upgrade_menu_stats_background.png" id="3_4rqwn"]
+[ext_resource type="Script" uid="uid://bd73k7r6pwf6h" path="res://ui/paused_view/paused_view.gd" id="1_8j1v3"]
+[ext_resource type="Texture2D" uid="uid://dst7yjn4l6ry5" path="res://assets/ui/textures/backgrounds/upgrade_menu_background.png" id="1_bdume"]
+[ext_resource type="Theme" uid="uid://bp2vijtmwrabm" path="res://assets/ui/themes/paused_view.theme" id="1_dm1rk"]
+[ext_resource type="Texture2D" uid="uid://dek0xhuvpw6ui" path="res://assets/ui/textures/panels/upgrade_menu_upgrades_background.png" id="2_8j1v3"]
+[ext_resource type="Texture2D" uid="uid://c2fk85etcbksp" path="res://assets/ui/textures/panels/upgrade_menu_stats_background.png" id="3_4rqwn"]
 [ext_resource type="PackedScene" path="res://ui/paused_view/components/stat_item.tscn" id="3_dm1rk"]
 [ext_resource type="PackedScene" path="res://ui/paused_view/components/upgrade_item.tscn" id="4_5lj52"]
-[ext_resource type="Script" path="res://ui/auto_scroll_container.gd" id="8_5lj52"]
-[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="9_5lj52"]
+[ext_resource type="Script" uid="uid://csn4a6yi354bs" path="res://ui/auto_scroll_container.gd" id="8_5lj52"]
+[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="9_5lj52"]
 
 [node name="PausedView" type="Control" unique_id=197821021]
 layout_mode = 3

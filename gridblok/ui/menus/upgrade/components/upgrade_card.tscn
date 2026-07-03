@@ -1,13 +1,13 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cni1dod2xweax"]
 
-[ext_resource type="Theme" path="res://assets/ui/themes/upgrade_card.tres" id="1_xlj38"]
-[ext_resource type="Script" path="res://ui/menus/upgrade/components/upgrade_card.gd" id="2_efo7a"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/panels/primary_background.png" id="3_gydj2"]
-[ext_resource type="Resource" path="res://assets/data/upgrades/agility.tres" id="3_nse4c"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/panels/primary_foreground.png" id="4_j746k"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/panels/accent_border.png" id="5_j746k"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/icons/stats/damage.png" id="6_oge0k"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/icons/upgrades/agility.png" id="8_3fhvg"]
+[ext_resource type="Theme" uid="uid://cq4trsjkqbajw" path="res://assets/ui/themes/upgrade_card.tres" id="1_xlj38"]
+[ext_resource type="Script" uid="uid://cts7w2d0qrexy" path="res://ui/menus/upgrade/components/upgrade_card.gd" id="2_efo7a"]
+[ext_resource type="Texture2D" uid="uid://cr6d45cumkti2" path="res://assets/ui/textures/panels/primary_background.png" id="3_gydj2"]
+[ext_resource type="Resource" uid="uid://dgcda05uqjhmd" path="res://assets/data/upgrades/agility.tres" id="3_nse4c"]
+[ext_resource type="Texture2D" uid="uid://cobnxf0t75nn5" path="res://assets/ui/textures/panels/primary_foreground.png" id="4_j746k"]
+[ext_resource type="Texture2D" uid="uid://nfiw356s4iun" path="res://assets/ui/textures/panels/accent_border.png" id="5_j746k"]
+[ext_resource type="Texture2D" uid="uid://2vyjyqfb5a4" path="res://assets/ui/textures/icons/stats/damage.png" id="6_oge0k"]
+[ext_resource type="Texture2D" uid="uid://bc28iy3x4mi8e" path="res://assets/ui/textures/icons/upgrades/agility.png" id="8_3fhvg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5bls"]
 bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)

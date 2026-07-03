@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StatData" format=3 uid="uid://cr1ubyjn4oq3o"]
 
 [ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_hbxke"]
-[ext_resource type="Texture2D" uid="uid://d1xjcmajmvx55" path="res://assets/ui/textures/icons/stats/xp_double_chance.png" id="1_t317p"]
+[ext_resource type="Texture2D" uid="uid://dlmrlfl38q54r" path="res://assets/ui/textures/icons/stats/xp_double_chance.png" id="1_t317p"]
 
 [resource]
 script = ExtResource("1_hbxke")

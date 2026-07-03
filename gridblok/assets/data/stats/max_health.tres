@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StatData" format=3 uid="uid://4d0l2hdrl2eb"]
 
-[ext_resource type="Texture2D" uid="uid://bqr00dvscf2uj" path="res://assets/ui/textures/icons/stats/max_health.png" id="1_73y20"]
+[ext_resource type="Texture2D" uid="uid://c64ne5ajvpvtt" path="res://assets/ui/textures/icons/stats/max_health.png" id="1_73y20"]
 [ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_cs8wi"]
 
 [resource]

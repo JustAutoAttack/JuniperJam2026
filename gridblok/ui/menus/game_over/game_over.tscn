@@ -1,8 +1,8 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bwnjv2h72x771"]
 
-[ext_resource type="Script" path="res://ui/menus/game_over/game_over.gd" id="1_4m3fg"]
-[ext_resource type="Theme" path="res://assets/ui/themes/hud.theme" id="1_dosym"]
-[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="1_skcuu"]
+[ext_resource type="Script" uid="uid://30bvus31o15v" path="res://ui/menus/game_over/game_over.gd" id="1_4m3fg"]
+[ext_resource type="Theme" uid="uid://chw0h5kuct5ah" path="res://assets/ui/themes/hud.theme" id="1_dosym"]
+[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_skcuu"]
 
 [node name="GameOver" type="Control" unique_id=583448917]
 layout_mode = 3

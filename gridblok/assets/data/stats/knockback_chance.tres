@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StatData" format=3 uid="uid://b33oixggsve1u"]
 
 [ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_ck27l"]
-[ext_resource type="Texture2D" uid="uid://dl2jlptu7kahm" path="res://assets/ui/textures/icons/stats/knockback_chance.png" id="1_cnc1q"]
+[ext_resource type="Texture2D" uid="uid://b31gkdcnoirfy" path="res://assets/ui/textures/icons/stats/knockback_chance.png" id="1_cnc1q"]
 
 [resource]
 script = ExtResource("1_ck27l")

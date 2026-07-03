@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StatData" format=3 uid="uid://d2bc1rg7xyjur"]
 
-[ext_resource type="Texture2D" uid="uid://cek81mhw5hv5j" path="res://assets/ui/textures/icons/stats/collection_range.png" id="1_k0cpx"]
+[ext_resource type="Texture2D" uid="uid://o4e33mt7cvqo" path="res://assets/ui/textures/icons/stats/collection_range.png" id="1_k0cpx"]
 [ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="2_32wtj"]
 
 [resource]

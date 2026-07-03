@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StatData" format=3 uid="uid://binet807qktax"]
 
-[ext_resource type="Texture2D" uid="uid://miq2av5mq24s" path="res://assets/ui/textures/icons/upgrades/orbit_velocity.png" id="1_sh7rp"]
+[ext_resource type="Texture2D" uid="uid://bbfm00d85sxex" path="res://assets/ui/textures/icons/upgrades/orbit_velocity.png" id="1_sh7rp"]
 [ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="2_350pr"]
 
 [resource]

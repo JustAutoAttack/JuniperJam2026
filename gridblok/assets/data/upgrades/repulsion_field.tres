@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dr88v3v7s7381"]
 
 [ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_5upx4"]
-[ext_resource type="Texture2D" uid="uid://58psyueid7qk" path="res://assets/ui/textures/icons/upgrades/repulsion_field.png" id="1_xmlfn"]
+[ext_resource type="Texture2D" uid="uid://buorajpancb57" path="res://assets/ui/textures/icons/upgrades/repulsion_field.png" id="1_xmlfn"]
 [ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_xmlfn"]
 
 [sub_resource type="Resource" id="Resource_xt60u"]

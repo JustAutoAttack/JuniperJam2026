@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://cg0j2g1ol0eva"]
 
-[ext_resource type="Texture2D" uid="uid://83h3h38qqan0" path="res://assets/ui/textures/icons/upgrades/gravity_well.png" id="1_p3kjt"]
+[ext_resource type="Texture2D" uid="uid://bw1ucejt5bltm" path="res://assets/ui/textures/icons/upgrades/gravity_well.png" id="1_p3kjt"]
 [ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_re82q"]
 [ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_p3kjt"]
 

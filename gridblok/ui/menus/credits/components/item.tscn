@@ -1,14 +1,12 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://ddmyokclmyfrg"]
 
-[ext_resource type="Script" path="res://ui/menus/credits/components/item.gd" id="1_8ul0j"]
-[ext_resource type="Theme" path="res://assets/ui/themes/credits_menu.theme" id="1_yeeyj"]
+[ext_resource type="Script" uid="uid://bu74nry5yyvwq" path="res://ui/menus/credits/components/item.gd" id="1_8ul0j"]
+[ext_resource type="Theme" uid="uid://5jacel4reh6i" path="res://assets/ui/themes/credits_menu.theme" id="1_yeeyj"]
 
 [node name="Item" type="HBoxContainer" unique_id=1441607501]
 theme = ExtResource("1_yeeyj")
 theme_override_constants/separation = 0
 script = ExtResource("1_8ul0j")
-item_title = null
-item_value = null
 
 [node name="Title" type="Label" parent="." unique_id=1735828330]
 layout_mode = 2

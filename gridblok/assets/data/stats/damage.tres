@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StatData" format=3 uid="uid://dfan4trinmv3a"]
 
 [ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_50to8"]
-[ext_resource type="Texture2D" uid="uid://rqc5t4hpddh8" path="res://assets/ui/textures/icons/stats/damage.png" id="1_lg6n5"]
+[ext_resource type="Texture2D" uid="uid://2vyjyqfb5a4" path="res://assets/ui/textures/icons/stats/damage.png" id="1_lg6n5"]
 
 [resource]
 script = ExtResource("1_50to8")

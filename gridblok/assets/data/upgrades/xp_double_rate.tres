@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://bhbxubnwpsxoj"]
 
-[ext_resource type="Texture2D" uid="uid://dug5084h3d572" path="res://assets/ui/textures/icons/upgrades/xp_double_rate.png" id="1_3owda"]
+[ext_resource type="Texture2D" uid="uid://bh58ifwa3a6k2" path="res://assets/ui/textures/icons/upgrades/xp_double_rate.png" id="1_3owda"]
 [ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_r6b01"]
 [ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_3owda"]
 

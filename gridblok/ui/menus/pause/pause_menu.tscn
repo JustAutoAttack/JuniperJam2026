@@ -1,9 +1,9 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bcs1jivc4avnb"]
 
-[ext_resource type="Script" path="res://ui/menus/pause/pause_menu.gd" id="1_23r80"]
-[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="1_nqosn"]
+[ext_resource type="Script" uid="uid://eeubr6p3i7e7" path="res://ui/menus/pause/pause_menu.gd" id="1_23r80"]
+[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_nqosn"]
 
-[node name="PauseMenu" type="Control" unique_id=581349868 node_paths=PackedStringArray("first_focus")]
+[node name="PauseMenu" type="Control" unique_id=581349868]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,6 @@ mouse_filter = 2
 theme = ExtResource("1_nqosn")
 script = ExtResource("1_23r80")
 type = 1
-first_focus = NodePath("Control/HBoxContainer/Center/VBoxContainer/ResumeButton")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=263333691]
 layout_mode = 1

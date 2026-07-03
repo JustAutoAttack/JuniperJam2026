@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cjec7x52f1572"]
 
-[ext_resource type="PackedScene" path="res://common/components/health/health_bar.tscn" id="1_bvsir"]
+[ext_resource type="PackedScene" uid="uid://bqqdk2bggyjpv" path="res://common/components/health/health_bar.tscn" id="1_bvsir"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lwvhd"]
 viewport_path = NodePath("SubViewport")

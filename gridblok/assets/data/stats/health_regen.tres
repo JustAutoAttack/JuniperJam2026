@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StatData" format=3 uid="uid://bp4f5sppi4yra"]
 
-[ext_resource type="Texture2D" uid="uid://diavt7wcdcm5f" path="res://assets/ui/textures/icons/stats/health_regen.png" id="1_e3s04"]
+[ext_resource type="Texture2D" uid="uid://c65lra34c26n0" path="res://assets/ui/textures/icons/stats/health_regen.png" id="1_e3s04"]
 [ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_vcncq"]
 
 [resource]

@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://lwpussl0o42y"]
 
-[ext_resource type="Theme" path="res://assets/ui/themes/paused_view.theme" id="1_auu38"]
-[ext_resource type="Script" path="res://ui/paused_view/components/stat_item.gd" id="2_hpdw2"]
+[ext_resource type="Theme" uid="uid://bp2vijtmwrabm" path="res://assets/ui/themes/paused_view.theme" id="1_auu38"]
+[ext_resource type="Script" uid="uid://btgrj6yr44aou" path="res://ui/paused_view/components/stat_item.gd" id="2_hpdw2"]
 
 [node name="StatItem" type="HBoxContainer" unique_id=383597398]
 theme = ExtResource("1_auu38")

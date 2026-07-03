@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b1klvqdardip3"]
 
-[ext_resource type="Theme" path="res://assets/ui/themes/paused_view.theme" id="1_aegmv"]
-[ext_resource type="Script" path="res://ui/paused_view/components/upgrade_item.gd" id="2_xce0b"]
+[ext_resource type="Theme" uid="uid://bp2vijtmwrabm" path="res://assets/ui/themes/paused_view.theme" id="1_aegmv"]
+[ext_resource type="Script" uid="uid://bkjya6k0nw66k" path="res://ui/paused_view/components/upgrade_item.gd" id="2_xce0b"]
 
 [node name="UpgradeItem" type="HBoxContainer" unique_id=407550675]
 theme = ExtResource("1_aegmv")

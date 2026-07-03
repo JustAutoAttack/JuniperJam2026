@@ -1,8 +1,8 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dxu18k740g72u"]
 
-[ext_resource type="Theme" path="res://assets/ui/themes/settings_menu.theme" id="1_n8frb"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/buttons/check_mark.png" id="1_ri6ft"]
-[ext_resource type="Script" path="res://ui/menus/settings/components/toggle_item.gd" id="2_wfxki"]
+[ext_resource type="Theme" uid="uid://m2afd335qkd2" path="res://assets/ui/themes/settings_menu.theme" id="1_n8frb"]
+[ext_resource type="Texture2D" uid="uid://bcl47gp0vif6x" path="res://assets/ui/textures/buttons/check_mark.png" id="1_ri6ft"]
+[ext_resource type="Script" uid="uid://c8xd7eidnsxb4" path="res://ui/menus/settings/components/toggle_item.gd" id="2_wfxki"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfgqr"]
 bg_color = Color(0, 0, 0, 0.2)
@@ -25,7 +25,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"VolumeText"
-text = "Disable Death VFX"
 vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1902647023]

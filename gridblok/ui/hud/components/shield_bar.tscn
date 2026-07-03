@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://deynam0pr45un"]
 
-[ext_resource type="Texture2D" path="res://assets/ui/textures/progress_bars/shield-under.png" id="1_i11wh"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/progress_bars/shield-progress.png" id="2_gli5y"]
+[ext_resource type="Texture2D" uid="uid://dededr4xmy7ft" path="res://assets/ui/textures/progress_bars/shield-under.png" id="1_i11wh"]
+[ext_resource type="Texture2D" uid="uid://camjjjgc2vyax" path="res://assets/ui/textures/progress_bars/shield-progress.png" id="2_gli5y"]
 
 [node name="ShieldBar" type="TextureProgressBar" unique_id=55929734]
 value = 50.0

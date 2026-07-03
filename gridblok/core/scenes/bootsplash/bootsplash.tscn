@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://g1pwhs2bgmcy"]
 
-[ext_resource type="Script" path="res://core/scenes/bootsplash/bootsplash.gd" id="1_5wc1d"]
+[ext_resource type="Script" uid="uid://beati4aul3uku" path="res://core/scenes/bootsplash/bootsplash.gd" id="1_5wc1d"]
 
 [node name="Bootsplash" type="Node" unique_id=90063722]
 script = ExtResource("1_5wc1d")

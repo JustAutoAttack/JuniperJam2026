@@ -1,9 +1,9 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cmhjxcltpjd24"]
 
-[ext_resource type="Script" path="res://ui/menus/settings/settings_menu.gd" id="1_jvj8q"]
-[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="1_ljtwq"]
-[ext_resource type="Theme" path="res://assets/ui/themes/settings_menu.theme" id="1_mfgqr"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/backgrounds/settings_menu_background.png" id="3_3xokn"]
+[ext_resource type="Script" uid="uid://j7ohg2f7tgb" path="res://ui/menus/settings/settings_menu.gd" id="1_jvj8q"]
+[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="1_ljtwq"]
+[ext_resource type="Theme" uid="uid://m2afd335qkd2" path="res://assets/ui/themes/settings_menu.theme" id="1_mfgqr"]
+[ext_resource type="Texture2D" uid="uid://cw52j6yoj7v5w" path="res://assets/ui/textures/backgrounds/settings_menu_background.png" id="3_3xokn"]
 [ext_resource type="PackedScene" path="res://ui/menus/settings/components/volume_control.tscn" id="3_pm4q0"]
 [ext_resource type="PackedScene" path="res://ui/menus/settings/components/toggle_item.tscn" id="6_mfgqr"]
 

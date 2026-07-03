@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cnhf15jv3stu6"]
 
-[ext_resource type="Theme" path="res://assets/ui/themes/upgrade_menu.theme" id="1_a5bls"]
-[ext_resource type="Script" path="res://ui/menus/upgrade/upgrade_menu.gd" id="1_xkw44"]
+[ext_resource type="Theme" uid="uid://d0dghejn0nuhl" path="res://assets/ui/themes/upgrade_menu.theme" id="1_a5bls"]
+[ext_resource type="Script" uid="uid://tytvx7whkb1g" path="res://ui/menus/upgrade/upgrade_menu.gd" id="1_xkw44"]
 [ext_resource type="PackedScene" path="res://ui/menus/upgrade/components/upgrade_card.tscn" id="4_8jnp5"]
 
 [node name="UpgradeMenu" type="Control" unique_id=8548658]
@@ -64,7 +64,6 @@ focus_neighbor_right = NodePath("../DefenseCard")
 focus_neighbor_bottom = NodePath("../DefenseCard")
 focus_next = NodePath("../DefenseCard")
 focus_previous = NodePath("../UtilityCard")
-focus_mode = 2
 mouse_filter = 2
 
 [node name="DefenseCard" parent="Control/HBoxContainer/Control/CenterContainer/HBoxContainer" unique_id=937805109 instance=ExtResource("4_8jnp5")]
@@ -78,7 +77,6 @@ focus_neighbor_right = NodePath("../UtilityCard")
 focus_neighbor_bottom = NodePath("../UtilityCard")
 focus_next = NodePath("../UtilityCard")
 focus_previous = NodePath("../OffenseCard")
-focus_mode = 2
 mouse_filter = 2
 upgrade_category = 1
 
@@ -93,7 +91,6 @@ focus_neighbor_right = NodePath("../OffenseCard")
 focus_neighbor_bottom = NodePath("../OffenseCard")
 focus_next = NodePath("../OffenseCard")
 focus_previous = NodePath("../DefenseCard")
-focus_mode = 2
 mouse_filter = 2
 upgrade_category = 2
 

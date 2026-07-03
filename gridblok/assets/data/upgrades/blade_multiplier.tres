@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://db6prqfmb2py5"]
 
-[ext_resource type="Texture2D" uid="uid://bjir5etxw4w6v" path="res://assets/ui/textures/icons/upgrades/blade_multiplier.png" id="1_jfbwp"]
+[ext_resource type="Texture2D" uid="uid://1fak4n060xi4" path="res://assets/ui/textures/icons/upgrades/blade_multiplier.png" id="1_jfbwp"]
 [ext_resource type="Script" uid="uid://bndoaybxeoamf" path="res://common/resource_data/upgrades/upgrade.gd" id="1_wcuci"]
 [ext_resource type="Script" uid="uid://bfv5bg27dntj" path="res://common/resource_data/upgrades/upgrade_tier.gd" id="2_jfbwp"]
 

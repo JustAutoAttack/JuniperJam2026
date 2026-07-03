@@ -1,10 +1,10 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dpbhvm6u0vx3w"]
 
-[ext_resource type="Theme" path="res://assets/ui/themes/credits_menu.theme" id="1_r7qkv"]
-[ext_resource type="Script" path="res://ui/menus/credits/credits_menu.gd" id="1_r046b"]
-[ext_resource type="Script" path="res://ui/auto_scroll_container.gd" id="2_chxo5"]
-[ext_resource type="Texture2D" path="res://assets/ui/textures/backgrounds/upgrade_menu_background.png" id="2_dhar1"]
-[ext_resource type="Theme" path="res://assets/ui/themes/default.theme" id="4_7aay0"]
+[ext_resource type="Theme" uid="uid://5jacel4reh6i" path="res://assets/ui/themes/credits_menu.theme" id="1_r7qkv"]
+[ext_resource type="Script" uid="uid://fglpargnhm04" path="res://ui/menus/credits/credits_menu.gd" id="1_r046b"]
+[ext_resource type="Script" uid="uid://csn4a6yi354bs" path="res://ui/auto_scroll_container.gd" id="2_chxo5"]
+[ext_resource type="Texture2D" uid="uid://dst7yjn4l6ry5" path="res://assets/ui/textures/backgrounds/upgrade_menu_background.png" id="2_dhar1"]
+[ext_resource type="Theme" uid="uid://ckwvf80prh82k" path="res://assets/ui/themes/default.theme" id="4_7aay0"]
 [ext_resource type="PackedScene" path="res://ui/menus/credits/components/item.tscn" id="5_7aay0"]
 
 [node name="CreditsMenu" type="Control" unique_id=1694449765]
