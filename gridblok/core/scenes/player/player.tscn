@@ -18,6 +18,18 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_78uwc"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ru5to"]
+render_priority = 0
+shader = ExtResource("2_7c6ec")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/grid_color = Color(0.7895684, 0.99999994, 0.995794, 1)
+shader_parameter/grid_scale = 2.0
+shader_parameter/line_width = 2.0
+shader_parameter/face_alpha = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4cc64"]
+material = SubResource("ShaderMaterial_ru5to")
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_87jrc"]
 material = ExtResource("6_74ihg")
 
@@ -158,8 +170,14 @@ shape = SubResource("CapsuleShape3D_78uwc")
 
 [node name="Model" type="Node3D" parent="." unique_id=683075243]
 
+[node name="ModelMesh" type="MeshInstance3D" parent="Model" unique_id=1278050519]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_4cc64")
+
 [node name="Shields" type="Node3D" parent="Model" unique_id=55213436]
 unique_name_in_owner = true
+visible = false
 
 [node name="Shield1" type="MeshInstance3D" parent="Model/Shields" unique_id=2080554236]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 1, 0)

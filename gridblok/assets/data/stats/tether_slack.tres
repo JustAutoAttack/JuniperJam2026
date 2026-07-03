@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="StatData" format=3]
-
-[ext_resource type="Script" uid="uid://c3nhvijkqh5sk" path="res://common/resource_data/stat.gd" id="1_tslck"]
-
-[resource]
-script = ExtResource("1_tslck")
-type = 20
-display_name = "Tether Slack"
-metadata/_custom_type_script = "uid://c3nhvijkqh5sk"
